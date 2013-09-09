@@ -1,4 +1,4 @@
-exports.PORT = 9999;
+exports.PORT = 6600;
 exports.HOST_URL = "http://lattetime.cafe24.com";
 
 
