@@ -1,0 +1,128 @@
+#loby #room_list #background {
+  background:url("../images/loby/listitem_back.png");
+  width: 800px;
+  height: 100px;
+  position: relative;
+  z-index: 1; 
+}
+
+#loby #room_list #no {
+  background:url("../images/loby/no.png");
+  width: 100px;
+  height: 28px;
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  z-index: 2;
+}
+
+#loby #room_list #no_word {
+  position: absolute;
+  left: 65px;
+  top: 45px;
+  z-index: 3;
+}
+
+#loby #room_list #listimage_back {
+  background:url("../images/loby/listimage_background.png");
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 135px;
+  top: 2px;
+  z-index: 2;
+}
+
+#loby #room_list #listimage {
+  background:url("../images/loby/character_image.png");
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  left: 165px;
+  top: 35px;
+  z-index: 3;
+}
+
+#loby #room_list #cost_word {
+  position: absolute;
+  left: 170px;
+  top: 70px;
+  z-index: 3;
+}
+
+#loby #room_list #level {
+  background:url("../images/loby/level.png");
+  width: 76px;
+  height: 36px;
+  position: absolute;
+  left: 240px;
+  top: 10px;
+  z-index: 2;
+}
+
+#loby #room_list #level_word {
+  position: absolute;
+  left: 275px;
+  top: 20px;
+  z-index: 2;
+  color : white;
+}
+
+#loby #room_list #userid {
+  position: absolute;
+  left: 325px;
+  top: 15px;
+  z-index: 2;
+}
+
+#loby #room_list #roomtitle {
+  position: absolute;
+  left: 240px;
+  top: 55px;
+  z-index: 2;
+}
+    
+#loby #room_list #lock {
+  background:url("../images/loby/lock.png");
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 610px;
+  top: 40px;
+  z-index: 2;
+}
+
+#loby #room_list #enterbutton {
+  background:url("../images/loby/enterbutton.png");
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 670px;
+  top: 10px;
+  z-index: 2;
+}
+
+#loby #room_list #enterbutton {
+  background:url("../images/loby/enterbutton.png");
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 670px;
+  top: 10px;
+  z-index: 2;
+}
+#loby #room_list #enterbutton:active 
+{ background: url("../images/loby/enterbutton_pressed.png"); 
+}
+
+#loby #room_list #fullstamp {
+  background:url("../images/loby/full.png");
+  width: 800px;
+  height: 100px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 5;
+  visibility : hidden;
+}
+

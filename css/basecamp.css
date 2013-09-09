@@ -1,0 +1,166 @@
+#basecamp #back {
+  background:url("../images/basecamp/back.png");
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: 0px; 
+  top: 0px;
+  z-index: 1;
+}
+
+#basecamp #back_down {
+  background:url("../images/basecamp/back_down.png");
+  width: 800px;
+  height: 200px;
+  position: absolute;
+  left: 0px;
+  top: 600px;
+  z-index: 2; 
+}
+
+
+#basecamp #mold {
+  background:url("../images/basecamp/mold.png");
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 3; 
+}
+
+#basecamp #cityname_img {
+  background:url("../images/basecamp/cityname.png");
+  width: 300px;
+  height: 160px;
+  position: absolute;
+  left: 15px;
+  top: 65px;
+  z-index: 3; 
+}
+
+#basecamp #battlezone_btn {
+  background:url("../images/basecamp/battlezone.png");
+  width: 271px;
+  height: 65px;
+  position: absolute;
+  left: 520px; 
+  top: 240px;
+  z-index: 3;
+}
+
+#basecamp #cardshop_btn {
+  background:url("../images/basecamp/shop.png");
+  width: 271px;
+  height: 65px;
+  position: absolute;
+  left: 520px; 
+  top: 320px;
+  z-index: 3;
+}
+#basecamp #makeroom_btn {
+  background:url("../images/basecamp/makeroom.png");
+  width: 271px;
+  height: 65px;
+  position: absolute;
+  left: 520px; 
+  top: 400px;
+  z-index: 3;
+}
+#basecamp #map_btn {
+  background:url("../images/basecamp/map.png");
+  width: 271px;
+  height: 65px;
+  position: absolute;
+  left: 520px; 
+  top: 480px;
+  z-index: 3;
+}
+
+
+
+#basecamp #charname_img {
+  background:url("../images/basecamp/name.png");
+  width: 380px;
+  height: 70px;
+  position: absolute;
+  left: 15px; 
+  top: 725px;
+  z-index: 4;
+}
+
+#basecamp #icon_img {
+  background:url("../images/basecamp/icon.png");
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 280px; 
+  top: 650px;
+  z-index: 4;
+}
+
+#basecamp #userid_word {
+  position: absolute;
+  font-size: 40px;
+  left: 320px; 
+  top: 650px;
+  z-index: 4;
+  color: orange;
+}
+
+#basecamp #lv_word {
+  position: absolute;
+  left: 310px; 
+  top: 700px;
+  z-index: 4;
+  color: white;
+}
+
+#basecamp #cost_word {
+  position: absolute;
+  left: 455px; 
+  top: 700px;
+  z-index: 4;
+  color: white;
+}
+
+#basecamp #gold_word {
+  position: absolute;
+  left: 310px; 
+  top: 725px;
+  z-index: 4;
+  color: white;
+}
+
+
+#basecamp #deck_btn {
+  background:url("../images/basecamp/deck.png");
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  left: 640px; 
+  top: 730px;
+  z-index: 4;
+}
+#basecamp #config_btn {
+  background:url("../images/basecamp/config.png");
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  left: 690px; 
+  top: 730px;
+  z-index: 4;
+}
+#basecamp #inf_btn {
+  background:url("../images/basecamp/inf.png");
+  width: 46px;
+  height: 46px;
+  position: absolute;
+  left: 740px; 
+  top: 730px;
+  z-index: 4;
+}
+
+
+
+

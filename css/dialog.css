@@ -1,0 +1,88 @@
+#makeroom {
+     position: fixed;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     text-align:center;
+     background-image:url("../images/makeroom/alpha_back.png");
+     z-index: 200; 
+}
+
+#makeroom #makeroom_dialog {
+     width:300px;
+     height: 200px;
+     position: absolute;
+     left: 200px;
+     top: 200px;
+     background-image:url("../images/makeroom/back.png");
+}
+
+#makeroom #title_word {
+     width:76px;
+     height: 36px;
+     position: absolute;
+     left : 10px;
+     top : 50px;
+     background-image:url("../images/makeroom/title.png");
+}
+
+#makeroom #title_text {
+     width: 160px;
+     height: 36px;
+     position: absolute;
+     left : 100px;
+     top : 50px;
+ }
+
+#makeroom #pass_word {
+     width:76px;
+     height: 36px;
+     position: absolute;
+     left : 10px;
+     top : 110px;
+     background-image:url("../images/makeroom/password.png");
+}
+
+
+#makeroom #pass_button {
+     width:30px;
+     height: 30px;
+     position: absolute;
+     left : 100px;
+     top : 110px;
+     background-image:url("../images/makeroom/lock_lock.png");
+}
+
+
+#makeroom #pass_text {
+     width: 120px;
+     height: 36px;
+     position: absolute;
+     left : 140px;
+     top : 110px;
+ }
+
+#makeroom #ok_button {
+     width:130px;
+     height: 36px;
+     position: absolute;
+     left : 10px;
+     top : 150px;
+     background-image:url("../images/makeroom/ok_btn.png");
+}
+#makeroom #ok_button:active 
+{ background: url("../images/makeroom/ok_btn_pressed.png"); 
+}
+
+#makeroom #cancel_button {
+     width:130px;
+     height: 36px;
+     position: absolute;
+     left : 150px;
+     top : 150px;
+     background-image:url("../images/makeroom/cancel_btn.png");
+}
+#makeroom #cancel_button:active 
+{ background: url("../images/makeroom/cancel_btn_pressed.png"); 
+}

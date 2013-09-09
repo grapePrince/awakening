@@ -1,0 +1,112 @@
+<html> 
+<head>
+<meta charset="UTF-8">
+  <title>Card Game</title>
+  
+<script src="http://lattetime.cafe24.com:8080/socket.io/socket.io.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<script src="./js/main.js"></script>
+<script src="js/socket.js"></script>
+<script src="js/login.js"></script>
+<script src="js/loby.js"></script>
+<script src="js/dialog.js"></script>
+<script src="js/room.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<link rel="stylesheet" type="text/css" href="css/loby.css">
+<link rel="stylesheet" type="text/css" href="css/lobyitem.css">
+<link rel="stylesheet" type="text/css" href="css/dialog.css">
+<link rel="stylesheet" type="text/css" href="css/room.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+
+<script>
+$(function() {
+	$("#loby").hide();
+	$("#makeroom").hide();
+	$("#room").hide();
+	window.resizeBy(800,800);
+});
+</script>
+</head>
+
+  <body> 
+     <section id="login">
+		    <div id="login_background"> </div>
+			      <input type="text" id="input_id"/><br>
+			      <input type="text" id="input_pw" >  <br>
+			      <a id="join_btn" class="btn" onClick="send_join();"></a>
+			      <a id="login_btn" class="btn" onClick="send_login();" ></a> <br>
+		  
+	 </section>
+	 
+	 <section id="loby">
+     <div id="loby_background">
+         <div id="mold">
+            <div id="character_image"> </div>
+            <div id="image_mold"> </div>
+         </div>     
+         <div id="id_tag"> </div>
+         <div id="user_id">User_Id</div>
+         <div id="gear_icon1"> </div>
+         <div id="lv">Lv_ 999</div>
+         <div id="gear_icon2"> </div>
+         <div id="win">Win_ 999</div>
+         <div id="lose">Lose_ 999</div>
+         <div id="gear_icon3"> </div>
+         <div id="gold">Gold_ 999999999</div>
+		 <div id="room_list"> </div>
+         <div id="back_button" class="btn" onClick="login_init();"></div>
+         <div id="makeroom_button" class="btn" onClick="makeroom_dialog_on();" ></div>
+     </div>          
+	 </section>
+	 
+	 <section id= "makeroom">
+	   <div id="makeroom_back">
+       <div id="makeroom_dialog">
+        <div id= "title_word"> </div>
+        <input  type="text" id="title_text"> 
+        <div id= "pass_word"> </div>
+        <div  id= "pass_button" class="btn" onClick="makeroom_dialog_pass()"></div>
+        <input type="password" id="pass_text">
+        <div  id="ok_button" class="btn" onClick="makeroom_dialog_ok();"></div>
+        <div  id="cancel_button" class="btn" onClick="makeroom_dialog_off();"></div>
+      </div>
+     </div>
+    </section> 
+
+	 <section id= "room">
+          <div id="background"> </div>
+          <div id="roomname_word">방이름</div>
+          <div id="back_button" class="btn" onClick="close_room()"> </div>
+          
+          <div id="character_image_host"> </div>
+          <div id="character_name_host"> </div>
+          <div id="userInf_image_host"> </div>
+          <div id="userInf_words_host"> 
+              <div id="userid_word_host">june </div>
+              <div id="userlevel_word_host">3 </div>
+              <div id="userwin_word_host">99 </div>
+              <div id="userlose_word_host">30 </div>
+          </div>
+          
+          <div id="character_image_guest"> </div>
+          <div id="character_name_guest"> </div>
+          <div id="userInf_image_guest"> </div>
+          <div id="userInf_words_guest"> 
+              <div id="userid_word_guest">yeji </div>
+              <div id="userlevel_word_guest">4 </div>
+              <div id="userwin_word_guest">88 </div>
+              <div id="userlose_word_guest">50 </div>
+          </div> 
+          <div id="vs"> </div>
+          <div id="battlestart_button" class="btn"> </div>
+          <div id="chat_list">채팅말들... </div>
+          <div id="chat_back"> </div>
+          <div id="chat_icon"> </div>
+          <input type="text" id="chat_text">
+        
+    </section> 
+  </body> 
+  
+</html>

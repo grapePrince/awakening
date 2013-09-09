@@ -1,0 +1,852 @@
+<html>
+  <head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script language="JavaScript" type="text/javascript">
+      var socket = io.connect('lattetime.cafe24.com:9090');
+        //var io = require('socket.io');
+        //var socket = io.connect('http://127.11.121.1:8080');
+      
+      var battle_inf_id = 'null';
+      var first_hand_list = [];
+      var second_hand_list = [];
+      var first_equip_list = [];
+      var second_equip_list = [];
+      
+      //config vars  
+      var deck_inf;
+      var others;
+      //when socket is connected
+      socket.on('connect', function(){
+        console.log(this.socket.sessionid); //client's session id
+      });
+
+      socket.on('data', function (data) {
+        console.log(data);
+        
+      ////////////////////////
+      //recieved data print //
+      ////////////////////////
+        console.log("got message num : "+data.MessageNum);
+        switch( parseInt(data.MessageNum,10) ){
+          case 102 : // config.SERVER_RESPONSE_LOGIN :
+            console.log("login success : " + data.isSuccess);
+            console.log(data.user_information);
+            
+            console.log("received main deck length : " + data.selected_deck.deck_list.length)
+            
+            for(var i = 0 ; i < data.selected_deck.deck_list.length ; i++){
+              console.log(data.selected_deck.deck_list[i].name);
+            }
+            break;
+          case 104 : // config.SERVER_RESPONSE_GO_BATTLE_LOBBY : 
+            console.log("entered lobby");
+            var list = data.room_list;
+            console.log("total room num : " + list.length);
+            for(var i = 0 ; i  < list.length ; i++){
+              var tmp = list[i];
+              console.log("------------------------");
+              if(tmp.client_inf == -1)
+                console.log(tmp.num + "th room : " + tmp.name + ", idle");
+              else
+                console.log(tmp.num + "th room : " + tmp.name + ", occupied");
+            }
+            break;
+          case 106 : // config.SERVER_RESPONSE_MAKE_ROOM :  
+            //print created room's num
+            console.log("room created : " + data.room_inf.name);
+            break;
+          case 108 : // config.SERVER_RESPONSE_PARTICIPATE :  
+            console.log("you participated in the room");
+            break;
+          case 110 : // config.SERVER_RESPONSE_CLOSE_ROOM :  
+            console.log("you leaved the room");
+            break;
+          case 111 : // config.SERVER_REQUEST_ADDROOM :  
+            console.log("room created : " + data.room_inf.name);
+            break;
+          case 112 : //config.SERVER_REQUEST_UPDATE_ROOM_INF
+            if( data.room_inf == -1)
+            	console.log("room deleted : ");
+            else if( data.room_inf.client_inf != -1)
+              console.log("room inf updated(bacame full) : " + data.room_inf.client_inf.id);
+            else
+              console.log("room inf updated(became idle) :  " + data.room_inf.client_inf);
+            break;
+        case 114:
+        	deck_inf = data.main_deck;
+        	others = data.others;
+        	
+          	break;
+       	case 116:
+       		if(data.is_success == true){
+       			deck_inf = data.deck_inf;
+       			others = data.others;
+       		}
+          	break;
+        case 118:
+        	
+          	break;
+        case 120:
+        	
+          	break;
+        case 122:
+        	
+          	break;
+          case 202 : // config.SERVER_RESPONSE_STARTBATTLE :  
+              battle_inf_id = data.battle_inf.id;
+              //console.log(data.battle_inf)
+              document.getElementById("turn_num").value = data.battle_inf.turn_num;
+              
+              if(data.battle_inf.first.session_id == this.socket.sessionid)
+            	  document.getElementById("order").value = "first";
+              else
+            	  document.getElementById("order").value = "second";
+              
+              document.getElementById("character_name_1").value = data.battle_inf.first_character.name;
+              document.getElementById("character_lv_1").value = data.battle_inf.first_character.level;
+              document.getElementById("max_hp_1").value = data.battle_inf.first_max_hp; 
+              document.getElementById("base_max_hp_1").value = data.battle_inf.first_character.base_max_hp;
+              document.getElementById("remain_hp_1").value = data.battle_inf.first_damaged_hp;
+              document.getElementById("base_atk_1").value = data.battle_inf.first_character.base_atk;
+              document.getElementById("atk_1").value = data.battle_inf.first_atk;
+              document.getElementById("first_special_atk_1").value = data.battle_inf.first_special_card_effect.first_atk;
+              document.getElementById("second_special_atk_1").value = data.battle_inf.second_special_card_effect.first_atk;
+              document.getElementById("base_def_1").value = data.battle_inf.first_character.base_def;
+              document.getElementById("def_1").value = data.battle_inf.first_def;
+              document.getElementById("first_special_def_1").value = data.battle_inf.first_special_card_effect.first_def;
+              document.getElementById("second_special_def_1").value = data.battle_inf.second_special_card_effect.first_def;
+              document.getElementById("is_burn_1").value = data.battle_inf.first_burn;
+              document.getElementById("is_frozen_1").value = data.battle_inf.first_frozen;
+              document.getElementById("is_paralysis_1").value = data.battle_inf.first_paralysis;
+              document.getElementById("is_poison_1").value = data.battle_inf.first_poison;
+              document.getElementById("is_dark_1").value = data.battle_inf.first_dark;
+              document.getElementById("immune_burn_1").value = data.battle_inf.first_immune_burn;
+              document.getElementById("immune_frozen_1").value = data.battle_inf.first_immune_frozen;
+              document.getElementById("immune_paralysis_1").value = data.battle_inf.first_immune_paralysis;
+              document.getElementById("immune_poison_1").value = data.battle_inf.first_immune_poison;
+              document.getElementById("immune_dark_1").value = data.battle_inf.first_immune_dark;
+              var hand_list_1 = "";
+              first_hand_list = data.battle_inf.first_hand_list;
+              for(var i = 0 ; i  < data.battle_inf.first_hand_list.length ; i++)
+            	  hand_list_1 = hand_list_1 + " < " + data.battle_inf.first_hand_list[i].name+ " > ";
+              document.getElementById("hand_1").value = hand_list_1;
+              
+              document.getElementById("character_name_2").value = data.battle_inf.second_character.name;
+              document.getElementById("character_lv_2").value = data.battle_inf.second_character.level;
+              document.getElementById("max_hp_2").value = data.battle_inf.second_max_hp;
+              document.getElementById("base_max_hp_2").value = data.battle_inf.second_character.base_max_hp;
+              document.getElementById("remain_hp_2").value = data.battle_inf.second_damaged_hp;
+              document.getElementById("base_atk_2").value = data.battle_inf.second_character.base_atk;
+              document.getElementById("atk_2").value = data.battle_inf.second_atk;
+              document.getElementById("first_special_atk_2").value = data.battle_inf.first_special_card_effect.second_atk;
+              document.getElementById("second_special_atk_2").value = data.battle_inf.second_special_card_effect.second_atk;
+              document.getElementById("base_def_2").value = data.battle_inf.second_character.base_def;
+              document.getElementById("def_2").value = data.battle_inf.second_def;
+              document.getElementById("first_special_def_2").value = data.battle_inf.first_special_card_effect.second_def;
+              document.getElementById("second_special_def_2").value = data.battle_inf.second_special_card_effect.second_def;
+              document.getElementById("is_burn_2").value = data.battle_inf.second_burn;
+              document.getElementById("is_frozen_2").value = data.battle_inf.second_frozen;
+              document.getElementById("is_paralysis_2").value = data.battle_inf.second_paralysis;
+              document.getElementById("is_poison_2").value = data.battle_inf.second_poison;
+              document.getElementById("is_dark_2").value = data.battle_inf.second_dark;
+              document.getElementById("immune_burn_2").value = data.battle_inf.second_immune_burn;
+              document.getElementById("immune_frozen_2").value = data.battle_inf.second_immune_frozen;
+              document.getElementById("immune_paralysis_2").value = data.battle_inf.second_immune_paralysis;
+              document.getElementById("immune_poison_2").value = data.battle_inf.second_immune_poison;
+              document.getElementById("immune_dark_2").value = data.battle_inf.second_immune_dark;
+              var hand_list_2 = "";
+              second_hand_list = data.battle_inf.second_hand_list;
+              for(var i = 0 ; i  < data.battle_inf.second_hand_list.length ; i++)
+            	  hand_list_2 = hand_list_2 + " < " + data.battle_inf.second_hand_list[i].name + " > ";
+              document.getElementById("hand_2").value = hand_list_2;              
+              break;
+              
+          case 212:  //field changed - turn end 
+          case 204: //field changed  - card use  
+          	var list = data.list;     
+          		 
+        	for(var i = 0 ; i < list.length ; i++){
+        	
+        		switch(data.list[i].field_num){
+        		case 1: //turn num
+        			document.getElementById("turn_num").value = data.list[i].value; 
+        			break;
+        		case 4: //first character
+        			//name + title
+        			document.getElementById("character_name_1").value = data.list[i].value.title + " " + data.list[i].value.name;
+        			//base atk
+        			document.getElementById("base_atk_1").value = data.list[i].value.base_atk;
+        			//base def
+        			document.getElementById("base_def_1").value = data.list[i].value.base_def;
+        			//base max hp
+        			document.getElementById("base_max_hp_1").value = data.list[i].value.base_max_hp;
+        			//level
+        			document.getElementById("character_lv_1").value = data.list[i].value.level;
+        			break;
+        		case 5:	//first max hp
+        			document.getElementById("max_hp_1").value = data.list[i].value;
+        			break;
+        		case 6: //first atk
+        			document.getElementById("atk_1").value = data.list[i].value;
+        			break;
+        		case 7: //first def
+        			document.getElementById("def_1").value = data.list[i].value;
+        			break;
+        		case 8: //first damaged hp
+        			document.getElementById("remain_hp_1").value = data.list[i].value;
+        			break;
+        		case 9: //first equiped list
+        			var equip_1 = "";
+        			var equip_list =  data.list[i].value;
+        			first_equip_list = equip_list;
+        			for(var j = 0 ; j < equip_list.length ; j++)
+        				equip_1 =equip_1 + " < "+ equip_list[j].name+ " > ";
+        			document.getElementById("equip_1").value = equip_1; 
+        			break;
+        		case 10: //first hand list
+        			var hand_1 = "";
+        			var hand_list = data.list[i].value;
+        			first_hand_list = hand_list;
+        			for(var j = 0 ; j < hand_list.length ; j++)
+        				hand_1 = hand_1 + " < "+ hand_list[j].name+ " > ";
+        			document.getElementById("hand_1").value = hand_1;
+        			break;
+        		case 13: //first skill
+        			document.getElementById("skill_1").value = data.list[i].value.name;
+        			break;
+        		case 14: //first skill cooltime
+        			document.getElementById("skill_cooltime_1").value = data.list[i].value;
+        			break;
+        		case 15: //fist weapon
+        			document.getElementById("weapon_1").value = data.list[i].value.name;
+        			break;
+        		case 16: //first burn
+        			document.getElementById("is_burn_1").value = data.list[i].value;
+        			break;
+        		case 17: //first frozen
+        			document.getElementById("is_frozen_1").value = data.list[i].value;
+        			break;
+        		case 18: //first poison
+        			document.getElementById("is_poison_1").value = data.list[i].value;
+        			break;
+        		case 19: //first paralysis
+        			document.getElementById("is_paralysis_1").value = data.list[i].value;
+        			break;
+        		case 20: //first dark
+        			document.getElementById("is_dark_1").value = data.list[i].value;
+        			break;
+        		case 21: //first blocked damage sending
+        			break;
+        		case 22: //first skill blocked
+        			break;
+        		case 25: //first immune burn
+        			 document.getElementById("immune_burn_1").value = data.list[i].value;
+        			break;
+        		case 26: //first immune frozen
+        			document.getElementById("immune_frozen_1").value = data.list[i].value;
+        			break;
+        		case 27: // first immune poison
+        			document.getElementById("immune_poison_1").value = data.list[i].value;
+        			break;
+        		case 28: //first immune paralysis
+        			document.getElementById("immune_paralysis_1").value = data.list[i].value;
+        			break;
+        		case 29: //first immune dark
+        			document.getElementById("immune_dark_1").value = data.list[i].value;
+        			break;
+        		case 30: //first reflect damage turn
+        			break;
+        		case 31: //first reflect damage percent
+        			break;
+        		case 33: //second character
+        			//name + title
+        			document.getElementById("character_name_2").value = data.list[i].value.title + " " + data.list[i].value.name;
+        			//base atk
+        			document.getElementById("base_atk_2").value = data.list[i].value.base_atk;
+        			//base def
+        			document.getElementById("base_def_2").value = data.list[i].value.base_def;
+        			//base max hp
+        			document.getElementById("base_max_hp_2").value = data.list[i].value.base_max_hp;
+        			//level
+        			document.getElementById("character_lv_2").value = data.list[i].value.level;
+        			break;
+        		case 34: //second max hp
+        			document.getElementById("max_hp_2").value = data.list[i].value;
+        			break;
+        		case 35: //second atk
+        			document.getElementById("atk_2").value = data.list[i].value;
+        			break;
+        		case 36: //second def
+        			document.getElementById("def_2").value = data.list[i].value;
+        			break;
+        		case 37: //second damaged hp
+        			document.getElementById("remain_hp_2").value = data.list[i].value;
+        			break;
+        		case 38: //second equip list
+        			var equip_2 = "";
+        			var equip_list =  data.list[i].value;
+        			second_equip_list = equip_list;
+        			for(var j = 0 ; j < equip_list.length ; j++)
+        				equip_2 =equip_2 + " < " + equip_list[j].name + " > ";
+        			document.getElementById("equip_2").value = equip_2; 
+        			break;
+        		case 39: //second hand list
+          			var hand_2 = "";
+        			var hand_list = data.list[i].value;
+        			second_hand_list = hand_list;
+        			for(var j = 0 ; j < hand_list.length ; j++)
+        				hand_2 = hand_2 + " < " + hand_list[j].name + " > ";
+        			document.getElementById("hand_2").value = hand_2;      			
+        			break;
+        		case 42: //second skill
+        			document.getElementById("skill_2").value = data.list[i].value.name;
+        			break;
+        		case 43: //second skill cooltime
+        			document.getElementById("skill_cooltime_2").value = data.list[i].value;
+        			break;
+        		case 44: //second weapon
+        			document.getElementById("weapon_2").value = data.list[i].value.name;
+        			break;
+        		case 45: //second burn
+        			document.getElementById("is_burn_2").value = data.list[i].value;
+        			break;
+        		case 46: //second frozen
+        			document.getElementById("is_frozen_2").value = data.list[i].value;
+        			break;
+        		case 47: //second poison
+        			document.getElementById("is_poison_2").value = data.list[i].value;
+        			break;
+        		case 48: //second paralisys
+        			document.getElementById("is_paralysis_2").value = data.list[i].value;
+        			break;
+        		case 49: //second dark
+        			document.getElementById("is_dark_2").value = data.list[i].value;
+        			break;
+        		case 50: //second block send damage turn
+        			break;
+        		case 51: //second second skill blocked turn
+        			break;
+        		case 52: // second weapon blocked turn
+        			break;
+        		case 53: //second equip blocked turn
+        			break;
+        		case 54: // second immune burn
+        			document.getElementById("immune_burn_2").value = data.list[i].value;
+        			break;
+        		case 55: //second immune frozen
+        			document.getElementById("immune_frozen_2").value = data.list[i].value;
+        			break;
+        		case 56: //second immune poison
+        			document.getElementById("immune_poison_2").value = data.list[i].value;
+        			break;
+        		case 57: //second immune paralisys
+        			document.getElementById("immune_paralysis_2").value = data.list[i].value;
+        			break;
+        		case 58: //second immune dark
+        			document.getElementById("immune_dark_2").value = data.list[i].value;
+        			break;
+        		case 59: //second reflect damage turn
+        			break;
+        		case 60: //second reflect damage percent
+        			break;
+        		case 61: //special inf
+	         	  	document.getElementById("first_special_atk_1").value = data.list[i].value.first_atk;
+	        	  	document.getElementById("first_special_def_1").value = data.list[i].value.first_def;
+	          		document.getElementById("first_special_atk_2").value = data.list[i].value.second_atk;
+	          		document.getElementById("first_special_def_2").value = data.list[i].value.second_def;
+         			
+        			break;
+        		case 62:
+	         	  	document.getElementById("second_special_atk_1").value = data.list[i].value.first_atk;
+	        	  	document.getElementById("second_special_def_1").value = data.list[i].value.first_def;
+	          		document.getElementById("second_special_atk_2").value = data.list[i].value.second_atk;
+	          		document.getElementById("second_special_def_2").value = data.list[i].value.second_def;
+             			
+        			break;
+        		}
+        	}	
+          	
+          	break;
+          case 205:
+          	//card use failed
+        	  break;
+
+          case 208: //card detached from list
+          	if(data.where == 1){ //weapon - weapon detached
+          		if(data.is_first == true)
+          			document.getElementById("weapon_1").value = " ";
+          		else
+          			document.getElementById("weapon_2").value = " ";
+          	}
+          	else if(data.where == 2){ //skill - skill detached
+          	    if(data.is_first == true)
+          			document.getElementById("skill_1").value = " ";
+          		else
+          			document.getElementById("skill_2").value = " ";	
+          	}
+          	else if(data.where == 3){ //equip list - equip detached
+          		var equip = "";
+          		if(data.is_first == true){
+          			for(var j = 0 ; j < first_equip_list.length ; j++){
+          				if(j != data.index){
+          					equip = equip + " < " + first_equip_list.name+ " > ";
+          				}
+          			}
+          			document.getElementById("equip_1").value = equip;
+          		}
+          		else{
+           			for(var j = 0 ; j < second_equip_list.length ; j++){
+          				if(j != data.index){
+          					equip = equip + " < " + second_equip_list.name+ " > ";
+          				}
+          			}
+          			document.getElementById("equip_2").value = equip;         		
+          		}
+          	}
+          	else if(data.where == 4){ //hand list - hand used
+          		var hand = "";
+				if(data.is_first == true){
+					for(var j = 0 ; j < first_hand_list.length ; j++){
+						
+						if(j == data.index){
+							hand = hand + " < card used > ";
+							first_hand_list[j].name = " card used ";
+						}
+						else{
+							hand = hand + " < " + first_hand_list[j].name+ " > ";
+						}
+					}
+
+					document.getElementById("hand_1").value = hand;
+				}
+				else{
+ 					for(var j = 0 ; j < second_hand_list.length ; j++){
+
+						if(j == data.index){
+							hand = hand + " < card used > ";
+							second_hand_list[j].name = " card used ";
+						}
+						else{
+							hand = hand + " < " + second_hand_list[j].name+ " > ";
+						}
+					}
+					document.getElementById("hand_2").value = hand;				
+				}     	
+          	}
+          		
+        	  break;
+          case 210:
+          	//attack failed
+        	  break;
+          case 211: //attack result
+          		if(data.is_first == true){
+          			document.getElementById("remain_hp_1").value = data.damaged_hp;          			
+          		}
+          		else{
+          			document.getElementById("remain_hp_2").value = data.damaged_hp;   
+          		}
+        	  break;
+		  case 213: //status effect 
+		  	switch(data.stat_type){
+		  		case 1: //burn recover
+		  			if(data.value.field_num == 16)
+		  				document.getElementById("is_burn_1").value = data.value.value;
+		  			else
+		  				document.getElementById("is_burn_2").value = data.value.value;
+		  			break;
+		  		case 2: //burn
+		  			if(data.value.field_num == 10){
+		  				var hand_1 = "";
+	        			var hand_list = data.value.value;
+	        			first_hand_list = hand_list;
+	        			for(var j = 0 ; j < hand_list.length ; j++)
+	        				hand_1 = hand_1 + " < " + hand_list[j].name + " > ";
+	        			document.getElementById("hand_1").value = hand_1;    		  					
+		  			}
+		  			else{
+		  				var hand_2 = "";
+	        			var hand_list = data.value.value;
+	        			second_hand_list = hand_list;
+	        			for(var j = 0 ; j < hand_list.length ; j++)
+	        				hand_2 = hand_2 + " < " + hand_list[j].name + " > ";
+	        			document.getElementById("hand_2").value = hand_2;      
+		  			}
+		  			break;	  		
+		  		case 3: //frozen recover
+		  			if(data.value.field_num == 17){
+		  				document.getElementById("is_frozen_1").value = data.value.value;
+		  			}
+		  			else{
+		  				document.getElementById("is_frozen_2").value = data.value.value;
+		  			}
+		  			break;
+		  		case 4: //frozen
+		  			//print msg
+		  			break;
+		  		case 5: //poison recover
+		  			if(data.value.field_num == 18){
+		  				document.getElementById("is_poison_1").value = data.value.value;
+		  			}
+		  			else{
+		  				document.getElementById("is_poison_2").value = data.value.value;
+		  			}		  			
+		  			break;
+		  		case 6: // poison
+		  			if(data.value.field_num == 8){
+		  				document.getElementById("remain_hp_1").value = data.value.value;
+		  			}
+		  			else{
+		  				document.getElementById("remain_hp_2").value = data.value.value;
+		  			}
+		  			break;
+		  		case 7: //paralisys recover
+		  			if(data.value.field_num == 19){
+		  				document.getElementById("is_paralysis_1").value = data.value.value;
+		  			}
+		  			else{
+		  				document.getElementById("is_paralysis_2").value = data.value.value;
+		  			}			  		
+		  			break;
+		  		case 8: //paralisys
+		  			//print msg
+		  			break;
+		  		case 9: //dark recover
+		  			if(data.value.field_num == 20){
+		  				document.getElementById("is_dark_1").value = data.value.value;
+		  			}
+		  			else{
+		  				document.getElementById("is_dark_2").value = data.value.value;
+		  			}			  			
+		  			break;
+		  		case 10: //dark
+		  			//print msg
+		  			break;
+		  	}
+		  	break;
+              
+        }
+      });
+      
+      function request() {
+        var MessageNum;
+        var user_id;
+      }
+      
+      ///////////////////
+      //send functions //
+      ///////////////////
+      function login(){
+        var id  = document.getElementById("id").value;
+        var pass = document.getElementById("password").value;
+        var req = new request();
+        
+        req.user_id = id;
+        req.user_password = pass;
+        req.MessageNum = 101;
+        
+        socket.emit('data',req);
+      }
+      
+      function battle_lobby(){
+        var id  = document.getElementById("id").value;
+        var req = new request();
+        
+        req.user_id = id;
+        
+        req.MessageNum = 103;
+         
+        socket.emit('data',req); 
+      }
+
+      function deck_config(){
+        var id  = document.getElementById("id").value;
+        var req = new request();
+        
+        req.user_id = id;
+        
+        req.MessageNum = 113;
+         
+        socket.emit('data',req); 
+      }
+      
+      function deck_move(move_to_main){
+        var id  = document.getElementById("id").value;
+        var req = new request();
+        
+        req.user_id = id;
+        req.move_to_main = move_to_main;
+        req.index = document.getElementById("deck_move_index").value;
+        req.deck_inf = deck_inf;
+        req.others = others;
+        
+        req.MessageNum = 115;
+         
+        socket.emit('data',req);       	
+      }
+      
+      function get_char_list(){
+        var id  = document.getElementById("id").value;
+        var req = new request();
+        
+        req.MessageNum = 119;
+        req.user_id = id;
+         
+        socket.emit('data',req);       	
+      }
+      
+      function character_change(){
+        var id  = document.getElementById("id").value;
+        var req = new request();
+        
+        req.user_id = id;
+        req.main_deck = deck_inf;
+        req.others = others;
+        req.character_num = document.getElementById("change_char_num").value;
+        req.MessageNum = 117;
+         
+        socket.emit('data',req);       	
+      }      
+      
+      function adjust_deck(){
+        var id  = document.getElementById("id").value;
+        var req = new request();
+        
+        req.user_id = id;
+        req.main_deck = deck_inf;
+        req.others = others;
+        req.MessageNum = 121;
+         
+        socket.emit('data',req);       	      	
+      }
+      function make_room(){
+        var id  = document.getElementById("id").value;
+        var name = document.getElementById("room_name").value;
+        var pass = document.getElementById("room_pass").value;
+        var req = new request();
+        
+        req.user_id = id;
+        req.room_name = name;
+        req.room_pass = pass;
+        req.MessageNum = 105;
+        
+        socket.emit('data',req);
+      }
+      
+      function join_room(){
+        var id  = document.getElementById("id").value;
+        var name = document.getElementById("join_name").value;
+        var pass = document.getElementById("join_pass").value;
+        var req = new request();
+        
+        req.user_id = id;
+        req.room_name = name
+        req.room_pass = pass;
+        req.MessageNum = 107;
+        
+        socket.emit('data',req);
+      }
+      
+      function close_room(){
+         var req = new request();
+         var id  = document.getElementById("id").value;
+         var name = document.getElementById("close_name").value;
+         
+         req.user_id = id;
+         req.room_name = name;
+         req.MessageNum = 109;
+        
+         socket.emit('data',req);
+      }
+      
+      function start_battle(){
+        var req = new request();
+        var id = document.getElementById("id").value;
+        var room_name = document.getElementById("start_room_name").value;
+        
+        req.user_id = id;
+        req.room_name = room_name;
+        req.MessageNum = 201;
+        
+        socket.emit('data',req);
+      }
+      function card_use(){
+        var req = new request();
+        var id = document.getElementById("id").value;
+        
+        req.MessageNum = 203;
+        req.user_id = id;
+        req.battle_inf_id = battle_inf_id;
+        req.hand_index = document.getElementById("hand_index").value;
+        
+        console.log("hand index : " + req.hand_index);
+       
+        socket.emit('data',req);
+      }
+      function turn_end(){
+      	var req = new request();
+        var id = document.getElementById("id").value;
+        
+        req.MessageNum = 209;
+        req.user_id = id;
+        req.battle_inf_id = battle_inf_id;
+		req.skill_used = false;
+		
+        socket.emit('data',req);
+      }
+      function skill_end(){
+        var req = new request();
+        var id = document.getElementById("id").value;
+        
+        req.MessageNum = 209;
+        req.user_id = id;
+        req.battle_inf_id = battle_inf_id;
+		req.skill_used = true;
+		
+        socket.emit('data',req);
+      }
+      
+      function go_worldmap(){
+        var req = new request();
+        var id = document.getElementById("id").value;
+        
+        req.MessageNum = 123;
+        req.id = id;
+
+        socket.emit('data',req);
+      }
+      
+      function explore_field(){
+        var req = new request();
+        var id = document.getElementById("id").value;
+        var field_num = document.getElementById("explore_field_num").value;
+        
+        req.MessageNum = 301;
+        req.id = id;
+        req.field_num = field_num;
+
+        socket.emit('data',req);
+      }
+      
+      function next_floor(){
+        var req = new request();
+        var id = document.getElementById("id").value;
+
+        req.MessageNum = 303;
+
+        socket.emit('data',req);
+      }
+      
+      function field_battle_turn_end(){
+      
+      }
+    </script>
+  </head>
+  <body>
+  * login<br>
+  id :<input type="text" name="id" id="id" size="50px" MAXLENGTH="20"></input><br>
+  pass : <input type="text" name="password" id="password" size="50px" MAXLENGTH="20"></input><br>
+ <input type="button" id="login" value="login" onClick="login();"></input><br><br>
+  <br>======================================== W O R L D = M A P======================================<br>
+  *go to world map  <input type="button" value="go world map" onClick="go_worldmap();"></input><br>
+  *explore field num :  <input type="text" id="explore_field_num" size="50px" MAXLENGTH="20">
+  <input type="button" value="explore" onClick="explore_field();"></input><br>
+  *next floor <input type="button" value="next" onClick="next_floor();"><br>
+  *turn end <input type="button" value="turn_end" onClick="field_battle_turn_end();"><br>
+
+ <br>======================================== D E C K = C O N F I G======================================<br>
+   * go deck configuration
+  <input type="button" id="deck_config" value="deck configuration" onClick="deck_config();"></input><br><br>
+  * move card<br>
+	index :  <input type="text"  id="deck_move_index" size="50px" MAXLENGTH="20">
+    <input type="button" value="move to others" onClick="deck_move(false);"></input>
+    <input type="button" value="move to main deck" onClick="deck_move(true);"></input><br>
+  * available characters
+  <input type="button" value="get character list" onClick="get_char_list();"></input><br>
+  * character change
+  <input type="text"  id="change_char_num" size="50px" MAXLENGTH="20"><input type="button" value="change deck's character" onClick="character_change();"></input><br>
+  * adjust changes <input type="button" value="adjust changed deck" onClick="adjust_deck();"></input><br>
+   <br>======================================== B A T T L E L O B B Y======================================<br>
+  * go battle lobby
+  <input type="button" id="battle_lobby" value="go to battle lobby" onClick="battle_lobby();"></input><br><br>
+  * make room<br>
+   room subject : <input type="text" name="room_name" id="room_name" size="50px" MAXLENGTH="20"></input><br>
+   room pass : <input type="text" name="room_pass" id="room_pass" size="50px" MAXLENGTH="20"></input><br>
+   <input type="button" id="make_room" value="make room" onClick="make_room();"></input><br><br>
+  * join room<br>
+   join room name : <input type="text" name="join_name" id="join_name" size="50px" MAXLENGTH="20"></input><br>
+   join pass : <input type="text" name="join_pass" id="join_pass" size="50px" MAXLENGTH="20"></input><br>
+   <input type="button" id="join_room" value="join room" onClick="join_room();"></input><br><br>
+  * close room <br>
+  close name : <input type="text" name="close_name" id="close_name" size="50px" MAXLENGTH="20">
+  <input type="button" id="close_room" value="close room" onClick="close_room();"></input><br><br>
+  * start battle <br>
+  start name : <input type="text" name="start_room_name" id="start_room_name" size="50px" MAXLENGTH="20">
+  <input type="button" id="start_room_num" value="start battle" onClick="start_battle();"></input><br><br>
+  ==========================================B A T T L E ==================================================
+  <br><br>* your order : <input id="order" style="width: 100px" type="text" disabled>
+  <br><br>* turn num : <input id="turn_num" style="width: 100px" type="text" disabled><br><br>
+  
+  first character(Lv) : <input id="character_name_1" style="width: 80px" type="text" disabled>
+  						(<input id="character_lv_1" style="width: 40px" type="text" disabled>)<br>
+  first max hp:	<input id="base_max_hp_1" style="width: 40px" type="text" disabled>	+ <input id="max_hp_1" style="width: 40px" type="text" disabled>	
+  				damaged hp: <input id="remain_hp_1" style="width: 40px" type="text" disabled><br>
+  first base atk:<input id="base_atk_1" style="width: 40px" type="text" disabled>	
+  				atk:<input id="atk_1" style="width: 40px" type="text" disabled>
+  				(<input id="first_special_atk_1" style="width: 40px" type="text" disabled>+
+  				<input id="second_special_atk_1" style="width: 40px" type="text" disabled>) <br>
+  first	base def:<input id="base_def_1" style="width: 40px" type="text" disabled>	
+  				def:<input id="def_1" style="width: 40px" type="text" disabled>
+  				(<input id="first_special_def_1" style="width: 40px" type="text" disabled> +
+  				<input id="second_special_def_1" style="width: 40px" type="text" disabled>) <br>
+  first status		burn:<input id="is_burn_1" style="width: 40px" type="text" disabled>	
+  					frozen:<input id="is_frozen_1" style="width: 40px" type="text" disabled> 	
+  					poison:<input id="is_poison_1" style="width: 40px" type="text" disabled> 	
+  					paralysis:<input id="is_paralysis_1" style="width: 40px" type="text" disabled> 	
+  					dark:<input id="is_dark_1" style="width: 40px" type="text" disabled> <br>
+  first immune		burn:<input id="immune_burn_1" style="width: 40px" type="text" disabled>	
+  					frozen:<input id="immune_frozen_1" style="width: 40px" type="text" disabled> 	
+  					poison:<input id="immune_poison_1" style="width: 40px" type="text" disabled> 	
+  					paralysis:<input id="immune_paralysis_1" style="width: 40px" type="text" disabled> 	
+  					dark:<input id="immune_dark_1" style="width: 40px" type="text" disabled> <br>
+  first weapon:<input id="weapon_1" style="width: 100px" type="text" disabled>		
+  					skill(cooltime):<input id="skill_1" style="width: 100px" type="text" disabled> 
+  					(<input id="skill_cooltime_1" style="width: 40px" type="text" disabled>) <br>
+  first equip : <input id="equip_1" style="width: 500px" type="text" disabled>	
+  first hand : <input id="hand_1" style="width: 800px" type="text" disabled><br>
+  ---------------------------------------------------------------------------------------------------------<br>
+  
+  ---------------------------------------------------------------------------------------------------------<br>
+  second character(Lv) : <input id="character_name_2" style="width: 80px" type="text" disabled>
+  						(<input id="character_lv_2" style="width: 40px" type="text" disabled>)<br>
+  second max hp:	<input id="base_max_hp_2" style="width: 40px" type="text" disabled> +	<input id="max_hp_2" style="width: 40px" type="text" disabled>	
+  				damage hp: <input id="remain_hp_2" style="width: 40px" type="text" disabled><br>
+  second base atk:<input id="base_atk_2" style="width: 40px" type="text" disabled>	
+  				atk:<input id="atk_2" style="width: 40px" type="text" disabled>
+  				(<input id="first_special_atk_2" style="width: 40px" type="text" disabled> +
+  				<input id="second_special_atk_2" style="width: 40px" type="text" disabled>) <br>
+  second base def:<input id="base_def_2" style="width: 40px" type="text" disabled>	
+  				def:<input id="def_2" style="width: 40px" type="text" disabled>
+  				(<input id="first_special_def_2" style="width: 40px" type="text" disabled> +
+  				<input id="second_special_def_2" style="width: 40px" type="text" disabled>) <br>
+  second status		burn:<input id="is_burn_2" style="width: 40px" type="text" disabled>	
+  					frozen:<input id="is_frozen_2" style="width: 40px" type="text" disabled> 	
+  					poison:<input id="is_poison_2" style="width: 40px" type="text" disabled> 	
+  					paralysis:<input id="is_paralysis_2" style="width: 40px" type="text" disabled> 	
+  					dark:<input id="is_dark_2" style="width: 40px" type="text" disabled> <br>
+  second immune		burn:<input id="immune_burn_2" style="width: 40px" type="text" disabled>	
+  					frozen:<input id="immune_frozen_2" style="width: 40px" type="text" disabled> 	
+  					poison:<input id="immune_poison_2" style="width: 40px" type="text" disabled> 	
+  					paralysis:<input id="immune_paralysis_2" style="width: 40px" type="text" disabled> 	
+  					dark:<input id="immune_dark_2" style="width: 40px" type="text" disabled> <br>
+  second weapon:<input id="weapon_2" style="width: 100px" type="text" disabled>		
+  					skill(cooltime):<input id="skill_2" style="width: 100px" type="text" disabled> 
+  					(<input id="skill_cooltime_2" style="width: 40px" type="text" disabled>) <br>
+  second equip : <input id="equip_2" style="width: 500px" type="text" disabled>	
+  second hand : <input id="hand_2" style="width: 800px" type="text" disabled><br>
+ ---------------------------------------------------------------------------------------------------------<br>
+  * hand use : <input type="text" name="hand_index" id="hand_index" size="50px" MAXLENGTH="20">
+  <input type="button" id="card_use" value="card_use" onClick="card_use();"></input><br><br>
+  <input type="button" id="turn_end" value="skill use end" onClick="skill_end();"></input><br><br>
+  <input type="button" id="turn_end" value="turn end" onClick="turn_end();"></input><br><br>
+  <body>
+</html>

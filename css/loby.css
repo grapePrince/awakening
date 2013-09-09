@@ -1,0 +1,147 @@
+#loby #loby_background {
+  background:url("../images/loby/battle_back.png");
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 1; 
+}
+#loby #mold {
+  width: 145px;
+  height: 145px;
+  position: absolute;
+  left: 15px;
+  top: 10px;
+  z-index: 2;
+}
+#loby #character_image {
+  background:url("../images/loby/character_image.png");
+  width: 125px;
+  height: 125px;
+  position: absolute;
+  left: 5px; 
+  top: 5px;
+  z-index: 2;
+}
+#loby #image_mold {
+  background:url("../images/loby/image_mold.png");
+  width: 145px;
+  height: 145px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 3;
+}
+#loby #back_button {
+  background:url("../images/loby/back.png");
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 715px; 
+  top: 5px;
+  z-index: 2;
+}
+#loby #back_button:active 
+{ background: url("../images/loby/back_pressed.png"); 
+}
+
+#loby #makeroom_button {
+  background:url("../images/loby/makeroom.png");
+  width: 150px;
+  height: 36px;
+  position: absolute;
+  left: 645px; 
+  top: 115px;
+  z-index: 2;
+}
+#loby #makeroom_button:active 
+{ background: url("../images/loby/makeroom_pressed.png"); 
+}
+
+
+#loby #id_tag {
+  background:url("../images/loby/id_tag.png");
+  width: 260px;
+  height: 46px;
+  position: absolute;
+  left: 165px; 
+  top: 10px;
+  z-index: 2;
+}
+#loby #user_id {
+  position: absolute;
+  left: 260px;
+  top: 22px;
+  z-index: 3;
+}
+#loby #gear_icon1 {
+  background:url("../images/loby/gear_icon.png");
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 170px; 
+  top: 55px;
+  z-index: 2;
+}
+#loby #lv {
+  position: absolute;
+  left: 215px; 
+  top: 65px;
+  z-index: 2;
+  color: white;
+}
+#loby #gear_icon2 {
+  background:url("../images/loby/gear_icon.png");
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 170px; 
+  top: 85px;
+  z-index: 2;
+  color: white;
+}
+#loby #win {
+  position: absolute;
+  left: 215px; 
+  top: 95px;
+  z-index: 2;
+  color: white;
+}
+#loby #lose {
+  position: absolute;
+  left: 300px; 
+  top: 95px;
+  z-index: 2;
+  color: white;
+}
+#loby #gear_icon3 {
+  background:url("../images/loby/gear_icon.png");
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 170px; 
+  top: 115px;
+  z-index: 2;
+}
+#loby #gold {
+  position: absolute;
+  left: 215px; 
+  top: 125px;
+  z-index: 2;
+  color: white;
+}
+
+#loby #room_list {
+  width: 790px;
+  height: 565px;
+  position: absolute;
+  left: 10px;
+  top: 222px;
+  color: gray;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+

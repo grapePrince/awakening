@@ -1,0 +1,194 @@
+<html> 
+<head>
+<meta charset="UTF-8">
+  <title>Card Game</title>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<style>
+#room_list {
+  width: 800px;
+  height: 500px;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+  color: gray;
+  overflow:scroll;
+  z-index: 1;
+}
+</style>
+
+
+<script>
+
+function roomInf() {
+    var name;
+    var host_inf  = new userInf();
+    var password;
+    var client_inf = new userInf();
+    var num;
+    var is_idle;
+}
+
+function userInf() {
+    var session_id;
+    var id;
+    var name;
+    var main_character_num;
+    var lv;
+    var cost;
+    var money;
+    var win_num;
+    var lose_num;
+}
+
+
+function createRoomItem(room_item){
+
+  var back = $("<div id='background'></div>")
+              .css( {
+              "background" : 'url(" ' + "../images/loby/listitem_back.png" + '")',
+              "width" : "800px",
+              "height" : "100px",
+              "position" : "relative",
+              "z-index" : "1"
+              });
+  back.append( $("<div id='no'></div>")
+              .css( {
+              "background" : 'url(" ' + "../images/loby/no.png" + '")',
+              "width" : "100px",
+              "height" : "28px",
+              "position" : "absolute",
+			  "left": "20px",
+			  "top": "40px",
+              "z-index" : "2"
+              }));
+   back.append( $("<div id='no_word'>" + room_item.num + "</div>")
+              .css( {             
+              "position" : "absolute",
+			  "left": "65px",
+			  "top": "45px",
+              "z-index" : "3"
+              }));
+  back.append( $("<div id='listimage_back'></div>")
+              .css( {
+              "background" : 'url(" ' + "../images/loby/listimage_background.png" + '")',
+              "width" : "100px",
+              "height" : "100px",
+              "position" : "absolute",
+			  "left": "135px",
+			  "top": "2px",
+              "z-index" : "2"
+              }));
+  back.append( $("<div id='listimage'></div>")
+              .css( {
+              "background" : 'url(" ' + "../images/loby/character_image.png" + '")',
+              "width" : "55px",
+              "height" : "55px",
+              "position" : "absolute",
+			  "left": "165px",
+			  "top": "35px",
+              "z-index" : "3"
+              }));
+ back.append( $("<div id='cost_word'>" + room_item.host_inf.cost +"</div>")
+              .css( {             
+              "position" : "absolute",
+			  "left": "170px",
+			  "top": "70px",
+              "z-index" : "3"
+              }));
+ back.append( $("<div id='level'></div>")
+              .css( {
+              "background" : 'url(" ' + "../images/loby/level.png" + '")',
+              "width" : "76px",
+              "height" : "36px",
+              "position" : "absolute",
+			  "left": "240px",
+			  "top": "10px",
+              "z-index" : "2"
+              }));
+ back.append( $("<div id='level_word'>" + room_item.host_inf.lv +"</div>")
+              .css( {              
+              "position" : "absolute",
+			  "left": "275px",
+			  "top": "20px",
+              "z-index" : "2",
+			  "color" : "white"
+              }));
+ back.append( $("<div id='userid'>" + room_item.host_inf.id +"</div>")
+              .css( {
+              "position" : "absolute",
+			  "left": "325px",
+			  "top": "15px",
+              "z-index" : "2"
+              }));
+ back.append( $("<div id='roomtitle'>" + room_item.name + "</div>")
+              .css( {
+              "position" : "absolute",
+			  "left": "240px",
+			  "top": "55px",
+              "z-index" : "2"
+              }));
+ back.append( $("<div id='lock'></div>")
+              .css( {
+              "background" : 'url(" ' + "../images/loby/lock.png" + '")',
+              "width" : "30px",
+              "height" : "30px",
+              "position" : "absolute",
+			  "left": "610px",
+			  "top": "40px",
+              "z-index" : "2"
+              }));
+ back.append( $("<input type='button' id='enterbutton'></div>")
+              .css( {
+              "background" : 'url(" ' + "../images/loby/enterbutton.png" + '")',
+              "width" : "80px",
+              "height" : "80px",
+              "position" : "absolute",
+			  "left": "670px",
+			  "top": "10px",
+              "z-index" : "2"
+              }));
+ back.append( $("<div id='fullstamp'></div>")
+              .css( {
+              "background" : 'url(" ' + "../images/loby/full.png" + '")',
+              "width" : "800px",
+              "height" : "100px",
+              "position" : "absolute",
+			  "left": "0px",
+			  "top": "0px",
+              "z-index" : "5",
+			  "visibility" : "hidden"
+              }));
+  if( room_item.is_idle ) {
+	  $("#background #fullstamp").css( 'visibility', 'visible' );
+	  $("#background input[type=button]").attr("disabled", "disabled");
+   }
+   return back;
+ }
+
+function onClick() {
+
+ var divlist = new Array();
+ var room_item = new roomInf();
+
+ room_item.num = 0;
+ room_item.name = "들어와라 아가야"
+ room_item.is_idle = 1;
+ room_item.host_inf = new userInf();
+ room_item.host_inf.cost = 20;
+ room_item.host_inf.id = "tul90";
+ room_item.host_inf.lv = 999;
+ room_item.host_inf.name = "초천재님";            
+ 
+ $('#room_list').append( createRoomItem( room_item ) );           
+            
+}
+
+</script>
+</head>
+
+  <body> 
+		    <div id="room_list"> </div>
+		    <input type="button"  onClick="onClick();" value = "확인" > <br>
+  </body> 
+  
+</html>

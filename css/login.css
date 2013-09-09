@@ -1,0 +1,51 @@
+#login #login_background {
+  background:url("../images/login/back.png");
+  width: 800px;
+  height: 800px; 
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1; 
+}
+
+#login #input_id {
+  position: absolute;
+  width: 100px;
+  height: 30px; 
+  left: 400px;
+  top: 325px;
+  z-index: 2;
+}
+
+#login #input_pw {
+  position: absolute;
+  width: 100px;
+  height: 30px; 
+  left: 400px;
+  top: 380px;
+  z-index: 2;
+}
+#login #join_btn {
+  background:url("../images/login/join.png");
+  position: absolute;
+  width: 150px;
+  height: 36px; 
+  left: 270px;
+  top: 430px;
+  z-index: 3;
+}
+#login #join_btn:active 
+{ background: url("../images/login/join_pressed.png"); 
+}
+#login #login_btn {
+  background:url("../images/login/login.png");
+  position: absolute;
+  width: 150px;
+  height: 36px; 
+  left: 430px;
+  top: 430px;
+  z-index: 3;
+}
+#login #login_btn:active 
+{ background: url("../images/login/login_pressed.png"); 
+}
