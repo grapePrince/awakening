@@ -35,7 +35,7 @@ exports.HOST_URL = "http://lattetime.cafe24.com";
   exports.SERVER_RESPONSE_CARD_USE_FAILED = 205;
   exports.SERVER_RESPONSE_SPECIAL_USE = 206;
   exports.SERVER_REQUEST_SPECIAL_BACK = 207;
-  exports.SERVER_REQUEST_EUQUIP_DETACHED = 208
+  exports.SERVER_REQUEST_EUQUIP_DETACHED = 208;
   exports.CLIENT_REQUEST_TURNEND = 209;
   exports.SERVER_RESPONSE_ATTACK_FAILED = 210;
   exports.SERVER_RESPONSE_ATTACK = 211;
@@ -71,15 +71,14 @@ function response() {
 }
 exports.newResponse = function(){
   return new response();
-}
-
+};
 function request() {
   var MessageNum;
   var user_id;
 }
 exports.newRequest = function(){
   return new request();
-}
+};
 
 function userInf(){
   var session_id;
@@ -95,7 +94,7 @@ function userInf(){
 }
 exports.newUserInf = function(){
   return new userInf();
-}
+};
 
 function deckInf(){
   var main_character;
@@ -104,8 +103,7 @@ function deckInf(){
 }
 exports.newDeckInf = function(){
   return new deckInf();
-}
-
+};
 function cardInf(){
   var num;
   var name;
@@ -114,10 +112,11 @@ function cardInf(){
   var type;
   var content;
   var deck_item_num;
+  var deck_id_num;
 }
 exports.newCardInf = function(){
   return new cardInf();
-}
+};
 
 function roomInf(){
   var name; //primary key. random string 
@@ -130,7 +129,7 @@ function roomInf(){
 }
 exports.newRoomInf = function(){
   return new roomInf();
-}
+};
 
 function characterInf(){
   var num;
@@ -145,7 +144,7 @@ function characterInf(){
 }
 exports.newCharacterInf = function(){
   return new characterInf();
-}
+};
 
 function battleInf(){
   //first user's fields
@@ -219,7 +218,7 @@ function battleInf(){
 }
 exports.newBattleInf = function(){
   return new battleInf();
-}
+};
 
 function specialInf(){
 	var first_atk;
@@ -260,16 +259,17 @@ exports.newSpecialInf = function(){
 	res.second_reflect_damage_percent= 0;
 		
 	return res;
-}
+};
 
 function effectInf(){
   var field_num;
   var value;
+  var show_type;
 }
 
 exports.newEffectInf = function(){
   return new effectInf();
-}
+};
 
 function fieldInf(){
 	var num;
@@ -284,8 +284,7 @@ function fieldInf(){
 }
 exports.newFieldInf = function(){
 	return new fieldInf();
-}
-
+};
 
 function floorInf(){
 	//	- type	: 	1 -> none
@@ -299,7 +298,7 @@ function floorInf(){
 }
 exports.newFloorInf = function(){
 	return new floorInf();
-}
+};
 
 function fieldExploreInf(){
 	// field explore inf
@@ -312,7 +311,7 @@ function fieldExploreInf(){
 }
 exports.newFieldExploreInf = function(){
 	return new fieldExploreInf();
-}
+};
 
 function materialInf(){
 	  var num;
@@ -324,7 +323,7 @@ function materialInf(){
 }
 exports.newMaterialInf = function(){
 	return new materialInf();
-}
+};
 
 function monsterInf(){
 	var num;
@@ -347,7 +346,7 @@ function monsterInf(){
 }
 exports.newMonsterInf = function(){
 	return new monsterInf();
-}
+};
 
 function monsterBattleInf(){
 	var monster_inf;
@@ -367,7 +366,7 @@ function monsterBattleInf(){
 }
 exports.newMonsterBattleInf = function(){
 	return new monsterBattleInf();
-}
+};
 
 exports.randomString = function() {
   var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
@@ -378,7 +377,7 @@ exports.randomString = function() {
     randomstring += chars.substring(rnum,rnum+1);
   }//document.randform.randomfield.value = randomstring;return randomstring;}
   return randomstring;
-}
+};
 
 exports.calculate_lv = function(exp){
 	var lv ;
@@ -389,13 +388,14 @@ exports.calculate_lv = function(exp){
 	}
 	
 	return lv - 1;
-}
+};
+
 exports.calculate_exp = function(lv){
 	var exp = 1;
 	
 	exp = (lv + 1)*(lv*lv*lv)*1000;
 	
 	return exp;
-}
+};
 
 
