@@ -308,7 +308,7 @@ exports.call = function(io,socket,db_conn,received){
         battle_inf_result.first_special_card_effect.second_reflect_damage_percent = 0;   
         
         //if first user - set second's hand invisible
-        battle_inf_result.second_hand_list = []
+        battle_inf_result.second_hand_list = [];
         for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++){
             battle_inf_result.second_hand_list[i] = unknown_card;
         }
@@ -321,7 +321,7 @@ exports.call = function(io,socket,db_conn,received){
         io.sockets.socket(first.session_id).emit('data',first_res); //send to first
         
         //if second user - set first's hand invisible
-        battle_inf_result.first_hand_list = []
+        battle_inf_result.first_hand_list = [];
         for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++){
             battle_inf_result.first_hand_list[i] = unknown_card;
         }
