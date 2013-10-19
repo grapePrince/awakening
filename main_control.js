@@ -175,7 +175,9 @@ exports.call = function(io,socket,db_conn,received){
         update_room_res.MessageNum = config.SERVER_REQUEST_UPDATE_ROOM_INF;
         update_room_res.room_inf = room_inf;
         
+        socket.emit('data', result);
         io.sockets.emit('data',update_room_res);
+        return;
       }
       
       //send result to client
@@ -482,7 +484,7 @@ exports.call = function(io,socket,db_conn,received){
     	
   }
 
-}
+};
 
 //////////////////////////////////////////////////////
 function check_char(card_num, character_num){
