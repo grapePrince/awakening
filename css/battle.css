@@ -1,0 +1,1435 @@
+@-webkit-keyframes rotate {
+ from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotate {
+ from {
+     -moz-transform: rotate(0deg);
+  }
+  to {
+     -moz-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotateup {
+ from {
+     -moz-transform: rotate(0deg);
+  }
+  to {
+     -moz-transform: rotate(360deg);
+  }
+}
+
+
+#battle #back {
+  background:url("../images/battle/background.png");
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: 0px; 
+  top: 0px;
+  z-index: 1;
+}
+
+	#battle #wheel_up_02{
+		background:url("../images/wheels/02.png");
+	  	width: 198px;
+	  	height: 198px;
+	  	position: absolute;	
+	  	left: 360px; 
+	  	top: 195px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 50s linear infinite 0s;
+		-moz-animation: rotateup 50s linear infinite 0s;
+	}
+	#battle #wheel_up_03{
+		background:url("../images/wheels/03.png");
+	  	width: 181px;
+	  	height: 182px;
+	  	position: absolute;	
+	  	left: 110px; 
+	  	top: 105px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 35s linear infinite 0s;
+		-moz-animation: rotateup 35s linear infinite 0s;
+	}
+	#battle #wheel_up_04{
+		background:url("../images/wheels/01.png");
+	  	width: 171px;
+	  	height: 170px;
+	  	position: absolute;	
+	  	left: 555px; 
+	  	top: 240px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 85s linear infinite 0s;
+		-moz-animation: rotateup 85s linear infinite 0s;
+	}
+	#battle #wheel_up_05{
+		background:url("../images/wheels/04.png");
+	  	width: 173px;
+	  	height: 173px;
+	  	position: absolute;	
+	  	left: 195px; 
+	  	top: 280px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 85s linear infinite 0s;
+		-moz-animation: rotateup 85s linear infinite 0s;
+	}
+	#battle #wheel_up_06{
+		background:url("../images/wheels/05.png");
+	  	width: 52px;
+	  	height: 52px;
+	  	position: absolute;	
+	  	left: 284px; 
+	  	top: 228px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 15s linear infinite 0s;
+		-moz-animation: rotateup 15s linear infinite 0s;
+	}
+	#battle #wheel_up_07{
+		background:url("../images/wheels/06.png");
+	  	width: 110px;
+	  	height: 110px;
+	  	position: absolute;	
+	  	left: 20px; 
+	  	top: 235px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 25s linear infinite 0s;
+		-moz-animation: rotateup 25s linear infinite 0s;
+	}
+	#battle #wheel_up_08{
+		background:url("../images/wheels/10.png");
+	  	width: 64px;
+	  	height: 64px;
+	  	position: absolute;	
+	  	left: 135px; 
+	  	top: 285px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 70s linear infinite 0s;
+		-moz-animation: rotateup 70s linear infinite 0s;
+	}
+	#battle #wheel_up_09{
+		background:url("../images/wheels/08.png");
+	  	width: 103px;
+	  	height: 104px;
+	  	position: absolute;	
+	  	left: 305px; 
+	  	top: 125px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 20s linear infinite 0s;
+		-moz-animation: rotateup 20s linear infinite 0s;
+	}
+	#battle #wheel_up_10{
+		background:url("../images/wheels/09.png");
+	  	width: 35px;
+	  	height: 35px;
+	  	position: absolute;	
+	  	left: 325px; 
+	  	top: 265px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 20s linear infinite 0s;
+		-moz-animation: rotateup 20s linear infinite 0s;
+	}
+
+	#battle #wheel_down_02{
+		background:url("../images/wheels/02.png");
+	  	width: 198px;
+	  	height: 198px;
+	  	position: absolute;	
+	  	left: 242px; 
+	  	top: 407px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 50s linear infinite 0s;
+		-moz-animation: rotateup 50s linear infinite 0s;
+	}
+	#battle #wheel_down_03{
+		background:url("../images/wheels/03.png");
+	  	width: 181px;
+	  	height: 182px;
+	  	position: absolute;	
+	  	left: 509px; 
+	  	top: 513px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 35s linear infinite 0s;
+		-moz-animation: rotateup 35s linear infinite 0s;
+	}
+	#battle #wheel_down_04{
+		background:url("../images/wheels/01.png");
+	  	width: 171px;
+	  	height: 170px;
+	  	position: absolute;	
+	  	left: 74px; 
+	  	top: 390px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 85s linear infinite 0s;
+		-moz-animation: rotateup 85s linear infinite 0s;
+	}
+	#battle #wheel_down_05{
+		background:url("../images/wheels/04.png");
+	  	width: 173px;
+	  	height: 173px;
+	  	position: absolute;	
+	  	left: 432px; 
+	  	top: 347px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 85s linear infinite 0s;
+		-moz-animation: rotateup 85s linear infinite 0s;
+	}
+	#battle #wheel_down_06{
+		background:url("../images/wheels/05.png");
+	  	width: 52px;
+	  	height: 52px;
+	  	position: absolute;	
+	  	left: 464px; 
+	  	top: 520px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 15s linear infinite 0s;
+		-moz-animation: rotateup 15s linear infinite 0s;
+	}
+	#battle #wheel_down_07{
+		background:url("../images/wheels/06.png");
+	  	width: 110px;
+	  	height: 110px;
+	  	position: absolute;	
+	  	left: 670px; 
+	  	top: 465px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 25s linear infinite 0s;
+		-moz-animation: rotateup 25s linear infinite 0s;
+	}
+	#battle #wheel_down_08{
+		background:url("../images/wheels/10.png");
+	  	width: 64px;
+	  	height: 64px;
+	  	position: absolute;	
+	  	left: 601px; 
+	  	top: 451px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 70s linear infinite 0s;
+		-moz-animation: rotateup 70s linear infinite 0s;
+	}
+	#battle #wheel_down_09{
+		background:url("../images/wheels/08.png");
+	  	width: 103px;
+	  	height: 104px;
+	  	position: absolute;	
+	  	left: 392px; 
+	  	top: 571px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 20s linear infinite 0s;
+		-moz-animation: rotateup 20s linear infinite 0s;
+	}
+	#battle #wheel_down_10{
+		background:url("../images/wheels/09.png");
+	  	width: 35px;
+	  	height: 35px;
+	  	position: absolute;	
+	  	left: 440px; 
+	  	top: 500px;
+	  	z-index: 2;
+	  	opacity: 0.4;
+	  	-webkit-animation: rotate 20s linear infinite 0s;
+		-moz-animation: rotateup 20s linear infinite 0s;
+	}
+#battle #mold {
+  background:url("../images/battle/mold.png");
+  width: 800px;
+  height: 800px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 4; 
+}
+
+#battle #used_back {
+  background:url("../images/battle/used_back.png");
+  width: 800px;
+  height: 124px;
+  position: absolute;
+  left: 0px; 
+  top: 340px;
+  z-index: 3;
+}	
+
+
+#battle #turn_end_btn {
+  background:url("../images/battle/turn_end.png");
+  width: 100px;
+  height: 42px;
+  position: absolute;
+  left: 680px; 
+  top: 412px;
+  z-index: 4;
+}
+#battle #turn_end_btn:active {
+	background:url("../images/battle/turn_end_pressed.png");
+}
+#battle #turn_end_btn:hover {
+	border-radius: 3px;
+  	border:1px solid #D2A541;
+
+}
+
+#battle #turn_txt {
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 20px; 
+  top: 345px;
+  font-size: 18pt;
+  font-family:"Times New Roman",Georgia,Serif;
+  font: bold 18px/30px Georgia, serif;
+  text-shadow:
+   -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+     1px 1px 0 white;
+  z-index: 3;
+}
+#battle #turn_num {
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  left: 95px; 
+  top: 344px;
+  font-size: 19pt;
+  font-family:"Times New Roman",Georgia,Serif;
+  font: bold 18px/30px Georgia, serif;
+  text-shadow:
+   -1px -1px 0 white,  
+    1px -1px 0 white,
+    -1px 1px 0 white,
+     1px 1px 0 white;
+  z-index: 3;
+}
+
+
+#battle #my_hp {
+  background:url("../images/battle/hpbar.png");
+  width: 400px;
+  height: 40px;
+  position: absolute;
+  left: 10px; 
+  top: 750px;
+  z-index: 4;
+}
+
+#battle #my_hp_in {
+  background:url("../images/battle/hp.png");
+  width: 335px;
+  height: 15px;
+  position: absolute;
+  left: 50px; 
+  top: 762px;
+  z-index: 5;
+}
+
+#battle #my_atk_back {
+  background:url("../images/battle/atk.png");
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 420px; 
+  top: 755px;
+  z-index: 4;
+}
+
+#battle #my_def_back{
+  background:url("../images/battle/def.png");
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 525px; 
+  top: 755px;
+  z-index: 4;
+}
+
+#battle #my_atk {
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  left: 465px; 
+  top: 754px;
+  font:normal 14px/30px Georgia, serif;
+  font-family:"Times New Roman",Georgia,Serif;
+  color : #FFFFFF;
+  z-index: 5;
+}
+
+#battle #my_def{
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  left: 570px; 
+  top: 754px;
+  font:normal 14px/30px Georgia, serif;
+  font-family:"Times New Roman",Georgia,Serif;
+  color : #FFFFFF;
+  z-index: 5;
+}
+
+#battle #my_id_back{
+  background:url("../images/battle/name.png");
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  left: 635px; 
+  top: 755px;
+  z-index: 4;
+}
+
+#battle #my_id{
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  left: 650px; 
+  top: 754px;
+  font:normal 15px/30px Georgia, serif;
+  font-family:"Times New Roman",Georgia,Serif;
+  color : #FFFFFF;
+  z-index: 5;
+ }
+
+#battle #my_equip{
+  background:url("../images/battle/equip_user.png");
+  width: 550px;
+  height: 150px;
+  position: absolute;
+  left: 230px; 
+  top: 587px;
+  z-index: 2;
+}
+
+#battle #my_character{
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  left: 20px; 
+  top: 468px;
+  z-index: 2;	
+
+}
+
+#battle #my_status {
+  background:url("../images/battle/status_off_back.png");
+  width: 200px;
+  height: 40px;
+  position: absolute;
+  left: 15px; 
+  top: 687px;
+  z-index: 3;
+}
+
+#battle #my_status_poison{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 24px; 
+  top: 707px;
+  z-index: 4;
+}
+
+#battle #my_status_burn{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 53px; 
+  top: 707px;
+  z-index: 4;
+}
+
+#battle #my_status_frozen{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 83px; 
+  top: 707px;
+  z-index: 4;
+}
+
+#battle #my_status_para{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 112px; 
+  top: 707px;
+  z-index: 4;
+}
+
+#battle #my_status_dark{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 142px; 
+  top: 707px;
+  z-index: 4;
+}
+
+#battle #my_immune_back {
+  background:url("../images/battle/immune_back.png");
+  width: 232px;
+  height: 40px;
+  position: absolute;
+  left: 300px; 
+  top: 583px;
+  z-index: 2;
+}
+
+#battle #my_immune_txt {
+  width: 160px;
+  height: 20px;
+  position: absolute;
+  left: 320px; 
+  top: 593px;
+  z-index: 2;
+  color:white;
+  text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
+}
+
+#battle #my_immune_next{
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  left: 500px; 
+  top: 595px;
+  z-index: 2;
+  color:white;
+  text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
+}
+
+#battle #my_character_lv{
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  left: 20px; 
+  top: 660px;
+  font-family:"Times New Roman",Georgia,Serif;
+  font:bold 24px/30px Georgia, serif;
+      text-shadow:
+   -1px -1px 0 #D2A541,  
+    1px -1px 0 #D2A541,
+    -1px 1px 0 #D2A541,
+     1px 1px 0 #D2A541;
+  z-index: 3;	
+}
+
+#battle #my_character_name{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 80px; 
+  top: 660px;
+  font-family:"Times New Roman",Georgia,Serif;
+  font:bold 24px/30px Georgia, serif;
+      text-shadow:
+   -1px -1px 0 #D2A541,  
+    1px -1px 0 #D2A541,
+    -1px 1px 0 #D2A541,
+     1px 1px 0 #D2A541;
+  z-index: 3;	
+}
+
+#battle #my_character_title{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 80px; 
+  top: 640px;
+  font-size: 12pt;
+  font-family:"Times New Roman",Georgia,Serif;
+  font:bold 12px/30px Georgia, serif;
+      text-shadow:
+   -1px -1px 0 #D2A541,  
+    1px -1px 0 #D2A541,
+    -1px 1px 0 #D2A541,
+     1px 1px 0 #D2A541;
+  z-index: 3;	
+}
+
+#battle #my_equip_1 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 430px; 
+  top: 627px;
+  z-index: 4;
+}
+#battle #my_equip_1:hover {
+	left: 429px; 
+  top: 625px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #my_equip_2 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 510px; 
+  top: 627px;
+  z-index: 4;
+}
+#battle #my_equip_2:hover {
+	left: 509px; 
+  top: 625px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #my_equip_3 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 590px; 
+  top: 627px;
+  z-index: 4;
+}
+#battle #my_equip_3:hover {
+	left: 589px; 
+  top: 625px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #my_equip_4 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 670px; 
+  top: 627px;
+  z-index: 4;
+}
+#battle #my_equip_4:hover {
+	left: 669px; 
+  top: 625px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+
+#battle #my_weapon_tag{
+  background:url("../images/battle/weapon_tag.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 245px; 
+  top: 627px;
+  z-index: 4;
+}
+
+#battle #my_skill_tag {
+  background:url("../images/battle/skill_tag.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 326px; 
+  top: 627px;
+  z-index: 4;
+}
+
+#battle #my_weapon{
+  background:url("../images/battle/no_weapon.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 245px; 
+  top: 627px;
+  z-index: 3;
+}
+
+#battle #my_skill {
+  background:url("../images/battle/no_skill.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 326px; 
+  top: 627px;
+  z-index: 3;
+}
+
+#battle #my_equip_prev{
+  background:url("../images/battle/prev.png");
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 405px; 
+  top: 660px;
+  z-index: 4;
+}
+#battle #my_equip_prev:active{
+	background:url("../images/battle/prev_pressed.png");
+}
+#battle #my_equip_prev:hover{
+  width: 17px;
+  height: 32px;	
+  left: 404px; 
+  top: 659px;
+  background-size: cover;
+}
+
+#battle #my_equip_next{
+  background:url("../images/battle/next.png");
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 755px; 
+  top: 660px;
+  z-index: 4;
+}
+#battle #my_equip_next:active{
+	background:url("../images/battle/next_pressed.png");
+}
+#battle #my_equip_next:hover{
+  width: 17px;
+  height: 32px;	
+  left: 754px; 
+  top: 659px;
+  background-size: cover;
+}
+#battle #my_hand_next {
+  background:url("../images/battle/next.png");
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 675px; 
+  top: 515px;
+  z-index: 4;
+}
+#battle #my_hand_next:active {
+  background:url("../images/battle/next_pressed.png");
+}
+#battle #my_hand_next:hover{
+  width: 17px;
+  height: 32px;	
+  left: 674px; 
+  top: 514px;
+  background-size: cover;
+}
+
+#battle #my_hand_prev {
+  background:url("../images/battle/prev.png");
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 240px; 
+  top: 515px;
+  z-index: 4;
+}
+#battle #my_hand_prev:active{
+  background:url("../images/battle/prev_pressed.png");
+ }
+#battle #my_hand_prev:hover{
+  width: 17px;
+  height: 32px;	
+  left: 239px; 
+  top: 514px;
+  background-size: cover;
+} 
+ 
+#battle #my_hand_1 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 270px; 
+  top: 480px;
+  z-index: 4;
+}
+#battle #my_hand_1:hover {
+	left: 269px; 
+  top: 478px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #my_hand_2 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 350px; 
+  top: 480px;
+  z-index: 4;
+}
+#battle #my_hand_2:hover {
+	left: 349px; 
+  top: 478px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #my_hand_3 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 430px; 
+  top: 480px;
+  z-index: 4;
+}
+#battle #my_hand_3:hover {
+	left: 429px; 
+  top: 478px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #my_hand_4 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 510px; 
+  top: 480px;
+  z-index: 4;
+}
+#battle #my_hand_4:hover {
+	left: 509px; 
+  top: 478px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #my_hand_5 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 590px; 
+  top: 480px;
+  z-index: 4;
+}
+#battle #my_hand_5:hover {
+	left: 589px; 
+  top: 478px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #my_deck {
+  background:url("../images/battle/my_deck.png");
+  width: 50px;
+  height: 110px;
+  position: absolute;
+  left: 735px; 
+  top: 475px;
+  z-index: 2;
+}
+
+
+
+#battle #opp_hp {
+  background:url("../images/battle/hpbar.png");
+  width: 400px;
+  height: 40px;
+  position: absolute;
+  left: 10px; 
+  top: 10px;
+  z-index: 4;
+}
+
+#battle #opp_hp_in {
+  background:url("../images/battle/hp.png");
+  width: 335px;
+  height: 15px;
+  position: absolute;
+  left: 50px; 
+  top: 22px;
+  z-index: 5;
+}
+
+#battle #opp_atk_back {
+  background:url("../images/battle/atk.png");
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 420px; 
+  top: 15px;
+  z-index: 4;
+}
+
+#battle #opp_def_back{
+  background:url("../images/battle/def.png");
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 525px; 
+  top: 15px;
+  z-index: 4;
+}
+
+#battle #opp_atk {
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  left: 465px; 
+  top: 14px;
+  font:normal 14px/30px Georgia, serif;
+  font-family:"Times New Roman",Georgia,Serif;
+  color : #FFFFFF;
+  z-index: 5;
+}
+
+#battle #opp_def{
+  width: 60px;
+  height: 30px;
+  position: absolute;
+  left: 570px; 
+  top: 14px;
+  font:normal 14px/30px Georgia, serif;
+  font-family:"Times New Roman",Georgia,Serif;
+  color : #FFFFFF;
+  z-index: 5;
+}
+
+#battle #opp_id_back{
+  background:url("../images/battle/name.png");
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  left: 635px; 
+  top: 15px;
+  z-index: 4;
+}
+
+#battle #opp_id{
+  width: 150px;
+  height: 30px;
+  position: absolute;
+  left: 650px; 
+  top: 14px;
+  font:normal 15px/30px Georgia, serif;
+  font-family:"Times New Roman",Georgia,Serif;
+  color : #FFFFFF;
+  z-index: 5;
+ }
+
+#battle #opp_character_lv{
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  left: 595px; 
+  top: 264px;
+  font-family:"Times New Roman",Georgia,Serif;
+  font:bold 24px/30px Georgia, serif;
+    text-shadow:
+   -1px -1px 0 #D2A541,  
+    1px -1px 0 #D2A541,
+    -1px 1px 0 #D2A541,
+     1px 1px 0 #D2A541;
+  z-index: 3;	
+}
+
+#battle #opp_character_name{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 655px; 
+  top: 264px;
+  font-family:"Times New Roman",Georgia,Serif;
+  font:bold 24px/30px Georgia, serif;
+    text-shadow:
+   -1px -1px 0 #D2A541,  
+    1px -1px 0 #D2A541,
+    -1px 1px 0 #D2A541,
+     1px 1px 0 #D2A541;
+  z-index: 3;	
+}
+
+#battle #opp_character_title{
+  width: 100px;
+  height: 30px;
+  position: absolute;
+  left: 655px; 
+  top: 244px;
+  font-size: 12pt;
+  font-family:"Times New Roman",Georgia,Serif;
+  font:bold 12px/30px Georgia, serif;
+    text-shadow:
+   -1px -1px 0 #D2A541,  
+    1px -1px 0 #D2A541,
+    -1px 1px 0 #D2A541,
+     1px 1px 0 #D2A541;
+  z-index: 3;	
+}
+
+#battle #opp_equip{
+  background:url("../images/battle/equip_enemy.png");
+  width: 550px;
+  height: 150px;
+  position: absolute;
+  left: 20px; 
+  top: 65px;
+  z-index: 2;
+}
+#battle #opp_equip_4 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 60px; 
+  top: 73px;
+  z-index: 4;
+}
+#battle #opp_equip_4:hover {
+	left: 59px; 
+  top: 71px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+#battle #opp_equip_3 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 140px; 
+  top: 73px;
+  z-index: 4;
+}#battle #opp_equip_3:hover {
+	left: 139px; 
+  top: 71px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #opp_equip_2 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 220px; 
+  top: 73px;
+  z-index: 4;
+}
+#battle #opp_equip_2:hover {
+	left: 219px; 
+  top: 71px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+#battle #opp_equip_1 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 300px; 
+  top: 73px;
+  z-index: 4;
+}
+#battle #opp_equip_1:hover {
+	left: 299px; 
+  top: 71px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+#battle #opp_immune_back{
+  background:url("../images/battle/immune_back.png");
+  width: 232px;
+  height: 40px;
+  position: absolute;
+  left: 265px; 
+  top: 180px;
+  z-index: 2;
+}
+
+#battle #opp_immune_txt {
+  width: 160px;
+  height: 20px;
+  position: absolute;
+  left: 285px; 
+  top: 188px;
+  color : white;
+  z-index: 2;
+  text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
+}
+
+#battle #opp_immune_next {
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  left: 465px; 
+  top: 190px;
+  color : white;
+  z-index: 2;
+  text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
+}
+
+#battle #opp_weapon_tag{
+  background:url("../images/battle/weapon_tag.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 405px; 
+  top: 73px;
+  z-index: 4;
+}
+
+#battle #opp_skill_tag {
+  background:url("../images/battle/skill_tag.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 486px; 
+  top: 73px;
+  z-index: 4;
+}
+
+#battle #opp_weapon{
+  background:url("../images/battle/no_weapon.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 405px; 
+  top: 73px;
+  z-index: 3;
+}
+
+#battle #opp_skill {
+  background:url("../images/battle/no_skill.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 486px; 
+  top: 73px;
+  z-index: 3;
+}
+
+#battle #opp_equip_prev{
+  background:url("../images/battle/prev.png");
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 30px; 
+  top: 110px;
+  z-index: 4;
+}
+#battle #opp_equip_prev:active{
+  background:url("../images/battle/prev_pressed.png");
+}
+#battle #opp_equip_prev:hover{
+  width: 17px;
+  height: 32px;	
+  left: 29px; 
+  top: 109px;
+  background-size: cover;
+}
+
+#battle #opp_equip_next{
+  background:url("../images/battle/next.png");
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 385px; 
+  top: 110px;
+  z-index: 4;
+}
+#battle #opp_equip_next:active{
+  background:url("../images/battle/next_pressed.png");
+}
+#battle #opp_equip_next:hover{
+  width: 17px;
+  height: 32px;	
+  left: 384px; 
+  top: 109px;
+  background-size: cover;
+}
+
+#battle #opp_character{
+  width: 200px;
+  height: 300px;
+  position: absolute;
+  left: 580px; 
+  top: 70px;
+  z-index: 2;	
+
+}
+
+#battle #opp_status {
+  background:url("../images/battle/status_off_back_enemy.png");
+  width: 200px;
+  height: 40px;
+  position: absolute;
+  left: 590px; 
+  top: 290px;
+  z-index: 3;
+}
+
+#battle #opp_status_poison{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 644px; 
+  top: 310px;
+  z-index: 4;
+}
+
+#battle #opp_status_burn{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 673px; 
+  top: 310px;
+  z-index: 4;
+}
+
+#battle #opp_status_frozen{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 703px; 
+  top: 310px;
+  z-index: 4;
+}
+
+#battle #opp_status_para{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 732px; 
+  top: 310px;
+  z-index: 4;
+}
+
+#battle #opp_status_dark{
+  background:url("../images/battle/status_off.png");
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  left: 762px; 
+  top: 310px;
+  z-index: 4;
+}
+
+#battle #opp_hand_next {
+  background:url("../images/battle/next.png");
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 545px; 
+  top: 252px;
+  z-index: 4;
+}
+#battle #opp_hand_next:active {
+  background:url("../images/battle/next_pressed.png");
+}
+#battle #opp_hand_next:hover{
+  width: 17px;
+  height: 32px;	
+  left: 544px; 
+  top: 251px;
+  background-size: cover;
+}
+
+#battle #opp_hand_prev {
+  background:url("../images/battle/prev.png");
+  width: 15px;
+  height: 30px;
+  position: absolute;
+  left: 110px; 
+  top: 252px;
+  z-index: 4;
+}
+#battle #opp_hand_prev:active {
+  background:url("../images/battle/prev_pressed.png");
+}
+#battle #opp_hand_prev:hover{
+  width: 17px;
+  height: 32px;	
+  left: 109px; 
+  top: 251px;
+  background-size: cover;
+}
+
+#battle #opp_hand_5 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 140px; 
+  top: 218px;
+  z-index: 4;
+}
+#battle #opp_hand_5:hover {
+	left: 139px; 
+  top: 216px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+#battle #opp_hand_4 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 220px; 
+  top: 218px;
+  z-index: 4;
+}
+#battle #opp_hand_4:hover {
+	left: 219px; 
+  top: 216px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+#battle #opp_hand_3 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 300px; 
+  top: 218px;
+  z-index: 4;
+}
+#battle #opp_hand_3:hover {
+	left: 299px; 
+  top: 216px;
+  width: 73px;
+  height: 104px;
+    border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+#battle #opp_hand_2 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 380px; 
+  top: 218px;
+  z-index: 4;
+}
+#battle #opp_hand_2:hover {
+	left: 379px; 
+  top: 216px;
+  width: 73px;
+  height: 104px;
+  border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+#battle #opp_hand_1 {
+  background:url("../images/battle/card_back.png");
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 460px; 
+  top: 218px;
+  z-index: 4;
+}
+#battle #opp_hand_1:hover {
+	left: 459px; 
+  top: 216px;
+  width: 73px;
+  height: 104px;
+  border-radius: 3px;
+  border:1px solid white;
+  background-size: cover;
+}
+
+
+#battle #opp_deck {
+  background:url("../images/battle/opp_deck.png");
+  width: 50px;
+  height: 110px;
+  position: absolute;
+  left: 15px; 
+  top: 213px;
+  z-index: 2;
+}
+
