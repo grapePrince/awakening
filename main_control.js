@@ -26,14 +26,14 @@ exports.call = function(io,socket,db_conn,received){
      
       db_module.login(input_id,input_pass,db_conn,function(user_inf,main_deck_inf){ //do login
       
-    	  if(user_inf == -1){ //login err
-    		  console.log("login failed");
-    		  
+          if(user_inf == -1){ //login err
+              console.log("login failed");
+              
               result.is_login_success = 3;
               socket.emit('data',result);     
-    		  return;
-    	  }
-    	  
+              return;
+          }
+          
         console.log("main character : " + main_deck_inf.main_character.name);
         //set result's field
         result.MessageNum = config.SERVER_RESPONSE_LOGIN;
@@ -174,8 +174,11 @@ exports.call = function(io,socket,db_conn,received){
         var update_room_res = config.newResponse();
         update_room_res.MessageNum = config.SERVER_REQUEST_UPDATE_ROOM_INF;
         update_room_res.room_inf = room_inf;
+        update_room_res.room_list = app.getRoomList();
         
+        socket.emit('data', result);
         io.sockets.emit('data',update_room_res);
+        return;
       }
       
       //send result to client
@@ -235,277 +238,277 @@ exports.call = function(io,socket,db_conn,received){
     // go config deck // 
     *******************/         
     case config.CLIENT_REQUEST_GO_DECK_CONFIG :
-    	//deck list
+        //deck list
         db_module.all_deck(received.user_id,db_conn,function(main_deck_inf, sub_deck_inf){ //get deck inf and cards
          
-        	console.log(main_deck_inf);
-        	console.log(sub_deck_inf);
-        	
-	        result.is_success = 1;
-	        result.MessageNum = config.SERVER_RESPONSE_GO_DECK_CONFIG;
-	        result.main_deck = main_deck_inf;
-	        result.others = sub_deck_inf.deck_list;
-	    	
-	        //send        
-	        io.sockets.emit('data',result);
+            console.log(main_deck_inf);
+            console.log(sub_deck_inf);
+            
+            result.is_success = 1;
+            result.MessageNum = config.SERVER_RESPONSE_GO_DECK_CONFIG;
+            result.main_deck = main_deck_inf;
+            result.others = sub_deck_inf.deck_list;
+            
+            //send        
+            io.sockets.emit('data',result);
        });
 
-    	break;
+        break;
     /**************
     // card move // 
-    **************/      	
+    **************/         
     case config.CLIENT_REQUEST_DECK_CARD_MOVE_CHECK :
-    	// get data
-    	var main_deck = received.deck_inf.deck_list;
-    	var others = received.others;
-    	var index = received.index;
-    	
-    	console.log(others);
-    	console.log(main_deck);
-    	
-    	//set result data
-    	var res = true;
-    	var msg = "";
+        // get data
+        var main_deck = received.deck_inf.deck_list;
+        var others = received.others;
+        var index = received.index;
+        
+        console.log(others);
+        console.log(main_deck);
+        
+        //set result data
+        var res = true;
+        var msg = "";
         result.MessageNum = config.SERVER_RESPONSE_DECK_CARD_MOVE_CHECK;
 
-    	// check
-    	if(received.move_to_main == true){
-    		//	no more than 3
-    		var count = 0;
-    		for(var i = 0 ; i < main_deck.length ; i++){
-    			if(main_deck[i].num == others[index].num)
-    				count++;
-    		}
-    		if(count > 3){
-    			res = false;
-    			msg = "The same card can not put more than 3.";
-    			
-    	        result.is_success = res;
-    	        result.msg = msg;
-    	        io.sockets.emit('data',result);
-    			return;
-    		}
-    		
-    		//	if card type is 1 : character match
-    		if(others[index].type == 1){
-    			var main_char = received.deck_inf.main_character;
-    			var card = others[index];
-    			console.log("char --------------");
-    			console.log(main_char);
-    			if(check_char(card.num, main_char.num) == false){
-    				res = false;
-    				msg = "The evolution card can not be assigned in dismatching character's deck.";
-        	       
-    				result.is_success = res;
-        	        result.msg = msg;
-        	        io.sockets.emit('data',result);  				
-    				return;
-    			}
-    		}
-    		
-    		//	total length is 30	
-    		if(main_deck.length > 28){
-    			res = false;
-    			msg = "The total number of cards in the main deck can not be more than 30.";
-    	       
-    			result.is_success = res;
-    	        result.msg = msg;
-    	        io.sockets.emit('data',result);			
-    			return;
-    		}
-    		
-    		//pop from others
-    		var card = others[index];
-    		others.splice(index,1);
-    		//push to main deck
-    		main_deck.push(card);
-    		//send
+        // check
+        if(received.move_to_main == true){
+            //  no more than 3
+            var count = 0;
+            for(var i = 0 ; i < main_deck.length ; i++){
+                if(main_deck[i].num == others[index].num)
+                    count++;
+            }
+            if(count > 3){
+                res = false;
+                msg = "The same card can not put more than 3.";
+                
+                result.is_success = res;
+                result.msg = msg;
+                io.sockets.emit('data',result);
+                return;
+            }
+            
+            //  if card type is 1 : character match
+            if(others[index].type == 1){
+                var main_char = received.deck_inf.main_character;
+                var card = others[index];
+                console.log("char --------------");
+                console.log(main_char);
+                if(check_char(card.num, main_char.num) == false){
+                    res = false;
+                    msg = "The evolution card can not be assigned in dismatching character's deck.";
+                   
+                    result.is_success = res;
+                    result.msg = msg;
+                    io.sockets.emit('data',result);                 
+                    return;
+                }
+            }
+            
+            //  total length is 30  
+            if(main_deck.length > 28){
+                res = false;
+                msg = "The total number of cards in the main deck can not be more than 30.";
+               
+                result.is_success = res;
+                result.msg = msg;
+                io.sockets.emit('data',result);         
+                return;
+            }
+            
+            //pop from others
+            var card = others[index];
+            others.splice(index,1);
+            //push to main deck
+            main_deck.push(card);
+            //send
             result.is_success = res;
             var deck = received.deck_inf;
             deck.deck_list = main_deck;
             result.deck_inf = deck;
             result.others = others;
             
-            io.sockets.emit('data',result);	
-    	}
-    	else{
-    		//pop from main deck
-    		var card = main_deck[index];
-    		main_deck.splice(index,1);
-    		//push to others
-    		others.push(card);
-    		
-    		//send
+            io.sockets.emit('data',result); 
+        }
+        else{
+            //pop from main deck
+            var card = main_deck[index];
+            main_deck.splice(index,1);
+            //push to others
+            others.push(card);
+            
+            //send
             result.is_success = res;
             var deck = received.deck_inf;
             deck.deck_list = main_deck;
             result.deck_inf = deck;
             result.others = others;
             
-            io.sockets.emit('data',result);	
-    	}
+            io.sockets.emit('data',result); 
+        }
 
-    	break;
+        break;
     /******************
     // character list // 
     ******************/
     case config.CLIENT_REQUEST_AVAILABLE_CHARACTER :
-    	//character list
-    	 db_module.available_characters(received.user_id,db_conn,function(list){ //get deck inf and cards
+        //character list
+         db_module.available_characters(received.user_id,db_conn,function(list){ //get deck inf and cards
              
-    	        result.is_success = 1;
-    	        result.MessageNum = config.SERVER_RESPONSE_AVAILABLE_CHARACTER;
-    	        result.char_list = list;
-    	    	
-    	        //send result   
-    	        io.sockets.emit('data',result);
-    	});
-    	
-    	break;
+                result.is_success = 1;
+                result.MessageNum = config.SERVER_RESPONSE_AVAILABLE_CHARACTER;
+                result.char_list = list;
+                
+                //send result   
+                io.sockets.emit('data',result);
+        });
+        
+        break;
     /**********************
     // character changed // 
-    **********************/      	
+    **********************/         
     case config.CLIENT_REQUEST_CHARACTER_CHANGE :
-    	// get input data
-    	var char_num = received.character_num;
-    	var main_deck = received.main_deck;
-    	var others = received.others;
-    	
-    	// change deck's character inf
-	   	 db_module.available_characters(received.user_id,db_conn,function(list){ //get deck inf and cards
-	         
-		        result.is_success = 1;
-		        result.MessageNum = config.SERVER_RESPONSE_CHARACTER_CHANGE;
+        // get input data
+        var char_num = received.character_num;
+        var main_deck = received.main_deck;
+        var others = received.others;
+        
+        // change deck's character inf
+         db_module.available_characters(received.user_id,db_conn,function(list){ //get deck inf and cards
+             
+                result.is_success = 1;
+                result.MessageNum = config.SERVER_RESPONSE_CHARACTER_CHANGE;
 
-		        var char_inf = null;
-		        for(var i = 0 ; i < list.length ; i++){
-		        	if(list[i].num == char_num){
-		        		char_inf = config.newCharacterInf();
-		        		
-		      		  	char_inf.num = list[i].num;
-		      		  	char_inf.name = list[i].character_name;
-		      		  	char_inf.title = list[i].title;
-		      		  	char_inf.base_atk = list[i].base_atk;
-		      		  	char_inf.base_def = list[i].base_def;
-		      		  	char_inf.base_max_hp = list[i].base_max_hp;
-		      		  	char_inf.level = list[i].level;
-		      		  	char_inf.mark = list[i].mark;
-		      		  	char_inf.src = list[i].src;
-		        		break;
-		        	}
-		        }
-		        
-		        main_deck.main_character = char_inf;
-		        
-		        // move all main deck's cards to others
-		        for(var i = 0 ; i < main_deck.deck_list.length ; i++){
-		        	others.push(main_deck.deck_list[i]);
-		        	
-		        }
-		        main_deck.deck_list = [];
-		        result.main_deck = main_deck;
-		        result.others = others;
-		        
-		        //send result   
-		        io.sockets.emit('data',result);
-		});
-    	
-    	
-    	// send result
-    	break;
+                var char_inf = null;
+                for(var i = 0 ; i < list.length ; i++){
+                    if(list[i].num == char_num){
+                        char_inf = config.newCharacterInf();
+                        
+                        char_inf.num = list[i].num;
+                        char_inf.name = list[i].character_name;
+                        char_inf.title = list[i].title;
+                        char_inf.base_atk = list[i].base_atk;
+                        char_inf.base_def = list[i].base_def;
+                        char_inf.base_max_hp = list[i].base_max_hp;
+                        char_inf.level = list[i].level;
+                        char_inf.mark = list[i].mark;
+                        char_inf.src = list[i].src;
+                        break;
+                    }
+                }
+                
+                main_deck.main_character = char_inf;
+                
+                // move all main deck's cards to others
+                for(var i = 0 ; i < main_deck.deck_list.length ; i++){
+                    others.push(main_deck.deck_list[i]);
+                    
+                }
+                main_deck.deck_list = [];
+                result.main_deck = main_deck;
+                result.others = others;
+                
+                //send result   
+                io.sockets.emit('data',result);
+        });
+        
+        
+        // send result
+        break;
    /************************
    // adjust changed deck // 
-   ************************/     	
+   ************************/        
     case config.CLIENT_REQUEST_DECK_CHANGE : 
-    	//get data
-    	var main_deck = received.main_deck;
-    	var others = received.others;
-    	//check
-    	//	if length is not 30 - err msg
-    	if(main_deck.deck_list.length != 29){
-    		result.MessageNum = config.SERVER_RESPONSE_DECK_CARD_MOVE_CHECK;
-			msg = "The total number of main deck's card must be 29.";
-	       
-			result.is_success = false;
-	        result.msg = msg;
-	        io.sockets.emit('data',result);  	
-	        
-	        return;
-    	}
-    	
-    	//db management
-    	//	get deck_num
-	   	 db_module.get_deck_num(received.user_id ,db_conn, function(main_num, others_num){ 
-	   		 //	delete
-//	   		 db_module.delete_deck_items(main_num,others_num,db_conn,function(){
-	   			 //update main deck's character
-	   			  db_module.update_deck_char(main_num , main_deck.main_character.num ,db_conn,function(){
-			   			//	insert	 
-			   			db_module.insert_deck_item(main_num,others_num, main_deck,others,db_conn ,function(main_deck, others){ 
-			    	        result.is_success = 1;
-			    	        result.MessageNum = config.SERVER_RESPONSE_DECK_CHANGE;
-			    	        result.msg = "The main deck changed successfully.";
-			    	        result.main_deck = main_deck;
-			    	        result.others = others;
-			    	    	
-			    	        //send result   
-			    	        io.sockets.emit('data',result);
-			   			});
-	   			 });
-//	   		 });
-		});  	
-    	
-    	break;
+        //get data
+        var main_deck = received.main_deck;
+        var others = received.others;
+        //check
+        //  if length is not 30 - err msg
+        if(main_deck.deck_list.length != 29){
+            result.MessageNum = config.SERVER_RESPONSE_DECK_CARD_MOVE_CHECK;
+            msg = "The total number of main deck's card must be 29.";
+           
+            result.is_success = false;
+            result.msg = msg;
+            io.sockets.emit('data',result);     
+            
+            return;
+        }
+        
+        //db management
+        //  get deck_num
+         db_module.get_deck_num(received.user_id ,db_conn, function(main_num, others_num){ 
+             // delete
+//           db_module.delete_deck_items(main_num,others_num,db_conn,function(){
+                 //update main deck's character
+                  db_module.update_deck_char(main_num , main_deck.main_character.num ,db_conn,function(){
+                        //  insert   
+                        db_module.insert_deck_item(main_num,others_num, main_deck,others,db_conn ,function(main_deck, others){ 
+                            result.is_success = 1;
+                            result.MessageNum = config.SERVER_RESPONSE_DECK_CHANGE;
+                            result.msg = "The main deck changed successfully.";
+                            result.main_deck = main_deck;
+                            result.others = others;
+                            
+                            //send result   
+                            io.sockets.emit('data',result);
+                        });
+                 });
+//           });
+        });     
+        
+        break;
    /************************
-   // go to world map		// 
-   ************************/       	
+   // go to world map       // 
+   ************************/        
     case config.CLIENT_REQUEST_GO_WORLD_MAP :
-    	//console.log(app.findUserById(received.id));
-    	var exp = app.findUserById(received.id).exp;
-    	//calculate user's level
-    	var lv = config.calculate_lv(exp);
-    	//get explorable field list from db
-    	
-    	db_module.get_field_list(lv,db_conn, function(list){ 
-    		result.is_success = 1;
-	        result.MessageNum = config.SERVER_RESULT_GO_WORLD_MAP;
-	        result.list = list;
-	        
-	        console.log(list);
-	        
-	        //send result   
-	        io.sockets.emit('data',result);
-    	});
-    	
-    	break;
-    	
-    	
+        //console.log(app.findUserById(received.id));
+        var exp = app.findUserById(received.id).exp;
+        //calculate user's level
+        var lv = config.calculate_lv(exp);
+        //get explorable field list from db
+        
+        db_module.get_field_list(lv,db_conn, function(list){ 
+            result.is_success = 1;
+            result.MessageNum = config.SERVER_RESULT_GO_WORLD_MAP;
+            result.list = list;
+            
+            console.log(list);
+            
+            //send result   
+            io.sockets.emit('data',result);
+        });
+        
+        break;
+        
+        
   }
 
-}
+};
 
 //////////////////////////////////////////////////////
 function check_char(card_num, character_num){
-	var res = false;
-	
-	switch (character_num) {
-	case 1:
-		if(card_num == 1)
-			res = true;
-		break;
-	case 2:
-		if(card_num == 14)
-			res = true;
-		break;
-	case 3:
-		if(card_num == 20)
-			res = true;
-		break;
-	case 4:
-		if(card_num == 24)
-			res = true;
-		break;
-	}
-	
-	return res;
+    var res = false;
+    
+    switch (character_num) {
+    case 1:
+        if(card_num == 1)
+            res = true;
+        break;
+    case 2:
+        if(card_num == 14)
+            res = true;
+        break;
+    case 3:
+        if(card_num == 20)
+            res = true;
+        break;
+    case 4:
+        if(card_num == 24)
+            res = true;
+        break;
+    }
+    
+    return res;
 }

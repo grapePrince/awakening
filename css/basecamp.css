@@ -79,14 +79,15 @@
 
 
 
-#basecamp #charname_img {
-  background:url("../images/basecamp/name.png");
-  width: 380px;
+#basecamp #charname_word {
   height: 70px;
   position: absolute;
   left: 15px; 
   top: 725px;
   z-index: 4;
+  color: orange; 
+  font-size: 50px;
+ 
 }
 
 #basecamp #icon_img {

@@ -24,6 +24,17 @@ var my_user_information = new userInf();
 var my_room_list = new Array();
 var current_room_inf = new roomInf();
 
+
+function hide_all(){
+    $("#login").hide();
+    $("#loby").hide();
+    $("#makeroom").hide();
+    $("#enterroom").hide();
+    $("#room").hide();
+    $("#basecamp").hide();
+}
+
+
 function request() {
     var MessageNum;
     var user_id;

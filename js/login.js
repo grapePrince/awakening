@@ -20,7 +20,7 @@
     function login_init(){
         $('#login #input_id').val("");
         $('#login #input_pw').val("");
-         $('#loby').hide();
+         hide_all();
          $("#login").show();
       }   
        
@@ -29,7 +29,7 @@
            if( data.is_login_success ){
                my_selected_deck = data.selected_deck;
                my_user_information = data.user_information;
-               loby_init(); 
+               camp_init(); 
            }     
            else { 
                console.log('로그인 실패')

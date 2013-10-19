@@ -1,5 +1,40 @@
 var makeroom_pass_state;
 
+var enterroom_room_item;
+
+function server_response_participate(data) {
+    if(  data.is_success == 1) {
+        current_room_inf = enterroom_room_item ;
+        room_init();
+    }
+}
+
+function enterroom_init(_room_item){
+    enterroom_room_item = _room_item;
+    $('#enterroom #pass_text').val("");
+    $('#enterroom').show();
+}
+
+function enterroom_dialog_ok(){
+        var req = new request();
+        req.room_name = enterroom_room_item.name;
+        req.room_pass = $('#enterroom #pass_text').val();
+        req.MessageNum = CLIENT_REQUEST_PARTICIPATE;
+        sock_send_request(req);
+}
+function enterroom_dialog_off(){
+    $("#enterroom").hide();
+}
+
+
+function makeroom_dialog_on() {
+    makeroom_pass_state = 1;
+    $("#makeroom #title_text").val("");
+    $("#makeroom #pass_text").val("");
+    $("#makeroom").show();
+}
+
+
 function makeroom_dialog_pass(){
     if( makeroom_pass_state == 0){
         makeroom_pass_state = 1;
@@ -12,7 +47,6 @@ function makeroom_dialog_pass(){
         $("#makeroom #pass_button").css('background-image', 'url("images/makeroom/lock_open.png")'); 
     }
 }
-
 
 
 function makeroom_dialog_ok(){

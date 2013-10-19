@@ -1,4 +1,4 @@
-var socket = io.connect('lattetime.cafe24.com:8080');
+var socket = io.connect('lattetime.cafe24.com:9999');
 
 //when socket is connected
 socket.on('connect', function() {
@@ -24,7 +24,14 @@ socket.on('data', function(data) {
                   break;                
             case SERVER_REQUEST_ADDROOM  : //111
                   server_request_addroom(data);
-                  break;	      
+                  break;	    
+            case SERVER_RESPONSE_PARTICIPATE  : //108
+                  server_response_participate(data);
+                  break;     
+            case SERVER_REQUEST_UPDATE_ROOM_INF  : //112
+                  server_response_update_room_inf(data);
+                  break;           
+                  
     }
 });
 

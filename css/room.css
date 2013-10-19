@@ -28,15 +28,24 @@
 { background: url("../images/room/back_pressed.png"); 
 }
 
+#room #character_image_host {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 100px; 
+  top: 200px;
+  z-index: 2;
+}
 
 #room #character_name_host {
-  background:url("../images/room/zephyros.png");
+  font-size: 40px;
   width: 380px;
   height: 70px;
   position: absolute;
   left: 0px;
   top: 455px;
   z-index: 2; 
+  color: orange;
   transform:rotate(350deg);
   -ms-transform:rotate(350deg); /* IE 9 */
   -webkit-transform:rotate(350deg); /* Safari and Chrome */
@@ -86,17 +95,26 @@
   top: 50px;
 }
 
+#room #character_image_guest {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 300px; 
+  top: 200px;
+  z-index: 2;
+}
 
 
 #room #character_name_guest {
   visibility : hidden;	
-  background:url("../images/room/zephyros.png");
-  width: 380px;
+  font-size: 40px;
+  width: 500px;
   height: 70px;
   position: absolute;
   left: 420px;
   top: 455px;
   z-index: 2; 
+   color: orange;
   transform:rotate(10deg);
   -ms-transform:rotate(10deg); /* IE 9 */
   -webkit-transform:rotate(10deg); /* Safari and Chrome */

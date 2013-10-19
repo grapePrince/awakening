@@ -3,7 +3,7 @@
 <meta charset="UTF-8">
   <title>Card Game</title>
   
-<script src="http://lattetime.cafe24.com:8080/socket.io/socket.io.js"></script>
+<script src="http://lattetime.cafe24.com:9999/socket.io/socket.io.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 <script src="./js/main.js"></script>
@@ -12,6 +12,7 @@
 <script src="js/loby.js"></script>
 <script src="js/dialog.js"></script>
 <script src="js/room.js"></script>
+<script src="js/basecamp.js"></script>
 
 <link rel="stylesheet" type="text/css" href="css/login.css">
 <link rel="stylesheet" type="text/css" href="css/loby.css">
@@ -19,14 +20,19 @@
 <link rel="stylesheet" type="text/css" href="css/dialog.css">
 <link rel="stylesheet" type="text/css" href="css/room.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/basecamp.css">
+<link rel="stylesheet" type="text/css" href="css/battle.css">
 
 <script>
-$(function() {
-	$("#loby").hide();
-	$("#makeroom").hide();
-	$("#room").hide();
-	window.resizeBy(800,800);
+$( document ).ready(function() {
+  $("#loby").hide();
+    $("#makeroom").hide();
+    $("#enterroom").hide();
+    $("#room").hide();
+    $("#basecamp").hide();
+    window.resizeBy(800,800);
 });
+
 </script>
 </head>
 
@@ -35,8 +41,8 @@ $(function() {
 		    <div id="login_background"> </div>
 			      <input type="text" id="input_id"/><br>
 			      <input type="text" id="input_pw" >  <br>
-			      <a id="join_btn" class="btn" onClick="send_join();"></a>
-			      <a id="login_btn" class="btn" onClick="send_login();" ></a> <br>
+			      <a id="join_btn" class="btn" onClick="send_join();"> </a>
+			      <a id="login_btn" class="btn" onClick="send_login();" > </a> <br>
 		  
 	 </section>
 	 
@@ -56,7 +62,7 @@ $(function() {
          <div id="gear_icon3"> </div>
          <div id="gold">Gold_ 999999999</div>
 		 <div id="room_list"> </div>
-         <div id="back_button" class="btn" onClick="login_init();"></div>
+         <div id="back_button" class="btn" onClick="camp_init();"></div>
          <div id="makeroom_button" class="btn" onClick="makeroom_dialog_on();" ></div>
      </div>          
 	 </section>
@@ -71,6 +77,17 @@ $(function() {
         <input type="password" id="pass_text">
         <div  id="ok_button" class="btn" onClick="makeroom_dialog_ok();"></div>
         <div  id="cancel_button" class="btn" onClick="makeroom_dialog_off();"></div>
+      </div>
+     </div>
+    </section> 
+    
+    <section id= "enterroom">
+       <div id="enterroom_back">
+       <div id="enterroom_dialog">
+        <div id= "pass_word"> </div>
+        <input  type="text" id="pass_text"> 
+        <div  id="ok_button" class="btn" onClick="enterroom_dialog_ok();"></div>
+        <div  id="cancel_button" class="btn" onClick="enterroom_dialog_off();"></div>
       </div>
      </div>
     </section> 
@@ -107,6 +124,32 @@ $(function() {
           <input type="text" id="chat_text">
         
     </section> 
+    
+    <section id="basecamp">
+  
+      <div id="back"> </div>
+      <div id="back_down"> </div>
+      <div id="mold"> </div>
+  
+      <div id="cityname_img"> </div>
+      <div id="battlezone_btn" class="btn" onClick="go_battlezone()"> </div>
+      <div id="cardshop_btn" class="btn"> </div>
+      <div id="makeroom_btn" class="btn"> </div>
+      <div id="map_btn" class="btn"> </div>
+      
+     
+      <div id="char_img"> </div>
+      <div id="charname_word">default</div>
+      <div id="icon_img"> </div>
+      <div id="userid_word">empty</div>
+      <div id="lv_word">lv_  99</div>
+      <div id="cost_word">cost_ 99</div>
+      <div id="gold_word">gold_ 99</div>
+      <div id="deck_btn" class="btn"> </div>
+      <div id="config_btn" class="btn"> </div>
+      <div id="inf_btn" class="btn"> </div>
+   
+      </section>   
   </body> 
   
 </html>

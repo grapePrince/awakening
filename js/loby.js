@@ -1,3 +1,4 @@
+
 function loby_init() {
 
     $("#user_id").text("" + my_user_information.id);
@@ -11,16 +12,10 @@ function loby_init() {
     req.MessageNum = CLENT_REQUEST_GO_BATTLE_LOBBY;
     sock_send_request(req);
 
-    $("#login").hide();
+    hide_all();
     $("#loby").show();
 }
 
-function makeroom_dialog_on() {
-    makeroom_pass_state = 1;
-    $("#makeroom #title_text").val("");
-    $("#makeroom #pass_text").val("");
-    $("#makeroom").show();
-}
 
 function server_request_addroom(data) {
     if (data) {
@@ -47,9 +42,6 @@ function loby_show_roomlist(){
                     $($("#loby #room_list #background #enterbutton")[i]).attr("disabled", "disabled");
                 }
             }
-
-
-
 }
 
 function server_response_close_room(data) {
@@ -57,9 +49,10 @@ function server_response_close_room(data) {
         if (data.is_success) {
             my_room_list = data.room_list;
             loby_show_roomlist();
-
+ 
+            hide_all();
             $("#loby").show();
-            $("#room").hide();
+            
 
         } else {
           console.log('방 닫기 실패')
@@ -98,14 +91,8 @@ function createRoomItem(room_item, num) {
     back.append($("<div id='roomtitle'>" + room_item.subject + "</div>"));
     back.append($("<div id='lock'></div>"));
     back.append($("<div id='enterbutton'></div>").click(function() {
-
-      
-        var name = $(this).parent().children("#roomtitle").text();
-        var req = new request();
-
-        req.room_name = name
-        req.MessageNum = 107;
-        sock_send_request(req);
+   
+        enterroom_init( room_item );
 
     }));
     back.append($("<div id='fullstamp'></div>"));
