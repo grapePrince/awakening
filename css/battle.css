@@ -289,7 +289,7 @@
 #battle #turn_end_btn:hover {
 	border-radius: 3px;
   	border:1px solid #D2A541;
-
+	cursor: pointer;
 }
 
 #battle #turn_txt {
