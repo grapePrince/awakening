@@ -56,7 +56,7 @@ exports.call = function(io,socket,db_conn,received){
       var second; //second user
       
       var first_deck ;//first user's deck
-      var second_deck//second user's deck
+      var second_deck;//second user's deck
       
       db_module.getHostClientDeck(host.id,client.id,db_conn,function(host_deck,client_deck){ //load deck information from db
         //get user's deck information from db
@@ -308,7 +308,7 @@ exports.call = function(io,socket,db_conn,received){
         battle_inf_result.first_special_card_effect.second_reflect_damage_percent = 0;   
         
         //if first user - set second's hand invisible
-        battle_inf_result.second_hand_list = []
+        battle_inf_result.second_hand_list = [];
         for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++){
             battle_inf_result.second_hand_list[i] = unknown_card;
         }
@@ -321,7 +321,7 @@ exports.call = function(io,socket,db_conn,received){
         io.sockets.socket(first.session_id).emit('data',first_res); //send to first
         
         //if second user - set first's hand invisible
-        battle_inf_result.first_hand_list = []
+        battle_inf_result.first_hand_list = [];
         for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++){
             battle_inf_result.first_hand_list[i] = unknown_card;
         }
@@ -357,8 +357,24 @@ exports.call = function(io,socket,db_conn,received){
       //console.log("battle inf is ===============================");
       //console.log(battle_inf);
 
-      //get clicked card
-      var clicked = received.hand_index;
+      //get clicked card's hand index
+      var clicked = -1;
+      var hand_length ;
+      if(battle_inf.turn_num%2 == 1)//first user's turn
+       	hand_length = battle_inf.first_hand_list.length;
+      else //second user's turn
+      	hand_length = battle_inf.second_hand_list.length;	
+      for(var i = 0 ; i < hand_length ; i++){ 
+      	if(battle_inf.first_hand_list[i].deck_id_num == received.deck_id_num){
+      		clicked = i;
+      		break;
+      	}
+      }      
+      if(clicked == -1){
+      	 console.log("invalid deck_id_num from client.");
+      	return;
+      }
+      
       ////////////////////
       //first user's turn
       ////////////////////
@@ -1496,7 +1512,7 @@ exports.call = function(io,socket,db_conn,received){
       
       
       //reset used list
-      battle_inf.used_list = []
+      battle_inf.used_list = [];
       
       //reset one-turn variables : is_specialcard_used, is_evolutioncard_used
       battle_inf.is_evolutioncard_used = false;
@@ -1706,7 +1722,7 @@ exports.call = function(io,socket,db_conn,received){
 			  
 			  io.sockets.socket(battle_inf.first.session_id).emit('data',draw_res_first); //send to first
 		  }
-	  }
+	 }
 	  	  
 	  //send changed information to client
 	  io.sockets.in(battle_inf.room_name).emit('data', res);  	
@@ -1719,7 +1735,7 @@ exports.call = function(io,socket,db_conn,received){
       break;
 
   }
-}
+};
 
 function popBattleInf(session_id){
 	  for(var i = 0 ; i < BATTLE_LIST.length ; i++){
@@ -1742,4 +1758,4 @@ exports.popDisconnectedBattleInf = function(session_id){
     
   }
   
-}
+};

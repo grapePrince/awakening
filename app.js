@@ -15,7 +15,7 @@ user     : 'root',
 password : 'latte!123',
 database : "card",
 insecureAuth: true
-}
+};
 
 var conn = mysql.createConnection(mysqlConfig);
 conn.connect(); //connect to mysql
@@ -42,17 +42,17 @@ var LOGIN_USER_LIST = [];
 // add item to list
 exports.addRoomInf = function(room_inf){
   ROOM_LIST.push(room_inf);
-}
+};
 exports.getRoomLength = function(){
   return ROOM_LIST.length;
-}
+};
 exports.changeRoomInf = function(room_name,room_inf){
     for(var i = 0 ; i < ROOM_LIST.length ; i++){
       if(ROOM_LIST[i].name == room_name){
         ROOM_LIST[i] = room_inf;
       }
   }
-}
+};
 function changeRoomInf(room_name,room_inf){
   for(var i = 0 ; i < ROOM_LIST.length ; i++){
       if(ROOM_LIST[i].name == room_name){
@@ -62,7 +62,7 @@ function changeRoomInf(room_name,room_inf){
 }
 exports.getRoomList = function(){
   return ROOM_LIST;
-}
+};
 exports.getRoomInf = function(room_name){
 var res;
   for(var i = 0 ; i < ROOM_LIST.length ; i++){
@@ -71,7 +71,7 @@ var res;
       }
   }
   return res;
-}
+};
 function getRoomInfByName (room_name){
   var res;
   for(var i = 0 ; i < ROOM_LIST.length ; i++){
@@ -80,15 +80,15 @@ function getRoomInfByName (room_name){
       }
   }
   return res;
-}
+};
 exports.popRoomInf = function(room_name){
   for(var i = 0 ; i < ROOM_LIST.length ; i++){
       if(ROOM_LIST[i].name == room_name){
-        ROOM_LIST.splice(i,1)
+        ROOM_LIST.splice(i,1);
       }
-  };
+  }
   //console.log("pop : " + ROOM_LIST);
-}
+};
 function popRoomInfByName(room_name){ 
   for(var i = 0 ; i < ROOM_LIST.length ; i++){
     if(ROOM_LIST[i].name == room_name)
@@ -104,14 +104,14 @@ function popRoomInfByName(room_name){
 exports.addUserInf = function(user_inf){
   //user_inf.session_id = socket.id;
   LOGIN_USER_LIST.push(user_inf);
-}
+};
 function popUserBySessionId(input_id){
   for(var i = 0 ; i < LOGIN_USER_LIST.length ; i++){
     if(LOGIN_USER_LIST[i].session_id == input_id){
         LOGIN_USER_LIST.splice(i,1);
     }
   }
-}
+};
 exports.findUserById = function(input_id){
   for(var i = 0 ; i < LOGIN_USER_LIST.length ; i++){
     if(LOGIN_USER_LIST[i].id == input_id){
@@ -119,8 +119,7 @@ exports.findUserById = function(input_id){
     }
   }
   return null;
-}
-
+};
 //yeji changed all handler function...
 
 function handler (req, res) {

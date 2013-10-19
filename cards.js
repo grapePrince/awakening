@@ -224,7 +224,7 @@ exports.cardUsedFromHand = function(io,socket, battle_inf, is_first ,card_num,ha
   }
   
   return result;
-}
+};
 /*************************************************************
 //                   CHECK EQUIP CONDITION					//
 ************************************************************/
@@ -302,7 +302,7 @@ exports.checkCondition = function(io,socket, battle_inf, is_first ,card_num){
 	}
 	
 	return res;
-}
+};
 /*************************************************************
 //                    EFFECT DETACH	          				//
 ************************************************************/
@@ -353,7 +353,7 @@ exports.detachEffect = function(io,socket, battle_inf, is_first ,card_num){
 	}
 	
 	return res;
-}
+};
 /*************************************************************
 //                      SKILL CARD USED                     //
 ************************************************************/
@@ -391,7 +391,7 @@ exports.skillCardUsed = function(io,socket, battle_inf, is_first ,card_num){
 		 
 	 }
 	 return damage;
-}
+};
 
 /*********************************************************
 //                    CARD DETAILS                      //

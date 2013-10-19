@@ -45,7 +45,7 @@ exports.popDisconnectedExploreInf = function(session_id){
 		  FIELD_EXPLORE_LIST.splice(i,1);
 	}
 	
-}
+};
 
 exports.call = function(io,socket,db_conn,received){
 	
@@ -461,7 +461,7 @@ exports.call = function(io,socket,db_conn,received){
 			
 	}
 
-}
+};
 
 function getAction(attack,critical,heal,more,evolve,defense){
 	var rand = parseInt( Math.random() * 29);
