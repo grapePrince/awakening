@@ -62,7 +62,7 @@ function changeRoomInf(room_name,room_inf){
 }
 exports.getRoomList = function(){
   return ROOM_LIST;
-}
+};
 exports.getRoomInf = function(room_name){
 var res;
   for(var i = 0 ; i < ROOM_LIST.length ; i++){
@@ -84,7 +84,7 @@ function getRoomInfByName (room_name){
 exports.popRoomInf = function(room_name){
   for(var i = 0 ; i < ROOM_LIST.length ; i++){
       if(ROOM_LIST[i].name == room_name){
-        ROOM_LIST.splice(i,1)
+        ROOM_LIST.splice(i,1);
       }
   }
   //console.log("pop : " + ROOM_LIST);

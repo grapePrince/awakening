@@ -174,6 +174,7 @@ exports.call = function(io,socket,db_conn,received){
         var update_room_res = config.newResponse();
         update_room_res.MessageNum = config.SERVER_REQUEST_UPDATE_ROOM_INF;
         update_room_res.room_inf = room_inf;
+        update_room_res.room_list = app.getRoomList();
         
         socket.emit('data', result);
         io.sockets.emit('data',update_room_res);
