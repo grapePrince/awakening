@@ -39,10 +39,13 @@ $( document ).ready(function() {
   <body> 
      <section id="login">
 		    <div id="login_background"> </div>
-			      <input type="text" id="input_id"/><br>
-			      <input type="text" id="input_pw" >  <br>
-			      <a id="join_btn" class="btn" onClick="send_join();"> </a>
-			      <a id="login_btn" class="btn" onClick="send_login();" > </a> <br>
+		    <div id="wheel_01"> </div>
+		    <div id="wheel_02"> </div>
+		    <div id="wheel_03"> </div>
+			      <input type="text" id="input_id" style="width: 180px;"/><br>
+			      <input type="password" id="input_pw" style="width: 180px;">  <br>
+			      <a id="join_btn" class="btn" onclick="send_join();"> </a>
+			      <a id="login_btn" class="btn" onclick="send_login();" > </a> <br>
 		  
 	 </section>
 	 
@@ -53,6 +56,7 @@ $( document ).ready(function() {
             <div id="image_mold"> </div>
          </div>     
          <div id="id_tag"> </div>
+         <div id="user_cost">999 </div>
          <div id="user_id">User_Id</div>
          <div id="gear_icon1"> </div>
          <div id="lv">Lv_ 999</div>
@@ -62,8 +66,9 @@ $( document ).ready(function() {
          <div id="gear_icon3"> </div>
          <div id="gold">Gold_ 999999999</div>
 		 <div id="room_list"> </div>
-         <div id="back_button" class="btn" onClick="camp_init();"></div>
-         <div id="makeroom_button" class="btn" onClick="makeroom_dialog_on();" ></div>
+		 <div id="room_list_back"> </div>
+         <div id="back_button" class="btn" onclick="camp_init()"> </div>
+         <div id="makeroom_button" class="btn" onclick="makeroom_dialog_on();" > </div>
      </div>          
 	 </section>
 	 
@@ -73,10 +78,10 @@ $( document ).ready(function() {
         <div id= "title_word"> </div>
         <input  type="text" id="title_text"> 
         <div id= "pass_word"> </div>
-        <div  id= "pass_button" class="btn" onClick="makeroom_dialog_pass()"></div>
+        <div  id= "pass_button" class="btn" onclick="makeroom_dialog_pass()"> </div>
         <input type="password" id="pass_text">
-        <div  id="ok_button" class="btn" onClick="makeroom_dialog_ok();"></div>
-        <div  id="cancel_button" class="btn" onClick="makeroom_dialog_off();"></div>
+        <div  id="ok_button" class="btn" onclick="makeroom_dialog_ok();"> </div>
+        <div  id="cancel_button" class="btn" onclick="makeroom_dialog_off();"> </div>
       </div>
      </div>
     </section> 
@@ -86,8 +91,8 @@ $( document ).ready(function() {
        <div id="enterroom_dialog">
         <div id= "pass_word"> </div>
         <input  type="text" id="pass_text"> 
-        <div  id="ok_button" class="btn" onClick="enterroom_dialog_ok();"></div>
-        <div  id="cancel_button" class="btn" onClick="enterroom_dialog_off();"></div>
+        <div  id="ok_button" class="btn" oncick="enterroom_dialog_ok();"> </div>
+        <div  id="cancel_button" class="btn" onclick="enterroom_dialog_off();"> </div>
       </div>
      </div>
     </section> 
@@ -95,7 +100,7 @@ $( document ).ready(function() {
 	 <section id= "room">
           <div id="background"> </div>
           <div id="roomname_word">방이름</div>
-          <div id="back_button" class="btn" onClick="close_room()"> </div>
+          <div id="back_button" class="btn" onclick="close_room()"> </div>
           
           <div id="character_image_host"> </div>
           <div id="character_name_host"> </div>
@@ -132,13 +137,14 @@ $( document ).ready(function() {
       <div id="mold"> </div>
   
       <div id="cityname_img"> </div>
-      <div id="battlezone_btn" class="btn" onClick="go_battlezone()"> </div>
+      <div id="battlezone_btn" class="btn" onclick="go_battlezone();"> </div>
       <div id="cardshop_btn" class="btn"> </div>
       <div id="makeroom_btn" class="btn"> </div>
       <div id="map_btn" class="btn"> </div>
       
      
       <div id="char_img"> </div>
+      <div id="charname_txt">character_ </div>
       <div id="charname_word">default</div>
       <div id="icon_img"> </div>
       <div id="userid_word">empty</div>

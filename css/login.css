@@ -1,3 +1,31 @@
+@-webkit-keyframes rotate {
+ from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotate {
+ from {
+     -moz-transform: rotate(0deg);
+  }
+  to {
+     -moz-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes rotateup {
+ from {
+     -moz-transform: rotate(0deg);
+  }
+  to {
+     -moz-transform: rotate(360deg);
+  }
+}
+
+
 #login #login_background {
   background:url("../images/login/back.png");
   width: 800px;
@@ -7,7 +35,39 @@
   left: 0px;
   z-index: 1; 
 }
-
+	#login #wheel_01{
+		background:url("../images/wheels/02.png");
+	  	width: 198px;
+	  	height: 198px;
+	  	position: absolute;	
+	  	left: 105px; 
+	  	top: 160px;
+	  	z-index: 2;
+	  	-webkit-animation: rotate 50s linear infinite 0s;
+		-moz-animation: rotateup 50s linear infinite 0s;
+	}
+	#login #wheel_02{
+		background:url("../images/wheels/08.png");
+	  	width: 103px;
+	  	height: 104px;
+	  	position: absolute;	
+	  	left: 305px; 
+	  	top: 195px;
+	  	z-index: 2;
+	  	-webkit-animation: rotate 30s linear infinite 0s;
+		-moz-animation: rotateup 30s linear infinite 0s;
+	}
+	#login #wheel_03{
+		background:url("../images/wheels/11.png");
+	  	width: 114px;
+	  	height: 114px;
+	  	position: absolute;	
+	  	left: 125px; 
+	  	top: 360px;
+	  	z-index: 2;
+	  	-webkit-animation: rotate 45s linear infinite 0s;
+		-moz-animation: rotateup 45s linear infinite 0s;
+	}
 #login #input_id {
   position: absolute;
   width: 100px;

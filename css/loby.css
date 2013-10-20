@@ -17,8 +17,8 @@
 }
 #loby #character_image {
   background:url("../images/loby/character_image.png");
-  width: 125px;
-  height: 125px;
+  width: 130px;
+  height: 130px;
   position: absolute;
   left: 5px; 
   top: 5px;
@@ -58,7 +58,24 @@
 #loby #makeroom_button:active 
 { background: url("../images/loby/makeroom_pressed.png"); 
 }
-
+#loby #user_cost {
+	width: 50px;
+  	height: 30px;
+  	position: absolute;
+  	left: 38px; 
+  	top: 25px;
+  	transform:rotate(-45deg);
+  	-ms-transform:rotate(-45deg); /* IE 9 */
+ 	-webkit-transform:rotate(-45deg); /* Safari and Chrome */
+ 	  font:normal 13px/13px Georgia, serif;
+    text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
+  	z-index: 4;
+  	color: white;	
+}
 
 #loby #id_tag {
   background:url("../images/loby/id_tag.png");
@@ -72,13 +89,15 @@
 #loby #user_id {
   position: absolute;
   left: 260px;
-  top: 22px;
+  top: 16px;
+  font-family:"Times New Roman",Georgia,Serif;
+  font: normal 22px/30px Georgia, serif;
   z-index: 3;
 }
 #loby #gear_icon1 {
   background:url("../images/loby/gear_icon.png");
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   left: 170px; 
   top: 55px;
@@ -87,14 +106,15 @@
 #loby #lv {
   position: absolute;
   left: 215px; 
-  top: 65px;
+  top: 60px;
   z-index: 2;
+  font-family:"Times New Roman",Georgia,Serif;
   color: white;
 }
 #loby #gear_icon2 {
   background:url("../images/loby/gear_icon.png");
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   left: 170px; 
   top: 85px;
@@ -104,21 +124,23 @@
 #loby #win {
   position: absolute;
   left: 215px; 
-  top: 95px;
+  top: 90px;
   z-index: 2;
+  font-family:"Times New Roman",Georgia,Serif;
   color: white;
 }
 #loby #lose {
   position: absolute;
   left: 300px; 
-  top: 95px;
+  top: 90px;
   z-index: 2;
+  font-family:"Times New Roman",Georgia,Serif;
   color: white;
 }
 #loby #gear_icon3 {
   background:url("../images/loby/gear_icon.png");
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   left: 170px; 
   top: 115px;
@@ -127,11 +149,20 @@
 #loby #gold {
   position: absolute;
   left: 215px; 
-  top: 125px;
+  top: 120px;
   z-index: 2;
+  font-family:"Times New Roman",Georgia,Serif;
   color: white;
 }
-
+#loby #room_list_back{
+	background:url("../images/loby/list_back.png");
+	width: 790px;
+  height: 565px;
+    left: 10px;
+  top: 222px;
+  position: absolute;
+  z-index: 0;
+}
 #loby #room_list {
   width: 790px;
   height: 565px;

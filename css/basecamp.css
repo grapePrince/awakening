@@ -34,8 +34,8 @@
   width: 300px;
   height: 160px;
   position: absolute;
-  left: 15px;
-  top: 65px;
+  left: 25px;
+  top: 75px;
   z-index: 3; 
 }
 
@@ -44,7 +44,7 @@
   width: 271px;
   height: 65px;
   position: absolute;
-  left: 520px; 
+  left: 514px; 
   top: 240px;
   z-index: 3;
 }
@@ -54,7 +54,7 @@
   width: 271px;
   height: 65px;
   position: absolute;
-  left: 520px; 
+  left: 514px; 
   top: 320px;
   z-index: 3;
 }
@@ -63,7 +63,7 @@
   width: 271px;
   height: 65px;
   position: absolute;
-  left: 520px; 
+  left: 514px; 
   top: 400px;
   z-index: 3;
 }
@@ -72,22 +72,40 @@
   width: 271px;
   height: 65px;
   position: absolute;
-  left: 520px; 
+  left: 514px; 
   top: 480px;
   z-index: 3;
 }
 
+#basecamp #charname_txt {
+  height: 90px;
+  position: absolute;
+  left: 25px; 
+  top: 685px;
+  z-index: 4;
+  color: black; 
+  font: bold 20px/30px Georgia, serif;
+  text-shadow:
+   -1px -1px 0 #D2A541,  
+    1px -1px 0 #D2A541,
+    -1px 1px 0 #D2A541,
+     1px 1px 0 #D2A541;
+}
 
 
 #basecamp #charname_word {
   height: 70px;
   position: absolute;
-  left: 15px; 
-  top: 725px;
+  left: 35px; 
+  top: 730px;
   z-index: 4;
-  color: orange; 
-  font-size: 50px;
- 
+  color: black; 
+  font: bold 60px/30px Georgia, serif;
+  text-shadow:
+   -1px -1px 0 #D2A541,  
+    1px -1px 0 #D2A541,
+    -1px 1px 0 #D2A541,
+     1px 1px 0 #D2A541;
 }
 
 #basecamp #icon_img {
@@ -103,10 +121,11 @@
 #basecamp #userid_word {
   position: absolute;
   font-size: 40px;
-  left: 320px; 
+  left: 330px; 
   top: 650px;
   z-index: 4;
-  color: orange;
+  color: #D2A541;
+  font: normal 25px/30px Georgia, serif;
 }
 
 #basecamp #lv_word {
@@ -115,6 +134,9 @@
   top: 700px;
   z-index: 4;
   color: white;
+  font-family:"Times New Roman",Georgia,Serif;
+  font: normal 18px/30px Georgia, serif;
+
 }
 
 #basecamp #cost_word {
@@ -123,6 +145,9 @@
   top: 700px;
   z-index: 4;
   color: white;
+  font-family:"Times New Roman",Georgia,Serif;
+  font: normal 18px/30px Georgia, serif;
+
 }
 
 #basecamp #gold_word {
@@ -131,6 +156,10 @@
   top: 725px;
   z-index: 4;
   color: white;
+  font-family:"Times New Roman",Georgia,Serif;
+  font: normal 18px/30px Georgia, serif;
+
+  z-index: 3;
 }
 
 

@@ -2,9 +2,10 @@
 function loby_init() {
 
     $("#user_id").text("" + my_user_information.id);
-
+	$("#user_cost").text(""+my_user_information.cost);
     $("#lv").text("Lv_  " + my_user_information.lv);
     $("#win").text("Win_  " + my_user_information.win_num);
+    $("#lose").text("Lose_  " + my_user_information.lose_num);
     $("#gold").text("Gold_  " + my_user_information.money);
 
     //103. go to loby 를 요청한다.
