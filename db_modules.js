@@ -185,7 +185,8 @@ exports.login = function(user_id, user_pass , db_conn ,callback){
               user_inf.id = rows[0].id;
               user_inf.name = rows[0].name;
               user_inf.exp = rows[0].exp;
-              user_inf.main_character_num = rows[0].character_num;
+              	user_inf.main_character_num = rows[0].character_num; //delete?
+              
               user_inf.money = rows[0].money;
               user_inf.win_num = rows[0].win_num;
               user_inf.lose_num = rows[0].lose_num;
@@ -206,6 +207,8 @@ exports.login = function(user_id, user_pass , db_conn ,callback){
               main_deck_inf.main_character.mark =  rows[0].mark;
               main_deck_inf.deck_list = [];
              
+              user_inf.character_inf =  main_deck_inf.main_character; //add character inf to user inf
+              
               var cost_sum = 0;
               for(var i = 0 ; i < rows.length ; i++){ //get main deck's card list
                 var cardInf = config.newCardInf();

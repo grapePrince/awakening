@@ -74,7 +74,7 @@ exports.call = function(io,socket,db_conn,received){
       
       console.log("room list\n");
       console.log(io.sockets.manager.rooms);
-      console.log("=====================================\n ROOM_LIST")
+      console.log("=====================================\n ROOM_LIST");
       if(result.room_list.length < 1)
         console.log("no room");
       for(var i = 0 ; i < result.room_list.length ; i++){
@@ -231,6 +231,7 @@ exports.call = function(io,socket,db_conn,received){
       
       //broadcast changed ROOM_LIST
       update_room_res.room_name = room_inf.name;
+      update_room_res.room_list = app.getRoomList();
       io.sockets.emit('data',update_room_res);
       
       break;
