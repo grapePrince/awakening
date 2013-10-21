@@ -35,11 +35,11 @@
 
 #loby #room_list #listimage {
   background:url("../images/loby/character_image.png");
-  width: 55px;
-  height: 55px;
+  width: 100px;
+  height: 100px;
   position: absolute;
-  left: 165px;
-  top: 35px;
+  left: 135px;
+  top: 2px;
   z-index: 3;
 }
 

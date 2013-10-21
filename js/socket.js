@@ -32,6 +32,11 @@ socket.on('data', function(data) {
                   server_response_update_room_inf(data);
                   break;           
                   
+            case  SERVER_RESPONSE_STARTBATTLE : //202
+                server_response_startbattle(data);
+                break;
+                     
+                  
     }
 });
 

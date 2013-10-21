@@ -77,6 +77,15 @@
   z-index: 3;
 }
 
+#basecamp #char_img {
+  width: 340px;
+  height: 400px;
+  position: absolute;
+  left: 10px; 
+  top: 300px;
+  z-index: 3;
+}
+
 #basecamp #charname_txt {
   height: 90px;
   position: absolute;

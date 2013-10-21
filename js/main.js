@@ -12,6 +12,10 @@ var SERVER_RESPONSE_CLOSE_ROOM  = 110	;
 var SERVER_REQUEST_ADDROOM  = 111	;
 var SERVER_REQUEST_UPDATE_ROOM_INF  = 112	;
 
+var CLIENT_REQUEST_STARTBATTLE = 201;
+var SERVER_RESPONSE_STARTBATTLE = 202;
+
+
 var CHARACTER_NAME_IMAGE =[
     'url("images/room/choco.png")'
     , 'url("images/room/iter.png")'
@@ -32,6 +36,7 @@ function hide_all(){
     $("#enterroom").hide();
     $("#room").hide();
     $("#basecamp").hide();
+    $("#battle").hide();
 }
 
 

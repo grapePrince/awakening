@@ -8,6 +8,10 @@ function loby_init() {
     $("#lose").text("Lose_  " + my_user_information.lose_num);
     $("#gold").text("Gold_  " + my_user_information.money);
 
+
+    $("#loby #character_image").css('background-image', 'url('+  "images/character/"+my_selected_deck.main_character.src+"_square_145x145.png"  +')'  );
+  
+
     //103. go to loby 를 요청한다.
     var req = new request();
     req.MessageNum = CLENT_REQUEST_GO_BATTLE_LOBBY;
@@ -84,8 +88,11 @@ function createRoomItem(room_item, num) {
     back.append($("<div id='no'></div>"));
     back.append($("<div id='no_word'>" + num + "</div>"));
     back.append($("<div id='listimage_back'></div>"));
-    back.append($("<div id='listimage'></div>"));
-    back.append($("<div id='cost_word'>" + room_item.host_inf.cost + "</div>"));
+    back.append($("<div id='listimage'></div>")
+             .css('background-image', 'url('+  "images/character/"+room_item.host_inf.character_inf.src+"_square_100x100.png"  +')'  )     
+    );
+  
+    back.append($("<div id='cost_word'>" + "cost_ "+room_item.host_inf.cost + "</div>"));
     back.append($("<div id='level'></div>"));
     back.append($("<div id='level_word'>" + room_item.host_inf.lv + "</div>"));
     back.append($("<div id='userid'>" + room_item.host_inf.id + "</div>"));

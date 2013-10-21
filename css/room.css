@@ -29,12 +29,12 @@
 }
 
 #room #character_image_host {
-  width: 100px;
-  height: 100px;
+  width: 280px;
+  height: 747px;
   position: absolute;
   left: 100px; 
   top: 200px;
-  z-index: 2;
+  z-index: 3;
 }
 
 #room #character_name_host {
@@ -96,12 +96,12 @@
 }
 
 #room #character_image_guest {
-  width: 100px;
-  height: 100px;
+  width: 280px;
+  height: 747px;
   position: absolute;
-  left: 300px; 
+  left: 600px; 
   top: 200px;
-  z-index: 2;
+  z-index: 3;
 }
 
 
