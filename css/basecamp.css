@@ -81,15 +81,15 @@
   width: 340px;
   height: 400px;
   position: absolute;
-  left: 10px; 
-  top: 300px;
-  z-index: 3;
+  left: 15px; 
+  top: 400px;
+  z-index: 2;
 }
 
 #basecamp #charname_txt {
   height: 90px;
   position: absolute;
-  left: 25px; 
+  left: 35px; 
   top: 685px;
   z-index: 4;
   color: black; 
@@ -105,7 +105,7 @@
 #basecamp #charname_word {
   height: 70px;
   position: absolute;
-  left: 35px; 
+  left: 55px; 
   top: 730px;
   z-index: 4;
   color: black; 
@@ -122,7 +122,7 @@
   width: 40px;
   height: 40px;
   position: absolute;
-  left: 280px; 
+  left: 360px; 
   top: 650px;
   z-index: 4;
 }
@@ -130,7 +130,7 @@
 #basecamp #userid_word {
   position: absolute;
   font-size: 40px;
-  left: 330px; 
+  left: 410px; 
   top: 650px;
   z-index: 4;
   color: #D2A541;
@@ -139,7 +139,7 @@
 
 #basecamp #lv_word {
   position: absolute;
-  left: 310px; 
+  left: 390px; 
   top: 700px;
   z-index: 4;
   color: white;
@@ -150,7 +150,7 @@
 
 #basecamp #cost_word {
   position: absolute;
-  left: 455px; 
+  left: 535px; 
   top: 700px;
   z-index: 4;
   color: white;
@@ -161,7 +161,7 @@
 
 #basecamp #gold_word {
   position: absolute;
-  left: 310px; 
+  left: 390px; 
   top: 725px;
   z-index: 4;
   color: white;
@@ -177,7 +177,7 @@
   width: 46px;
   height: 46px;
   position: absolute;
-  left: 640px; 
+  left: 645px; 
   top: 730px;
   z-index: 4;
 }
@@ -195,7 +195,7 @@
   width: 46px;
   height: 46px;
   position: absolute;
-  left: 740px; 
+  left: 735px; 
   top: 730px;
   z-index: 4;
 }

@@ -12,7 +12,7 @@ function room_init() {
         
     if (current_room_inf.host_inf != -1) {
        $("#room #character_image_host").css('background-image', 'url('+  "images/character/"+current_room_inf.host_inf.character_inf.src+"_default_standing.png"  +')'  );
-       $("#room #character_name_host").text( current_room_inf.host_inf.character_inf.name );
+       $("#room #character_name_host").text( current_room_inf.host_inf.character_inf.src.toUpperCase() );
         
        // $("#room #character_image_host").css('background-image', 'url('+  "images/character/_default_standing.png"  +')'  );
         //$("#room #character_name_host").text( "Choco" );
@@ -27,7 +27,7 @@ function room_init() {
 
     if (current_room_inf.client_inf != -1) {
        $("#room #character_image_guest").css('background-image', 'url('+  "images/character/"+current_room_inf.client_inf.character_inf.src+"_enemy_standing.png"  +')'  );
-       $("#room #character_name_guest").text( current_room_inf.client_inf.character_inf.name );
+       $("#room #character_name_guest").text( current_room_inf.client_inf.character_inf.src.toUpperCase() );
          
         //$("#room #character_image_guest").css('background-image', 'url('+  "images/character/_default_standing.png"  +')'  );
         //$("#room #character_name_guest").text( "Iter" );

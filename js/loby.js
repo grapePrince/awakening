@@ -96,6 +96,7 @@ function createRoomItem(room_item, num) {
     back.append($("<div id='level'></div>"));
     back.append($("<div id='level_word'>" + room_item.host_inf.lv + "</div>"));
     back.append($("<div id='userid'>" + room_item.host_inf.id + "</div>"));
+    back.append($("<div id='roomtitle_txt'>title_</div>"));
     back.append($("<div id='roomtitle'>" + room_item.subject + "</div>"));
     back.append($("<div id='lock'></div>"));
     back.append($("<div id='enterbutton'></div>").click(function() {
