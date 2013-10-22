@@ -11,9 +11,6 @@ function server_response_startbattle(data) {
 }
 
 function init_battle() {
-    
-    
-    
     //battle started successfully.
     //see other  init_somthing functions in other .js files.
     //init screen and wait for user's command. 
