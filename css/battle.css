@@ -262,7 +262,17 @@
   top: 0px;
   z-index: 4; 
 }
-
+#battle #card_big {
+  background:url("../images/cards/card_back_big.png");
+  background-size:310px,437px;
+  width: 310px;
+  height: 437px;
+  position: absolute;
+  left: 245px;
+  top: 140px;
+  z-index: 5; 
+  border-radius: 5px;
+}
 #battle #used_back {
   background:url("../images/battle/used_back.png");
   width: 800px;
@@ -273,7 +283,15 @@
   z-index: 3;
 }	
 
-
+#battle #turn_end_btn_disdabled {
+  background:url("../images/battle/turn_end_disabled.png");
+  width: 100px;
+  height: 42px;
+  position: absolute;
+  left: 680px; 
+  top: 412px;
+  z-index: 3;
+}
 #battle #turn_end_btn {
   background:url("../images/battle/turn_end.png");
   width: 100px;
@@ -282,6 +300,7 @@
   left: 680px; 
   top: 412px;
   z-index: 4;
+  
 }
 #battle #turn_end_btn:active {
 	background:url("../images/battle/turn_end_pressed.png");
@@ -289,8 +308,8 @@
 #battle #turn_end_btn:hover {
 	border-radius: 3px;
   	border:1px solid #D2A541;
-
 }
+
 
 #battle #turn_txt {
   width: 100px;
@@ -326,7 +345,7 @@
 }
 
 
-#battle #my_hp {
+#battle #second_hp {
   background:url("../images/battle/hpbar.png");
   width: 400px;
   height: 40px;
@@ -336,7 +355,7 @@
   z-index: 4;
 }
 
-#battle #my_hp_in {
+#battle #second_hp_in {
   background:url("../images/battle/hp.png");
   width: 335px;
   height: 15px;
@@ -345,8 +364,24 @@
   top: 762px;
   z-index: 5;
 }
+#battle #second_remain_hp {
+  background:url("../images/battle/hp.png");
+  width: 70px;
+  height: 15px;
+  position: absolute;
+  left: 200px; 
+  top: 762px;
+  z-index: 5;
+  font: normal 12px/12px Georgia, serif;
+  color:white;
+  text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
+}
 
-#battle #my_atk_back {
+#battle #second_atk_back {
   background:url("../images/battle/atk.png");
   width: 100px;
   height: 30px;
@@ -356,7 +391,7 @@
   z-index: 4;
 }
 
-#battle #my_def_back{
+#battle #second_def_back{
   background:url("../images/battle/def.png");
   width: 100px;
   height: 30px;
@@ -366,7 +401,7 @@
   z-index: 4;
 }
 
-#battle #my_atk {
+#battle #second_atk {
   width: 60px;
   height: 30px;
   position: absolute;
@@ -378,7 +413,7 @@
   z-index: 5;
 }
 
-#battle #my_def{
+#battle #second_def{
   width: 60px;
   height: 30px;
   position: absolute;
@@ -390,7 +425,7 @@
   z-index: 5;
 }
 
-#battle #my_id_back{
+#battle #second_id_back{
   background:url("../images/battle/name.png");
   width: 150px;
   height: 30px;
@@ -400,7 +435,7 @@
   z-index: 4;
 }
 
-#battle #my_id{
+#battle #second_id{
   width: 150px;
   height: 30px;
   position: absolute;
@@ -412,7 +447,7 @@
   z-index: 5;
  }
 
-#battle #my_equip{
+#battle #second_equip{
   background:url("../images/battle/equip_user.png");
   width: 550px;
   height: 150px;
@@ -422,17 +457,18 @@
   z-index: 2;
 }
 
-#battle #my_character{
-  width: 200px;
-  height: 300px;
+#battle #second_character{
+  width: 180px;
+  height: 210px;
+  background-size:180px,210px;
   position: absolute;
   left: 20px; 
-  top: 468px;
+  top: 498px;
   z-index: 2;	
 
 }
 
-#battle #my_status {
+#battle #second_status {
   background:url("../images/battle/status_off_back.png");
   width: 200px;
   height: 40px;
@@ -442,7 +478,7 @@
   z-index: 3;
 }
 
-#battle #my_status_poison{
+#battle #second_status_poison{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -452,7 +488,7 @@
   z-index: 4;
 }
 
-#battle #my_status_burn{
+#battle #second_status_burn{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -462,7 +498,7 @@
   z-index: 4;
 }
 
-#battle #my_status_frozen{
+#battle #second_status_frozen{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -472,7 +508,7 @@
   z-index: 4;
 }
 
-#battle #my_status_para{
+#battle #second_status_para{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -482,7 +518,7 @@
   z-index: 4;
 }
 
-#battle #my_status_dark{
+#battle #second_status_dark{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -492,7 +528,7 @@
   z-index: 4;
 }
 
-#battle #my_immune_back {
+#battle #second_immune_back {
   background:url("../images/battle/immune_back.png");
   width: 232px;
   height: 40px;
@@ -502,7 +538,7 @@
   z-index: 2;
 }
 
-#battle #my_immune_txt {
+#battle #second_immune_txt {
   width: 160px;
   height: 20px;
   position: absolute;
@@ -517,7 +553,7 @@
      1px 1px 0 black;
 }
 
-#battle #my_immune_next{
+#battle #second_immune_next{
   width: 30px;
   height: 20px;
   position: absolute;
@@ -532,7 +568,7 @@
      1px 1px 0 black;
 }
 
-#battle #my_character_lv{
+#battle #second_character_lv{
   width: 50px;
   height: 30px;
   position: absolute;
@@ -548,7 +584,7 @@
   z-index: 3;	
 }
 
-#battle #my_character_name{
+#battle #second_character_name{
   width: 100px;
   height: 30px;
   position: absolute;
@@ -564,7 +600,7 @@
   z-index: 3;	
 }
 
-#battle #my_character_title{
+#battle #second_character_title{
   width: 100px;
   height: 30px;
   position: absolute;
@@ -581,7 +617,7 @@
   z-index: 3;	
 }
 
-#battle #my_equip_1 {
+#battle #second_equip_1 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
@@ -590,7 +626,7 @@
   top: 627px;
   z-index: 4;
 }
-#battle #my_equip_1:hover {
+#battle #second_equip_1:hover {
 	left: 429px; 
   top: 625px;
   width: 73px;
@@ -600,7 +636,7 @@
   background-size: cover;
 }
 
-#battle #my_equip_2 {
+#battle #second_equip_2 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
@@ -609,7 +645,7 @@
   top: 627px;
   z-index: 4;
 }
-#battle #my_equip_2:hover {
+#battle #second_equip_2:hover {
 	left: 509px; 
   top: 625px;
   width: 73px;
@@ -619,7 +655,7 @@
   background-size: cover;
 }
 
-#battle #my_equip_3 {
+#battle #second_equip_3 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
@@ -628,7 +664,7 @@
   top: 627px;
   z-index: 4;
 }
-#battle #my_equip_3:hover {
+#battle #second_equip_3:hover {
 	left: 589px; 
   top: 625px;
   width: 73px;
@@ -638,7 +674,7 @@
   background-size: cover;
 }
 
-#battle #my_equip_4 {
+#battle #second_equip_4 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
@@ -647,7 +683,7 @@
   top: 627px;
   z-index: 4;
 }
-#battle #my_equip_4:hover {
+#battle #second_equip_4:hover {
 	left: 669px; 
   top: 625px;
   width: 73px;
@@ -658,7 +694,7 @@
 }
 
 
-#battle #my_weapon_tag{
+#battle #second_weapon_tag{
   background:url("../images/battle/weapon_tag.png");
   width: 71px;
   height: 100px;
@@ -668,7 +704,7 @@
   z-index: 4;
 }
 
-#battle #my_skill_tag {
+#battle #second_skill_tag {
   background:url("../images/battle/skill_tag.png");
   width: 71px;
   height: 100px;
@@ -678,7 +714,7 @@
   z-index: 4;
 }
 
-#battle #my_weapon{
+#battle #second_weapon{
   background:url("../images/battle/no_weapon.png");
   width: 71px;
   height: 100px;
@@ -688,7 +724,7 @@
   z-index: 3;
 }
 
-#battle #my_skill {
+#battle #second_skill {
   background:url("../images/battle/no_skill.png");
   width: 71px;
   height: 100px;
@@ -698,7 +734,7 @@
   z-index: 3;
 }
 
-#battle #my_equip_prev{
+#battle #second_equip_prev{
   background:url("../images/battle/prev.png");
   width: 15px;
   height: 30px;
@@ -707,10 +743,10 @@
   top: 660px;
   z-index: 4;
 }
-#battle #my_equip_prev:active{
+#battle #second_equip_prev:active{
 	background:url("../images/battle/prev_pressed.png");
 }
-#battle #my_equip_prev:hover{
+#battle #second_equip_prev:hover{
   width: 17px;
   height: 32px;	
   left: 404px; 
@@ -718,7 +754,7 @@
   background-size: cover;
 }
 
-#battle #my_equip_next{
+#battle #second_equip_next{
   background:url("../images/battle/next.png");
   width: 15px;
   height: 30px;
@@ -727,17 +763,17 @@
   top: 660px;
   z-index: 4;
 }
-#battle #my_equip_next:active{
+#battle #second_equip_next:active{
 	background:url("../images/battle/next_pressed.png");
 }
-#battle #my_equip_next:hover{
+#battle #second_equip_next:hover{
   width: 17px;
   height: 32px;	
   left: 754px; 
   top: 659px;
   background-size: cover;
 }
-#battle #my_hand_next {
+#battle #second_hand_next {
   background:url("../images/battle/next.png");
   width: 15px;
   height: 30px;
@@ -746,10 +782,10 @@
   top: 515px;
   z-index: 4;
 }
-#battle #my_hand_next:active {
+#battle #second_hand_next:active {
   background:url("../images/battle/next_pressed.png");
 }
-#battle #my_hand_next:hover{
+#battle #second_hand_next:hover{
   width: 17px;
   height: 32px;	
   left: 674px; 
@@ -757,7 +793,7 @@
   background-size: cover;
 }
 
-#battle #my_hand_prev {
+#battle #second_hand_prev {
   background:url("../images/battle/prev.png");
   width: 15px;
   height: 30px;
@@ -766,10 +802,10 @@
   top: 515px;
   z-index: 4;
 }
-#battle #my_hand_prev:active{
+#battle #second_hand_prev:active{
   background:url("../images/battle/prev_pressed.png");
  }
-#battle #my_hand_prev:hover{
+#battle #second_hand_prev:hover{
   width: 17px;
   height: 32px;	
   left: 239px; 
@@ -777,16 +813,18 @@
   background-size: cover;
 } 
  
-#battle #my_hand_1 {
+#battle #second_hand_1 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 270px; 
   top: 480px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #my_hand_1:hover {
+#battle #second_hand_1:hover {
 	left: 269px; 
   top: 478px;
   width: 73px;
@@ -796,16 +834,18 @@
   background-size: cover;
 }
 
-#battle #my_hand_2 {
+#battle #second_hand_2 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
+  background-size:71px,100px;
   position: absolute;
   left: 350px; 
   top: 480px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #my_hand_2:hover {
+#battle #second_hand_2:hover {
 	left: 349px; 
   top: 478px;
   width: 73px;
@@ -815,16 +855,18 @@
   background-size: cover;
 }
 
-#battle #my_hand_3 {
+#battle #second_hand_3 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 430px; 
   top: 480px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #my_hand_3:hover {
+#battle #second_hand_3:hover {
 	left: 429px; 
   top: 478px;
   width: 73px;
@@ -834,16 +876,18 @@
   background-size: cover;
 }
 
-#battle #my_hand_4 {
+#battle #second_hand_4 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 510px; 
   top: 480px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #my_hand_4:hover {
+#battle #second_hand_4:hover {
 	left: 509px; 
   top: 478px;
   width: 73px;
@@ -853,16 +897,18 @@
   background-size: cover;
 }
 
-#battle #my_hand_5 {
+#battle #second_hand_5 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 590px; 
   top: 480px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #my_hand_5:hover {
+#battle #second_hand_5:hover {
 	left: 589px; 
   top: 478px;
   width: 73px;
@@ -872,7 +918,7 @@
   background-size: cover;
 }
 
-#battle #my_deck {
+#battle #second_deck {
   background:url("../images/battle/my_deck.png");
   width: 50px;
   height: 110px;
@@ -884,7 +930,7 @@
 
 
 
-#battle #opp_hp {
+#battle #first_hp {
   background:url("../images/battle/hpbar.png");
   width: 400px;
   height: 40px;
@@ -894,7 +940,7 @@
   z-index: 4;
 }
 
-#battle #opp_hp_in {
+#battle #first_hp_in {
   background:url("../images/battle/hp.png");
   width: 335px;
   height: 15px;
@@ -903,8 +949,24 @@
   top: 22px;
   z-index: 5;
 }
+#battle #first_remain_hp {
+  background:url("../images/battle/hp.png");
+  width: 70px;
+  height: 15px;
+  position: absolute;
+  left: 200px; 
+  top: 22px;
+  z-index: 5;
+  font: normal 12px/12px Georgia, serif;
+  color:white;
+  text-shadow:
+   -1px -1px 0 black,  
+    1px -1px 0 black,
+    -1px 1px 0 black,
+     1px 1px 0 black;
+}
 
-#battle #opp_atk_back {
+#battle #first_atk_back {
   background:url("../images/battle/atk.png");
   width: 100px;
   height: 30px;
@@ -914,7 +976,7 @@
   z-index: 4;
 }
 
-#battle #opp_def_back{
+#battle #first_def_back{
   background:url("../images/battle/def.png");
   width: 100px;
   height: 30px;
@@ -924,7 +986,7 @@
   z-index: 4;
 }
 
-#battle #opp_atk {
+#battle #first_atk {
   width: 60px;
   height: 30px;
   position: absolute;
@@ -936,7 +998,7 @@
   z-index: 5;
 }
 
-#battle #opp_def{
+#battle #first_def{
   width: 60px;
   height: 30px;
   position: absolute;
@@ -948,7 +1010,7 @@
   z-index: 5;
 }
 
-#battle #opp_id_back{
+#battle #first_id_back{
   background:url("../images/battle/name.png");
   width: 150px;
   height: 30px;
@@ -958,7 +1020,7 @@
   z-index: 4;
 }
 
-#battle #opp_id{
+#battle #first_id{
   width: 150px;
   height: 30px;
   position: absolute;
@@ -970,7 +1032,7 @@
   z-index: 5;
  }
 
-#battle #opp_character_lv{
+#battle #first_character_lv{
   width: 50px;
   height: 30px;
   position: absolute;
@@ -986,7 +1048,7 @@
   z-index: 3;	
 }
 
-#battle #opp_character_name{
+#battle #first_character_name{
   width: 100px;
   height: 30px;
   position: absolute;
@@ -1002,7 +1064,7 @@
   z-index: 3;	
 }
 
-#battle #opp_character_title{
+#battle #first_character_title{
   width: 100px;
   height: 30px;
   position: absolute;
@@ -1019,7 +1081,7 @@
   z-index: 3;	
 }
 
-#battle #opp_equip{
+#battle #first_equip{
   background:url("../images/battle/equip_enemy.png");
   width: 550px;
   height: 150px;
@@ -1028,7 +1090,7 @@
   top: 65px;
   z-index: 2;
 }
-#battle #opp_equip_4 {
+#battle #first_equip_4 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
@@ -1037,7 +1099,7 @@
   top: 73px;
   z-index: 4;
 }
-#battle #opp_equip_4:hover {
+#battle #first_equip_4:hover {
 	left: 59px; 
   top: 71px;
   width: 73px;
@@ -1046,7 +1108,7 @@
   border:1px solid white;
   background-size: cover;
 }
-#battle #opp_equip_3 {
+#battle #first_equip_3 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
@@ -1054,7 +1116,7 @@
   left: 140px; 
   top: 73px;
   z-index: 4;
-}#battle #opp_equip_3:hover {
+}#battle #first_equip_3:hover {
 	left: 139px; 
   top: 71px;
   width: 73px;
@@ -1064,7 +1126,7 @@
   background-size: cover;
 }
 
-#battle #opp_equip_2 {
+#battle #first_equip_2 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
@@ -1073,7 +1135,7 @@
   top: 73px;
   z-index: 4;
 }
-#battle #opp_equip_2:hover {
+#battle #first_equip_2:hover {
 	left: 219px; 
   top: 71px;
   width: 73px;
@@ -1082,7 +1144,7 @@
   border:1px solid white;
   background-size: cover;
 }
-#battle #opp_equip_1 {
+#battle #first_equip_1 {
   background:url("../images/battle/card_back.png");
   width: 71px;
   height: 100px;
@@ -1091,7 +1153,7 @@
   top: 73px;
   z-index: 4;
 }
-#battle #opp_equip_1:hover {
+#battle #first_equip_1:hover {
 	left: 299px; 
   top: 71px;
   width: 73px;
@@ -1101,7 +1163,7 @@
   background-size: cover;
 }
 
-#battle #opp_immune_back{
+#battle #first_immune_back{
   background:url("../images/battle/immune_back.png");
   width: 232px;
   height: 40px;
@@ -1111,7 +1173,7 @@
   z-index: 2;
 }
 
-#battle #opp_immune_txt {
+#battle #first_immune_txt {
   width: 160px;
   height: 20px;
   position: absolute;
@@ -1126,7 +1188,7 @@
      1px 1px 0 black;
 }
 
-#battle #opp_immune_next {
+#battle #first_immune_next {
   width: 30px;
   height: 20px;
   position: absolute;
@@ -1141,7 +1203,7 @@
      1px 1px 0 black;
 }
 
-#battle #opp_weapon_tag{
+#battle #first_weapon_tag{
   background:url("../images/battle/weapon_tag.png");
   width: 71px;
   height: 100px;
@@ -1151,7 +1213,7 @@
   z-index: 4;
 }
 
-#battle #opp_skill_tag {
+#battle #first_skill_tag {
   background:url("../images/battle/skill_tag.png");
   width: 71px;
   height: 100px;
@@ -1161,7 +1223,7 @@
   z-index: 4;
 }
 
-#battle #opp_weapon{
+#battle #first_weapon{
   background:url("../images/battle/no_weapon.png");
   width: 71px;
   height: 100px;
@@ -1171,7 +1233,7 @@
   z-index: 3;
 }
 
-#battle #opp_skill {
+#battle #first_skill {
   background:url("../images/battle/no_skill.png");
   width: 71px;
   height: 100px;
@@ -1181,7 +1243,7 @@
   z-index: 3;
 }
 
-#battle #opp_equip_prev{
+#battle #first_equip_prev{
   background:url("../images/battle/prev.png");
   width: 15px;
   height: 30px;
@@ -1190,10 +1252,10 @@
   top: 110px;
   z-index: 4;
 }
-#battle #opp_equip_prev:active{
+#battle #first_equip_prev:active{
   background:url("../images/battle/prev_pressed.png");
 }
-#battle #opp_equip_prev:hover{
+#battle #first_equip_prev:hover{
   width: 17px;
   height: 32px;	
   left: 29px; 
@@ -1201,7 +1263,7 @@
   background-size: cover;
 }
 
-#battle #opp_equip_next{
+#battle #first_equip_next{
   background:url("../images/battle/next.png");
   width: 15px;
   height: 30px;
@@ -1210,10 +1272,10 @@
   top: 110px;
   z-index: 4;
 }
-#battle #opp_equip_next:active{
+#battle #first_equip_next:active{
   background:url("../images/battle/next_pressed.png");
 }
-#battle #opp_equip_next:hover{
+#battle #first_equip_next:hover{
   width: 17px;
   height: 32px;	
   left: 384px; 
@@ -1221,17 +1283,17 @@
   background-size: cover;
 }
 
-#battle #opp_character{
-  width: 200px;
-  height: 300px;
+#battle #first_character{
+  width: 180px;
+  height: 210px;
+  background-size:180px,210px;
   position: absolute;
   left: 580px; 
-  top: 70px;
+  top: 100px;
   z-index: 2;	
-
 }
 
-#battle #opp_status {
+#battle #first_status {
   background:url("../images/battle/status_off_back_enemy.png");
   width: 200px;
   height: 40px;
@@ -1241,7 +1303,7 @@
   z-index: 3;
 }
 
-#battle #opp_status_poison{
+#battle #first_status_poison{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -1251,7 +1313,7 @@
   z-index: 4;
 }
 
-#battle #opp_status_burn{
+#battle #first_status_burn{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -1261,7 +1323,7 @@
   z-index: 4;
 }
 
-#battle #opp_status_frozen{
+#battle #first_status_frozen{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -1271,7 +1333,7 @@
   z-index: 4;
 }
 
-#battle #opp_status_para{
+#battle #first_status_para{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -1281,7 +1343,7 @@
   z-index: 4;
 }
 
-#battle #opp_status_dark{
+#battle #first_status_dark{
   background:url("../images/battle/status_off.png");
   width: 15px;
   height: 15px;
@@ -1291,7 +1353,7 @@
   z-index: 4;
 }
 
-#battle #opp_hand_next {
+#battle #first_hand_next {
   background:url("../images/battle/next.png");
   width: 15px;
   height: 30px;
@@ -1300,10 +1362,10 @@
   top: 252px;
   z-index: 4;
 }
-#battle #opp_hand_next:active {
+#battle #first_hand_next:active {
   background:url("../images/battle/next_pressed.png");
 }
-#battle #opp_hand_next:hover{
+#battle #first_hand_next:hover{
   width: 17px;
   height: 32px;	
   left: 544px; 
@@ -1311,7 +1373,7 @@
   background-size: cover;
 }
 
-#battle #opp_hand_prev {
+#battle #first_hand_prev {
   background:url("../images/battle/prev.png");
   width: 15px;
   height: 30px;
@@ -1320,10 +1382,10 @@
   top: 252px;
   z-index: 4;
 }
-#battle #opp_hand_prev:active {
+#battle #first_hand_prev:active {
   background:url("../images/battle/prev_pressed.png");
 }
-#battle #opp_hand_prev:hover{
+#battle #first_hand_prev:hover{
   width: 17px;
   height: 32px;	
   left: 109px; 
@@ -1331,16 +1393,18 @@
   background-size: cover;
 }
 
-#battle #opp_hand_5 {
+#battle #first_hand_5 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 140px; 
   top: 218px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #opp_hand_5:hover {
+#battle #first_hand_5:hover {
 	left: 139px; 
   top: 216px;
   width: 73px;
@@ -1349,16 +1413,18 @@
   border:1px solid white;
   background-size: cover;
 }
-#battle #opp_hand_4 {
+#battle #first_hand_4 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 220px; 
   top: 218px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #opp_hand_4:hover {
+#battle #first_hand_4:hover {
 	left: 219px; 
   top: 216px;
   width: 73px;
@@ -1367,16 +1433,18 @@
   border:1px solid white;
   background-size: cover;
 }
-#battle #opp_hand_3 {
+#battle #first_hand_3 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 300px; 
   top: 218px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #opp_hand_3:hover {
+#battle #first_hand_3:hover {
 	left: 299px; 
   top: 216px;
   width: 73px;
@@ -1385,16 +1453,18 @@
   border:1px solid white;
   background-size: cover;
 }
-#battle #opp_hand_2 {
+#battle #first_hand_2 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 380px; 
   top: 218px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #opp_hand_2:hover {
+#battle #first_hand_2:hover {
 	left: 379px; 
   top: 216px;
   width: 73px;
@@ -1403,16 +1473,18 @@
   border:1px solid white;
   background-size: cover;
 }
-#battle #opp_hand_1 {
+#battle #first_hand_1 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
   left: 460px; 
   top: 218px;
   z-index: 4;
+  border-radius: 2px;
 }
-#battle #opp_hand_1:hover {
+#battle #first_hand_1:hover {
 	left: 459px; 
   top: 216px;
   width: 73px;
@@ -1423,7 +1495,7 @@
 }
 
 
-#battle #opp_deck {
+#battle #first_deck {
   background:url("../images/battle/opp_deck.png");
   width: 50px;
   height: 110px;

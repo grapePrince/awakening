@@ -317,7 +317,7 @@ exports.call = function(io,socket,db_conn,received){
         first_res.MessageNum = config.SERVER_RESPONSE_STARTBATTLE;
         first_res.isSuccess = 1;
         first_res.battle_inf = battle_inf_result;
-          
+        first_res.is_first = true;  
         io.sockets.socket(first.session_id).emit('data',first_res); //send to first
         
         //if second user - set first's hand invisible
@@ -330,7 +330,7 @@ exports.call = function(io,socket,db_conn,received){
         second_res.MessageNum = config.SERVER_RESPONSE_STARTBATTLE;
         second_res.isSuccess = 1;
         second_res.battle_inf = battle_inf_result;
-          
+        second_res.is_first = false;  
         io.sockets.socket(second.session_id).emit('data',second_res); //send to second
 
         
