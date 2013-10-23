@@ -184,13 +184,14 @@ $( document ).ready(function() {
             <div id="wheel_down_09"> </div>
             <div id="wheel_down_10"> </div>
         
-        <div id="turn_end_btn"> </div>
+        <div id="turn_end_btn" class="btn"> </div>
         <div id="turn_end_btn_disdabled"> </div>
         <div id="turn_txt"> TURN : </div>
         <div id="turn_num">01</div>
         
-      	<div id="card_big"> </div>
-      
+      	<div id="card_big" onclick="use_hand_card()"> </div>
+      	<div id="card_big_cancel" class="btn" onclick="close_card_inf()"> </div>
+      	
         <div id="second_hp"> </div>
         <div id="second_hp_in"> </div>
         <div id="second_remain_hp"> </div>
@@ -204,10 +205,10 @@ $( document ).ready(function() {
         <div id="second_equip"> </div>
         <div id="second_skill"> </div>
         <div id="second_weapon"> </div>
-        <div id="second_equip_1"> </div>
-        <div id="second_equip_2"> </div>
-        <div id="second_equip_3"> </div>
-        <div id="second_equip_4"> </div>
+        <div id="second_equip_1" ondblclick="show_card_big('#battle #second_equip_1',false,false,0)"> </div>
+        <div id="second_equip_2" ondblclick="show_card_big('#battle #second_equip_2',false,false,1)"> </div>
+        <div id="second_equip_3" ondblclick="show_card_big('#battle #second_equip_3',false,false,2)"> </div>
+        <div id="second_equip_4" ondblclick="show_card_big('#battle #second_equip_4',false,false,3)"> </div>
         <div id="second_equip_prev"> </div>
         <div id="second_equip_next"> </div>
         <div id="second_skill_tag"> </div>
@@ -228,11 +229,11 @@ $( document ).ready(function() {
         <div id="second_deck"> </div>
         <div id="second_hand_prev"> </div>
         <div id="second_hand_next"> </div>
-        <div id="second_hand_1"> </div>
-        <div id="second_hand_2"> </div>
-        <div id="second_hand_3"> </div>
-        <div id="second_hand_4"> </div>
-        <div id="second_hand_5"> </div>
+        <div id="second_hand_1" onclick="show_card_big('#battle #second_hand_1',false,true,0)"> </div>
+        <div id="second_hand_2" onclick="show_card_big('#battle #second_hand_2',false,true,1)"> </div>
+        <div id="second_hand_3" onclick="show_card_big('#battle #second_hand_3',false,true,2)"> </div>
+        <div id="second_hand_4" onclick="show_card_big('#battle #second_hand_4',false,true,3)"> </div>
+        <div id="second_hand_5" onclick="show_card_big('#battle #second_hand_5',false,true,4)"> </div>
    
         <div id="first_hp"> </div>
         <div id="first_hp_in"> </div>
@@ -249,10 +250,10 @@ $( document ).ready(function() {
         <div id="first_weapon"> </div>
         <div id="first_skill_tag"> </div>
         <div id="first_weapon_tag"> </div>
-        <div id="first_equip_1"> </div>
-        <div id="first_equip_2"> </div>
-        <div id="first_equip_3"> </div>
-        <div id="first_equip_4"> </div>
+        <div id="first_equip_1" ondblclick="show_card_big('#battle #first_equip_1',true,false,0)"> </div>
+        <div id="first_equip_2" ondblclick="show_card_big('#battle #first_equip_2',true,false,1)"> </div>
+        <div id="first_equip_3" ondblclick="show_card_big('#battle #first_equip_3',true,false,2)"> </div>
+        <div id="first_equip_4" ondblclick="show_card_big('#battle #first_equip_4',true,false,3)"> </div>
         <div id="first_immune_back"> </div>
         <div id="first_immune_txt"> immune</div>
         <div id="first_immune_next">▼</div>
@@ -271,11 +272,16 @@ $( document ).ready(function() {
         <div id="first_deck"> </div>
         <div id="first_hand_prev"> </div>
         <div id="first_hand_next"> </div>
-        <div id="first_hand_1"> </div>
-        <div id="first_hand_2"> </div>
-        <div id="first_hand_3"> </div>
-        <div id="first_hand_4"> </div>
-        <div id="first_hand_5"> </div>
+        <div id="first_hand_5_expand"> </div>
+        <div id="first_hand_4_expand"> </div>
+        <div id="first_hand_3_expand"> </div>
+        <div id="first_hand_2_expand"> </div>
+        <div id="first_hand_1_expand"> </div>
+        <div id="first_hand_1" onclick="show_card_big('#battle #first_hand_1',true,true,0)" > </div>
+        <div id="first_hand_2" onclick="show_card_big('#battle #first_hand_2',true,true,1)"> </div>
+        <div id="first_hand_3" onclick="show_card_big('#battle #first_hand_3',true,true,2)"> </div>
+        <div id="first_hand_4" onclick="show_card_big('#battle #first_hand_4',true,true,3)"> </div>
+        <div id="first_hand_5" onclick="show_card_big('#battle #first_hand_5',true,true,4)"> </div>
       </section>
   </body> 
   

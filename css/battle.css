@@ -272,6 +272,20 @@
   top: 140px;
   z-index: 5; 
   border-radius: 5px;
+  border:3px solid black;
+}
+#battle #card_big_cancel {
+  background:url("../images/battle/x_button.png");
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left: 545px;
+  top: 110px;
+  z-index: 5; 
+  border-radius: 5px;
+}
+#battle #card_big_cancel:active {
+  background:url("../images/battle/x_button_pressed.png");
 }
 #battle #used_back {
   background:url("../images/battle/used_back.png");
@@ -1413,6 +1427,7 @@
   border:1px solid white;
   background-size: cover;
 }
+
 #battle #first_hand_4 {
   background:url("../images/battle/card_back.png");
   background-size:71px,100px;
@@ -1433,6 +1448,7 @@
   border:1px solid white;
   background-size: cover;
 }
+
 #battle #first_hand_3 {
   background:url("../images/battle/card_back.png");
   background-size:71px,100px;
@@ -1453,6 +1469,7 @@
   border:1px solid white;
   background-size: cover;
 }
+
 #battle #first_hand_2 {
   background:url("../images/battle/card_back.png");
   background-size:71px,100px;
@@ -1473,6 +1490,7 @@
   border:1px solid white;
   background-size: cover;
 }
+
 #battle #first_hand_1 {
   background:url("../images/battle/card_back.png");
   background-size:71px,100px;
@@ -1493,7 +1511,6 @@
   border:1px solid white;
   background-size: cover;
 }
-
 
 #battle #first_deck {
   background:url("../images/battle/opp_deck.png");

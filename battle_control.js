@@ -358,7 +358,8 @@ exports.call = function(io,socket,db_conn,received){
       //console.log(battle_inf);
 
       //get clicked card's hand index
-      var clicked = -1;
+      var clicked = received.hand_index;
+      /*var clicked = -1;
       var hand_length ;
       if(battle_inf.turn_num%2 == 1)//first user's turn
        	hand_length = battle_inf.first_hand_list.length;
@@ -374,7 +375,7 @@ exports.call = function(io,socket,db_conn,received){
       	 console.log("invalid deck_id_num from client.");
       	return;
       }
-      
+      */
       ////////////////////
       //first user's turn
       ////////////////////

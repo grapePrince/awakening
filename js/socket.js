@@ -35,6 +35,9 @@ socket.on('data', function(data) {
             case  SERVER_RESPONSE_STARTBATTLE : //202
                 server_response_startbattle(data);
                 break;
+            case SERVER_RESPONSE_CARD_USE : //216
+            	server_response_card_used();
+            	break;
                      
                   
     }
