@@ -379,7 +379,6 @@
   z-index: 5;
 }
 #battle #second_remain_hp {
-  background:url("../images/battle/hp.png");
   width: 70px;
   height: 15px;
   position: absolute;
@@ -633,6 +632,7 @@
 
 #battle #second_equip_1 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -652,6 +652,7 @@
 
 #battle #second_equip_2 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -671,6 +672,7 @@
 
 #battle #second_equip_3 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -690,6 +692,7 @@
 
 #battle #second_equip_4 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -730,6 +733,7 @@
 
 #battle #second_weapon{
   background:url("../images/battle/no_weapon.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -740,6 +744,7 @@
 
 #battle #second_skill {
   background:url("../images/battle/no_skill.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -964,7 +969,6 @@
   z-index: 5;
 }
 #battle #first_remain_hp {
-  background:url("../images/battle/hp.png");
   width: 70px;
   height: 15px;
   position: absolute;
@@ -1106,6 +1110,7 @@
 }
 #battle #first_equip_4 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -1124,6 +1129,7 @@
 }
 #battle #first_equip_3 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -1142,6 +1148,7 @@
 
 #battle #first_equip_2 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -1160,6 +1167,7 @@
 }
 #battle #first_equip_1 {
   background:url("../images/battle/card_back.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -1236,9 +1244,19 @@
   top: 73px;
   z-index: 4;
 }
+#battle #first_skill_cooltime {
+  width: 71px;
+  height: 100px;
+  position: absolute;
+  left: 486px; 
+  top: 73px;
+  z-index: 4;
+  text-align: center;
+}
 
 #battle #first_weapon{
   background:url("../images/battle/no_weapon.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
@@ -1249,6 +1267,7 @@
 
 #battle #first_skill {
   background:url("../images/battle/no_skill.png");
+  background-size:71px,100px;
   width: 71px;
   height: 100px;
   position: absolute;
