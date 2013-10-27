@@ -358,24 +358,34 @@ exports.call = function(io,socket,db_conn,received){
       //console.log(battle_inf);
 
       //get clicked card's hand index
-      var clicked = received.hand_index;
-      /*var clicked = -1;
+      //var clicked = received.hand_index;
+      var clicked = -1;
       var hand_length ;
-      if(battle_inf.turn_num%2 == 1)//first user's turn
-       	hand_length = battle_inf.first_hand_list.length;
-      else //second user's turn
-      	hand_length = battle_inf.second_hand_list.length;	
-      for(var i = 0 ; i < hand_length ; i++){ 
-      	if(battle_inf.first_hand_list[i].deck_id_num == received.deck_id_num){
-      		clicked = i;
-      		break;
-      	}
-      }      
+      
+      if(battle_inf.turn_num%2 == 1){//first user's turn
+       	hand_length = battle_inf.first_hand_list.length;      
+       	for(var i = 0 ; i < hand_length ; i++){ 
+	      	if(battle_inf.first_hand_list[i].deck_id_num == received.deck_id_num){
+	      		clicked = i;
+	      		break;
+	      	}
+      	}  
+       }
+      else{ //second user's turn
+      	hand_length = battle_inf.second_hand_list.length;
+      	for(var i = 0 ; i < hand_length ; i++){ 
+	      	if(battle_inf.second_hand_list[i].deck_id_num == received.deck_id_num){
+	      		clicked = i;
+	      		break;
+	      	}
+      	}  	
+      }
+    
       if(clicked == -1){
       	 console.log("invalid deck_id_num from client.");
       	return;
       }
-      */
+      
       ////////////////////
       //first user's turn
       ////////////////////

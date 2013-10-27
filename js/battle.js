@@ -25,7 +25,6 @@ function server_response_startbattle(data) {
         console.log("is first : "+is_first);
         init_battle();
     }
- 
 }
 
 function init_battle() {
@@ -102,16 +101,24 @@ function init_battle() {
 //send msg 203 to server
 function use_hand_card(){
 	
+	var deck_id_num;
+	
 	if(selected_hand_index == -1)
 		return;
 
 	if(is_first != selected_is_first)
 		return;
+		
+	if(is_first)
+		deck_id_num = my_battle_inf.first_hand_list[selected_hand_index].deck_id_num;
+	else
+		deck_id_num = my_battle_inf.second_hand_list[selected_hand_index].deck_id_num;
 	
 	var req = new request();
 	req.MessageNum = 203;
 	//set hand_index
 	req.hand_index = selected_hand_index;
+	req.deck_id_num = deck_id_num;
 	//set battle_inf_id
 	req.battle_inf_id = my_battle_inf.id;
 	//send to server

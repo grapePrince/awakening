@@ -98,6 +98,7 @@ exports.getHostClientDeck = function(host_id,client_id,db_conn ,callback){
               
               for(var i = rows.length/2 ; i < rows.length; i++){
                 var cardInf = config.newCardInf();
+                cardInf.deck_id_num = i;
                 //console.log("i is : " + i + "and card num is  : " + rows[i].card_num);
                 cardInf.num = rows[i].card_num;
                 cardInf.name = rows[i].card_name;
@@ -124,6 +125,7 @@ exports.getHostClientDeck = function(host_id,client_id,db_conn ,callback){
               
               for(var i = 0 ; i < rows.length/2 ; i++){
                 var cardInf = config.newCardInf();
+                cardInf.deck_id_num = i;
                 //console.log("i is : " + i + "and card num is  : " + rows[i].card_num);
                 cardInf.num = rows[i].card_num;
                 cardInf.name = rows[i].card_name;
