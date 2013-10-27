@@ -41,17 +41,20 @@ socket.on('data', function(data) {
             server_request_field_change(data.list);
             break;
         case SERVER_REQUEST_EUQUIP_DETACHED : //208
-        
+       		server_request_equip_detached(data.where,data.index,data.is_first);
         	break;
         case SERVER_REQUEST_ATTACHED : //215
         	server_request_attached(data.list,data.where,data.index,data.is_first);
         	break;
         case SERVER_RESPONSE_ATTACK: //211
-        	
+        	server_response_attack(data.is_first,data.damaged_hp);
         	break;
         case SERVER_RESPONSE_ATTACK_FAILED: //211
             
             break;
+        case SERVER_REQUEST_TURN_END : //212
+        	server_request_field_change(data.list);
+        	break;
     }
 });
 
