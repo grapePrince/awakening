@@ -41,7 +41,7 @@ socket.on('data', function(data) {
             server_request_field_change(data.list);
             break;
         case SERVER_REQUEST_EUQUIP_DETACHED : //208
-       		server_request_equip_detached(data.where,data.index,data.is_first);
+       		server_request_equip_detached(data.where,data.deck_id_num,data.is_first);
         	break;
         case SERVER_REQUEST_ATTACHED : //215
         	server_request_attached(data.list,data.where,data.index,data.is_first);

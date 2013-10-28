@@ -468,8 +468,13 @@ function server_request_attached(list,where,index,is_first){
 		
 	}
 }
-function server_request_equip_detached(where,index,is_first){
+function server_request_equip_detached(where,deck_id_num,is_first){
+	
+	var index = -1;
+	
 	if(is_first == true){ //first user
+		//find index
+		
 		switch(where){
 			case 1: //weapon
 				my_battle_inf.first_weapon = null;
@@ -486,6 +491,16 @@ function server_request_equip_detached(where,index,is_first){
 				
 				break;
 			case 4: //hand
+				for(var i = 0 ; i < my_battle_inf.first_hand_list.length ; i++){
+					if(my_battle_inf.first_hand_list[i].deck_id_num == deck_id_num){
+						index = i;
+						break;
+					}
+				}
+				if(index == -1){
+					console.log("no index for detach");
+				}
+				console.log("detach index is : " + index);
 				detach_hand_card_from_list(true,index);
 				break;
 		}
@@ -507,6 +522,15 @@ function server_request_equip_detached(where,index,is_first){
 				
 				break;
 			case 4: //hand
+				for(var i = 0 ; i < my_battle_inf.second_hand_list.length ; i++){
+					if(my_battle_inf.second_hand_list[i].deck_id_num == deck_id_num){
+						index = i;
+						break;
+					}
+				}
+				if(index == -1){
+					console.log("no index for detach");
+				}
 				detach_hand_card_from_list(false,index);
 				break;
 		}	

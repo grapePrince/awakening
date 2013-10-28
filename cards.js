@@ -1,14 +1,14 @@
 var config = require("./config");
 
 //unknown card
-var unknown_card = config.newCardInf();
+/*var unknown_card = config.newCardInf();
 unknown_card.num = -1;
 unknown_card.name = "unknown";
-unknown_card.img_src = "back";
+unknown_card.img_src = "back.png";
 unknown_card.cost = -1;
 unknown_card.type = -1;
 unknown_card.content = "unknown card.";
-
+*/
 /*************************************************************
 //                   CARD USE FROM HAND                     //
 ************************************************************/
@@ -1266,7 +1266,7 @@ function hand_slipped(io,socket, is_first ,battle_inf){
 	var second_item = config.newEffectInf();
 		
 	if(is_first == true){ //if user is first
-		//check equip - if equip is exist 
+		
 		if(battle_inf.second_hand_list.length > 0){
 			battle_inf.second_hand_list.splice(0,1); //pop first item
 			
@@ -1274,14 +1274,24 @@ function hand_slipped(io,socket, is_first ,battle_inf){
 			second_item.value = battle_inf.second_hand_list;
 			first_item.field_num = 39;
 			var list = [];
-			for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++)
+			for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++){
+	        	var unknown_card = config.newCardInf();
+					unknown_card.num = -1;
+					unknown_card.name = "unknown";
+					unknown_card.img_src = "back.png";
+					unknown_card.cost = -1;
+					unknown_card.type = -1;
+					unknown_card.content = "unknown card.";
+					
+	        		unknown_card.deck_id_num = battle_inf.second_hand_list[i].deck_id_num;
 				list.push(unknown_card);
+			}
 			first_item.value = list;
 		}
 		
 	}
 	else{ //else user is second
-		//check equip - if equip is exist
+		
 		if(battle_inf.first_hand_list.length > 0){
 			battle_inf.first_hand_list.splice(0,1); //pop first item
 			
@@ -1289,8 +1299,18 @@ function hand_slipped(io,socket, is_first ,battle_inf){
 			first_item.value = battle_inf.first_hand_list;
 			second_item.field_num = 10;
 			var list = [];
-			for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++)
+			for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++){
+	        	var unknown_card = config.newCardInf();
+					unknown_card.num = -1;
+					unknown_card.name = "unknown";
+					unknown_card.img_src = "back.png";
+					unknown_card.cost = -1;
+					unknown_card.type = -1;
+					unknown_card.content = "unknown card.";
+					
+	        		unknown_card.deck_id_num = battle_inf.first_hand_list[i].deck_id_num;
 				list.push(unknown_card);
+			}
 			second_item.value = list;
 		}
 	}
@@ -3335,6 +3355,7 @@ function shuffle(io,socket, is_first,battle_inf,hand_index){
 				detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
 				detach_msg.where = 4; //hand
 				detach_msg.index = i;
+				detach_msg.deck_id_num = battle_inf.first_hand_list[i].deck_id_num;
 				detach_msg.is_first = true;
 				
 				io.sockets.in(battle_inf.room_name).emit('data', detach_msg);
@@ -3358,8 +3379,18 @@ function shuffle(io,socket, is_first,battle_inf,hand_index){
 		first_item.value = battle_inf.first_hand_list;
 		second_item.field_num = 10;
 		var list = [];
-		for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++)
-			list.push(unknown_card);
+		for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++){
+	        	var unknown_card = config.newCardInf();
+					unknown_card.num = -1;
+					unknown_card.name = "unknown";
+					unknown_card.img_src = "back.png";
+					unknown_card.cost = -1;
+					unknown_card.type = -1;
+					unknown_card.content = "unknown card.";
+					
+	        		unknown_card.deck_id_num = battle_inf.first_hand_list[i].deck_id_num;
+				list.push(unknown_card);
+		}
 		second_item.value = list;
 
 	}
@@ -3386,6 +3417,7 @@ function shuffle(io,socket, is_first,battle_inf,hand_index){
 				detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
 				detach_msg.where = 4; //hand
 				detach_msg.index = i;
+				detach_msg.deck_id_num =  battle_inf.second_hand_list[i].deck_id_num;
 				detach_msg.is_first = false;
 				
 				io.sockets.in(battle_inf.room_name).emit('data', detach_msg);
@@ -3409,8 +3441,18 @@ function shuffle(io,socket, is_first,battle_inf,hand_index){
 		second_item.value = battle_inf.second_hand_list;
 		first_item.field_num = 39;
 		var list = [];
-		for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++)
-			list.push(unknown_card);
+		for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++){
+	        	var unknown_card = config.newCardInf();
+					unknown_card.num = -1;
+					unknown_card.name = "unknown";
+					unknown_card.img_src = "back.png";
+					unknown_card.cost = -1;
+					unknown_card.type = -1;
+					unknown_card.content = "unknown card.";
+					
+	        		unknown_card.deck_id_num = battle_inf.second_hand_list[i].deck_id_num;
+				list.push(unknown_card);
+		}
 		first_item.value = list;
 	}
   
@@ -3480,8 +3522,18 @@ function steal(io,socket, is_first,battle_inf){
 		first_res.index = battle_inf.first_hand_list.length - 1;
 		
 		var list = [];
-		for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++)
-			list.push(unknown_card);
+		for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++){
+	        	var unknown_card = config.newCardInf();
+					unknown_card.num = -1;
+					unknown_card.name = "unknown";
+					unknown_card.img_src = "back.png";
+					unknown_card.cost = -1;
+					unknown_card.type = -1;
+					unknown_card.content = "unknown card.";
+					
+	        		unknown_card.deck_id_num = battle_inf.first_hand_list[i].deck_id_num;
+				list.push(unknown_card);
+		}
 		
 		second_res.list = list;
 		second_res.where = 4;
@@ -3503,8 +3555,18 @@ function steal(io,socket, is_first,battle_inf){
 		second_res.index = battle_inf.second_hand_list.length - 1;
 
 		var list = [];
-		for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++)
-			list.push(unknown_card);
+		for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++){
+	        	var unknown_card = config.newCardInf();
+					unknown_card.num = -1;
+					unknown_card.name = "unknown";
+					unknown_card.img_src = "back.png";
+					unknown_card.cost = -1;
+					unknown_card.type = -1;
+					unknown_card.content = "unknown card.";
+					
+	        		unknown_card.deck_id_num = battle_inf.second_hand_list[i].deck_id_num;
+				list.push(unknown_card);
+		}
 		
 		first_res.list = list;
 		first_res.where = 4;

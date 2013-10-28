@@ -19,14 +19,14 @@ function findBattleInfById(id){
 }
 
 //unknown card
-var unknown_card = config.newCardInf();
+/*var unknown_card = config.newCardInf();
 unknown_card.num = -1;
 unknown_card.name = "unknown";
-unknown_card.img_src = "back";
+unknown_card.img_src = "back.png";
 unknown_card.cost = -1;
 unknown_card.type = -1;
 unknown_card.content = "unknown card.";
-
+*/
 //index list of used card from hand
 //var used_list = [];
 
@@ -310,6 +310,15 @@ exports.call = function(io,socket,db_conn,received){
         //if first user - set second's hand invisible
         battle_inf_result.second_hand_list = [];
         for(var i = 0 ; i < battle_inf.second_hand_list.length ; i++){
+        	var unknown_card = config.newCardInf();
+				unknown_card.num = -1;
+				unknown_card.name = "unknown";
+				unknown_card.img_src = "back.png";
+				unknown_card.cost = -1;
+				unknown_card.type = -1;
+				unknown_card.content = "unknown card.";
+				
+        		unknown_card.deck_id_num = battle_inf.second_hand_list[i].deck_id_num;
             battle_inf_result.second_hand_list[i] = unknown_card;
         }
         battle_inf_result.first_hand_list = battle_inf.first_hand_list;
@@ -323,6 +332,15 @@ exports.call = function(io,socket,db_conn,received){
         //if second user - set first's hand invisible
         battle_inf_result.first_hand_list = [];
         for(var i = 0 ; i < battle_inf.first_hand_list.length ; i++){
+        	var unknown_card = config.newCardInf();
+				unknown_card.num = -1;
+				unknown_card.name = "unknown";
+				unknown_card.img_src = "back.png";
+				unknown_card.cost = -1;
+				unknown_card.type = -1;
+				unknown_card.content = "unknown card.";
+				
+        		unknown_card.deck_id_num = battle_inf.first_hand_list[i].deck_id_num;
             battle_inf_result.first_hand_list[i] = unknown_card;
         }
         battle_inf_result.second_hand_list = battle_inf.second_hand_list;
@@ -452,6 +470,7 @@ exports.call = function(io,socket,db_conn,received){
             				detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
             				detach_msg.where = 1; //weapon
             				detach_msg.index = 0;
+            				detach_msg.deck_id_num = battle_inf.first_weapon.deck_id_num;
             				detach_msg.is_first = true;
             				
             				io.sockets.in(battle_inf.room_name).emit('data', detach_msg);
@@ -483,6 +502,7 @@ exports.call = function(io,socket,db_conn,received){
             				detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
             				detach_msg.where = 2; //skill
             				detach_msg.index = 0;
+            				detach_msg.deck_id_num = battle_inf.first_skill.deck_id_num;
             				detach_msg.is_first = true;
             				
             				io.sockets.in(battle_inf.room_name).emit('data', detach_msg);
@@ -529,6 +549,7 @@ exports.call = function(io,socket,db_conn,received){
     		splice_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
     		splice_msg.where = 4; //hand
     		splice_msg.index = clicked;
+    		splice_msg.deck_id_num = battle_inf.first_hand_list[clicked].deck_id_num;
     		splice_msg.is_first = true;
     			
     		io.sockets.in(battle_inf.room_name).emit('data', splice_msg);  	
@@ -600,6 +621,7 @@ exports.call = function(io,socket,db_conn,received){
             				detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
             				detach_msg.where = 1; //weapon
             				detach_msg.index = 0;
+            				detach_msg.deck_id_num = battle_inf.second_weapon.deck_id_num;
             				detach_msg.is_first = false;
             				
             				io.sockets.in(battle_inf.room_name).emit('data', detach_msg);
@@ -630,6 +652,7 @@ exports.call = function(io,socket,db_conn,received){
             				detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
             				detach_msg.where = 2; //skill
             				detach_msg.index = 0;
+            				detach_msg.deck_id_num = battle_inf.second_skill.deck_id_num;
             				detach_msg.is_first = false;
             				
             				io.sockets.in(battle_inf.room_name).emit('data', detach_msg);
@@ -677,6 +700,7 @@ exports.call = function(io,socket,db_conn,received){
     		splice_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
     		splice_msg.where = 4; //hand
     		splice_msg.index = clicked;
+    		splice_msg.deck_id_num = battle_inf.second_hand_list[clicked].deck_id_num;
     		splice_msg.is_first = false;
     			
     		io.sockets.in(battle_inf.room_name).emit('data', splice_msg);  	
@@ -700,6 +724,7 @@ exports.call = function(io,socket,db_conn,received){
 	  		detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
 	  		detach_msg.where = 1; //weapon
 	  		detach_msg.index = 0;
+	  		detach_msg.deck_id_num = battle_inf.first_weapon.deck_id_num;
 	  		detach_msg.is_first = true;
 	  			
 	  		io.sockets.in(battle_inf.room_name).emit('data', detach_msg);  
@@ -717,6 +742,7 @@ exports.call = function(io,socket,db_conn,received){
 			detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
 			detach_msg.where = 1; //weapon
 			detach_msg.index = 0;
+			detach_msg.deck_id_num = battle_inf.second_weapon.deck_id_num;
 			detach_msg.is_first = false;
 			
 			io.sockets.in(battle_inf.room_name).emit('data', detach_msg);
@@ -735,6 +761,7 @@ exports.call = function(io,socket,db_conn,received){
 	  		detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
 	  		detach_msg.where = 2; //skill
 	  		detach_msg.index = 0;
+	  		detach_msg.deck_id_num = battle_inf.first_skill.deck_id_num;
 	  		detach_msg.is_first = true;
 	  			
 	  		io.sockets.in(battle_inf.room_name).emit('data', detach_msg);  	    
@@ -748,6 +775,7 @@ exports.call = function(io,socket,db_conn,received){
 				
 			var detach_msg = config.newResponse(); //send detach msg
 			detach_msg.MessageNum = config.SERVER_REQUEST_EUQUIP_DETACHED;
+			detach_msg.deck_id_num = battle_inf.second_skill.deck_id_num;
 			detach_msg.where = 2; //skill
 			detach_msg.index = 0;
 			detach_msg.is_first = false;
@@ -1698,8 +1726,18 @@ exports.call = function(io,socket,db_conn,received){
 			  
 			  //send card draw res to second
 			  var invisable_list = [];
-			  for(var j = 0 ; j < battle_inf.first_hand_list.length ; j++)
+			  for(var j = 0 ; j < battle_inf.first_hand_list.length ; j++){
+	        	var unknown_card = config.newCardInf();
+					unknown_card.num = -1;
+					unknown_card.name = "unknown";
+					unknown_card.img_src = "back.png";
+					unknown_card.cost = -1;
+					unknown_card.type = -1;
+					unknown_card.content = "unknown card.";
+					
+	        		unknown_card.deck_id_num = battle_inf.first_hand_list[j].deck_id_num;
 				  invisable_list.push(unknown_card);
+				}
 
 			  draw_res_second.list = invisable_list;
 			  draw_res_second.where = 4;
@@ -1723,8 +1761,19 @@ exports.call = function(io,socket,db_conn,received){
 			  
 			  //send card draw res to first
 			  var invisable_list = [];
-			  for(var j = 0 ; j < battle_inf.second_hand_list.length ; j++)
+			  for(var j = 0 ; j < battle_inf.second_hand_list.length ; j++){
+	        	var unknown_card = config.newCardInf();
+					unknown_card.num = -1;
+					unknown_card.name = "unknown";
+					unknown_card.img_src = "back.png";
+					unknown_card.cost = -1;
+					unknown_card.type = -1;
+					unknown_card.content = "unknown card.";
+					
+	        		unknown_card.deck_id_num = battle_inf.second_hand_list[j].deck_id_num;
+
 				  invisable_list.push(unknown_card);
+				}
 			  
 			  draw_res_first.list = invisable_list;
 			  draw_res_first.where = 4;
