@@ -60,8 +60,8 @@ exports.call = function(io,socket,db_conn,received){
       
       db_module.getHostClientDeck(host.id,client.id,db_conn,function(host_deck,client_deck){ //load deck information from db
         //get user's deck information from db
-        console.log("host deck name is : " + host_deck.deck_name + "character : " + host_deck.main_character.name);
-        console.log("client deck name is : " + client_deck.deck_name+ "character : " + client_deck.main_character.name);
+        console.log("host is : " + host.id+ " , character : " + host_deck.main_character.name);
+        console.log("client is : " + client.id+ " , character : " + client_deck.main_character.name);
         
         //decide the first attacker
         if( parseInt( Math.random() * 10 ) % 2 == 0 ){

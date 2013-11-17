@@ -5,15 +5,19 @@ var config    = require('./config');
 //  get host and client's main deck
 //**********************************
 exports.getHostClientDeck = function(host_id,client_id,db_conn ,callback){           
-  var query = "select deck.deck_name,deck.character_num ,deck_item.card_num, "
-              + " card.card_name, card.img_src,card.cost,card.type, "
-              + " character_card.character_name, character_card.base_max_hp, character_card.base_atk, character_card.base_def,character_card.src, character_card.level, character_card.title, character_card.mark "
-              + " from ((deck inner join (deck_item inner join card on card.num = deck_item.card_num) " 
-              + " on deck.num = deck_item.deck_num)"    
-              + " inner join user on deck.user_num = user.num) "
-              + " inner join character_card "
-              + " on character_card.num = deck.character_num " 
-              + " where deck.is_main = 1 and ( user.id = '" + host_id + "'or user.id='" + client_id + "' );";
+  var query = "( select * from ((deck inner join (deck_item inner join card on card.num = deck_item.card_num) "
+  				+ " on deck.num = deck_item.deck_num) "
+  				+ " inner join user on deck.user_num = user.num) "
+  				+ " inner join character_card "
+  				+ " on character_card.num = deck.character_num "
+  				+ " where user.id = '" +host_id+ "') "
+  				+ " union "
+  				+ " ( select * from ((deck inner join (deck_item inner join card on card.num = deck_item.card_num) "
+  				+ " on deck.num = deck_item.deck_num) "
+  				+ " inner join user on deck.user_num = user.num) "
+  				+ " inner join character_card "
+  				+ " on character_card.num = deck.character_num "
+  				+ " where user.id = '" +client_id+ "')";
   
   try {
       db_conn.query(query, function(err, rows, fields){
@@ -135,6 +139,9 @@ exports.getHostClientDeck = function(host_id,client_id,db_conn ,callback){
 
                 client_deck_inf.deck_list.push(cardInf);
               }
+              
+              console.log("host - " + host_id + " , char - " +  host_deck_inf.main_character.name);
+              console.log("client - " + client_id + " , char - " +  client_deck_inf.main_character.name);
             }
            
             callback(host_deck_inf,client_deck_inf);

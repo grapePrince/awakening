@@ -73,7 +73,7 @@ function init_battle() {
 	$("#battle #second_remain_hp").text(my_max + "/" + my_max);
 	$("#battle #first_remain_hp").text(opp_max + "/"+ opp_max);
 	
-    //first? second? - dialog
+    //first? second? 
     if(is_first == false){
     	 $("#battle #turn_end_btn").css('visibility', 'hidden');
     }
@@ -88,7 +88,10 @@ function init_battle() {
 	}
     
     console.log('battle started!!');
-    console.log('my_battle_inf : ', my_battle_inf);
+    //console.log('my_battle_inf : ', my_battle_inf);
+    
+    console.log("first user is : " + my_battle_inf.first_character.name);
+    console.log("second user is : " + my_battle_inf.second_character.name);
     
     hide_all();
     $("#battle").show();
@@ -213,9 +216,13 @@ function server_request_field_change(list){
         	my_battle_inf.first_character = list[i].value;
         	$("#battle #first_character_title").text(""+list[i].value.title);		
         	//base atk
-        	$("#battle #first_atk").text("" + (list[i].value.base_atk + my_battle_inf.first_atk + my_battle_inf.first_special_card_effect.first_atk));			
+        	$("#battle #first_atk").text("" + (list[i].value.base_atk + my_battle_inf.first_atk 
+        										+ my_battle_inf.first_special_card_effect.first_atk
+        										+ my_battle_inf.second_special_card_effect.first_atk));			
         	//base def
-        	$("#battle #first_def").text("" + (list[i].value.base_def + my_battle_inf.first_def + my_battle_inf.first_special_card_effect.first_def));		
+        	$("#battle #first_def").text("" + (list[i].value.base_def + my_battle_inf.first_def 
+        										+ my_battle_inf.first_special_card_effect.first_def
+        										+ my_battle_inf.second_special_card_effect.first_def));		
         	//base max hp
         	var max_hp = list[i].value.base_max_hp + my_battle_inf.first_max_hp ;
         	$("#battle #first_remain_hp").text( max_hp + "/" + (max_hp - my_battle_inf.first_damaged_hp));				
@@ -230,11 +237,15 @@ function server_request_field_change(list){
         	break;
         case 6: //first atk
         	my_battle_inf.first_atk = list[i].value;
-        	$("#battle #first_atk").text("" + (list[i].value + my_battle_inf.first_character.base_atk + my_battle_inf.first_special_card_effect.first_atk));			
+        	$("#battle #first_atk").text("" + (list[i].value + my_battle_inf.first_character.base_atk 
+        										+ my_battle_inf.first_special_card_effect.first_atk
+        										+ my_battle_inf.second_special_card_effect.first_atk));			
         	break;
         case 7: //first def
         	my_battle_inf.first_def = list[i].value;
-        	$("#battle #first_def").text("" + (list[i].value + my_battle_inf.first_character.base_def + my_battle_inf.first_special_card_effect.first_def));			
+        	$("#battle #first_def").text("" + (list[i].value + my_battle_inf.first_character.base_def 
+        										+ my_battle_inf.first_special_card_effect.first_def
+        										+ my_battle_inf.second_special_card_effect.first_def));			
         	break;
         case 8: //first damaged hp
         	my_battle_inf.first_damaged_hp = list[i].value;
@@ -246,10 +257,18 @@ function server_request_field_change(list){
         	
         	break;
         case 9: //first equiped list
+			//find detached card
+			var detached_list = [];
 
+			//find attached card
+			var attached_list = [];
+			
         	break;
         case 10: //first hand list
-
+			//find detached card
+			
+			//find attached card
+			
         	break;
         case 13: //first skill
         	my_battle_inf.first_skill = list[i].value;
@@ -308,9 +327,13 @@ function server_request_field_change(list){
         	my_battle_inf.second_character = list[i].value;
         	$("#battle #second_character_title").text(""+list[i].value.title);		
         	//base atk
-        	$("#battle #second_atk").text("" + (list[i].value.base_atk + my_battle_inf.second_atk + my_battle_inf.second_special_card_effect.second_atk));			
+        	$("#battle #second_atk").text("" + (list[i].value.base_atk + my_battle_inf.second_atk 
+        									+ my_battle_inf.second_special_card_effect.second_atk
+        									+ my_battle_inf.first_special_card_effect.second_atk));			
         	//base def
-        	$("#battle #second_def").text("" + (list[i].value.base_def + my_battle_inf.second_def + my_battle_inf.second_special_card_effect.second_def));		
+        	$("#battle #second_def").text("" + (list[i].value.base_def + my_battle_inf.second_def 
+        									+ my_battle_inf.second_special_card_effect.second_def
+        									+ my_battle_inf.first_special_card_effect.second_def));		
         	//base max hp
         	var max_hp = list[i].value.base_max_hp + my_battle_inf.second_max_hp ;
         	$("#battle #second_remain_hp").text( max_hp + "/" + (max_hp - my_battle_inf.second_damaged_hp));				
@@ -324,11 +347,15 @@ function server_request_field_change(list){
         	break;
         case 35: //second atk
         	my_battle_inf.second_atk = list[i].value;
-        	$("#battle #second_atk").text("" + (list[i].value + my_battle_inf.second_character.base_atk + my_battle_inf.second_special_card_effect.second_atk));			
+        	$("#battle #second_atk").text("" + (list[i].value + my_battle_inf.second_character.base_atk 
+        											+ my_battle_inf.second_special_card_effect.second_atk
+        											+ my_battle_inf.first_special_card_effect.second_atk));			
         	break;
         case 36: //second def
         	my_battle_inf.second_def = list[i].value;
-        	$("#battle #second_def").text("" + (list[i].value + my_battle_inf.second_character.base_def + my_battle_inf.second_special_card_effect.first_def));		
+        	$("#battle #second_def").text("" + (list[i].value + my_battle_inf.second_character.base_def 
+        											+ my_battle_inf.second_special_card_effect.first_def
+        											+ my_battle_inf.first_special_card_effect.first_def));		
         	break;
         case 37: //second damaged hp
         	my_battle_inf.second_damaged_hp = list[i].value;
@@ -339,10 +366,12 @@ function server_request_field_change(list){
 			$("#battle #second_remain_hp ").text( max_hp + "/" + (max_hp-list[i].value));			
         	break;
         case 38: //second equip list
-
+			my_battle_inf.second_equip_list = list;
+			
+			
         	break;
         case 39: //second hand list
-
+			my_battle_inf.second_hand_list = list;
         	
         	break;
         case 42: //second skill
@@ -402,17 +431,42 @@ function server_request_field_change(list){
         case 60: //second reflect damage percent
         	break;
         case 61: //special inf - first
-        //atk
-        //def
-        //atk2
-        //def2
-         			
+	        my_battle_inf.first_special_card_effect = list[i].value;
+	        //atk
+	        $("#battle #second_atk").text("" + (my_battle_inf.second_atk + my_battle_inf.second_character.base_atk 
+	        	+ my_battle_inf.second_special_card_effect.second_atk
+	        	+ my_battle_inf.first_special_card_effect.second_atk));	
+	        //def
+	        $("#battle #second_def").text("" + (my_battle_inf.second_def + my_battle_inf.second_character.base_def 
+	        	+ my_battle_inf.second_special_card_effect.second_def
+	        	+ my_battle_inf.first_special_card_effect.second_def));	
+	        //atk2
+	        $("#battle #first_atk").text("" + (my_battle_inf.first_atk + my_battle_inf.first_character.base_atk 
+	        	+ my_battle_inf.second_special_card_effect.first_atk
+	        	+ my_battle_inf.first_special_card_effect.first_atk));	
+	        //def2
+	         $("#battle #first_def").text("" + (my_battle_inf.first_def + my_battle_inf.first_character.base_def 
+	        	+ my_battle_inf.second_special_card_effect.first_def
+	        	+ my_battle_inf.first_special_card_effect.first_def));	        			
         	break;
         case 62://special inf - second
-
-             			
-        			
-        			
+	        my_battle_inf.second_special_card_effect = list[i].value;
+	        //atk
+	        $("#battle #second_atk").text("" + (my_battle_inf.second_atk + my_battle_inf.second_character.base_atk 
+	        	+ my_battle_inf.second_special_card_effect.second_atk
+	        	+ my_battle_inf.first_special_card_effect.second_atk));	
+	        //def
+	        $("#battle #second_def").text("" + (my_battle_inf.second_def + my_battle_inf.second_character.base_def 
+	        	+ my_battle_inf.second_special_card_effect.second_def
+	        	+ my_battle_inf.first_special_card_effect.second_def));	
+	        //atk2
+	        $("#battle #first_atk").text("" + (my_battle_inf.first_atk + my_battle_inf.first_character.base_atk 
+	        	+ my_battle_inf.second_special_card_effect.first_atk
+	        	+ my_battle_inf.first_special_card_effect.first_atk));	
+	        //def2
+	         $("#battle #first_def").text("" + (my_battle_inf.first_def + my_battle_inf.first_character.base_def 
+	        	+ my_battle_inf.second_special_card_effect.first_def
+	        	+ my_battle_inf.first_special_card_effect.first_def));	    
         	break;
         }//end of switch
        }//end of for	
@@ -433,7 +487,9 @@ function server_request_attached(list,where,index,is_first){
 				attach_skill_weapon_card("#battle #first_skill",list[0].img_src);				
 				break;
 			case 3: //equip
-
+				console.log("equip attached : " + list[index].img_src);
+				attach_equip_card_to_list(list[index].img_src,index,true,0);
+				my_battle_inf.first_equip_list = list;
 				break;
 			case 4: //hand
 				console.log("hand attached : " + list[index].img_src);
@@ -457,7 +513,9 @@ function server_request_attached(list,where,index,is_first){
 				attach_skill_weapon_card("#battle #second_skill",list[0].img_src);				
 				break;
 			case 3: //equip
-
+				console.log("equip attached : " + list[index].img_src);
+				attach_equip_card_to_list(list[index].img_src,index,false,0);
+				my_battle_inf.second_equip_list = list;
 				break;
 			case 4: //hand
 				console.log("hand attached : " + list[index].img_src);
@@ -570,6 +628,34 @@ function attach_hand_card_to_list(src,idx,is_first,delay_time){
 	}, 1200);
 }
 
+function attach_equip_card_to_list(src,idx,is_first,delay_time){
+	if(src == "back")
+		src = "card_back.png";
+	
+	var card = $("<div id='card'></div>");
+	card.css('opacity','0.0');
+	
+	card.css('left',(idx*CARD_WIDTH)+((idx+1)*CARD_INTERVAL)+"px");
+		
+	card.css('background-image', 'url('+  "images/cards/"+src  +')'  ) ;
+	
+	card.click(function(){ //add handler
+		show_card_big(src,idx,is_first,card);
+	});
+	
+	if(is_first == true){
+		first_equip_list.append(card);
+	}
+	else{
+		second_equip_list.append(card);
+	}
+	
+	card.delay(delay_time);	
+	card.animate({
+		opacity: '+=1.0'
+	}, 1200);
+}
+
 function attach_skill_weapon_card(target,src){
 	$(target).css('opacity','0.0');
 	$(target).css('visibility','visible');
@@ -580,6 +666,7 @@ function attach_skill_weapon_card(target,src){
 	}, 1200);
 }
 
+//detach function
 function detach_hand_card_from_list(is_first,index){
 	if(is_first == true){
 		my_battle_inf.first_hand_list[index] = null;
@@ -623,7 +710,49 @@ function detach_hand_card_from_list(is_first,index){
 		});
 	}
 }
+function detach_equip_card_from_list(is_first,index){
+	if(is_first == true){
+		my_battle_inf.first_equip_list[index] = null;
 
+		$($("#battle #first_equip_list #card")[index]).animate({
+			opacity: '0.0'
+		}, 1200, function(){ //after card detach animation
+			//detach index from list
+			$($("#battle #first_equip_list #card")[index]).remove(); //remove index
+			my_battle_inf.first_equip_list.splice(index,1); //reflect change to my_battle_inf's list
+			//line up rears
+			for(var i = my_battle_inf.first_equip_list.length - 1 ; i >= index ; i--){
+				//console.log("rear : " + i + " - " + $($("#battle #first_hand_list #card")[i]).css('background-image'));
+				$($("#battle #first_equip_list #card")[i]).remove();
+				
+			}
+			for(var i = index ; i < my_battle_inf.first_equip_list.length ; i++){
+				attach_equip_card_to_list(my_battle_inf.first_equip_list[i].img_src,i,true,0);
+			}
+		});
+	}
+	else{
+		my_battle_inf.second_equip_list[index] = null;
+		console.log("second detach : " + index);
+
+		$($("#battle #second_equip_list #card")[index]).animate({
+			opacity: '0.0'
+		}, 1200, function(){ //after card detach animation
+			//detach index from list
+			$($("#battle #second_equip_list #card")[index]).remove(); //remove index
+			my_battle_inf.second_equip_list.splice(index,1); //reflect change to my_battle_inf's list
+			//line up rears
+			for(var i = my_battle_inf.second_equip_list.length - 1 ; i >= index ; i--){
+				//console.log("rear : " + i + " - " + $($("#battle #first_hand_list #card")[i]).css('background-image'));
+				$($("#battle #second_equip_list #card")[i]).remove();
+				//attach_hand_card_to_list(my_battle_inf.second_hand_list[i].img_src,i,false,0);
+			}
+			for(var i = index ; i < my_battle_inf.second_equip_list.length ; i++){
+				attach_equip_card_to_list(my_battle_inf.second_equip_list[i].img_src,i,false,0);
+			}
+		});
+	}
+}
 function detach_skill_weapon_card(target){
 	$(target).animate({
 		opacity: '-=0.0'
